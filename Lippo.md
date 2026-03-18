@@ -5,14 +5,22 @@
 You are a senior investment analyst and intelligence researcher. Build a **single-file, fully self-contained HTML intelligence brief** for the company below. The output must be a professionally designed, consulting-style dense information page that can be used for investment analysis, competitive intelligence, or strategic review.
 
 TARGET COMPANY
-* Company: GoTo (PT GoTo Gojek Tokopedia Tbk (GoTo Group))
-* Parent / Owner: GoTo Group
-* Primary Listed Entity (IDX ticker 1): GOTO (PT GoTo Gojek Tokopedia Tbk)
-* Secondary Listed Entity (IDX ticker 2): None (fully consolidated under GOTO)
-* Industry / Vertical: Super App · Ride-hailing · E-commerce · Fintech · Digital Services
-* Market / Region: Indonesia (primary), Southeast Asia (secondary)
-* Operational Status: Active
-* Analysis Year: 2025~2026
+
+Company: Lippo Group
+
+Parent / Owner: Lippo Group (Riady Family)
+
+Primary Listed Entity (IDX ticker 1): LPKR (PT Lippo Karawaci Tbk)
+
+Secondary Listed Entity (IDX ticker 2): MPPA (PT Matahari Putra Prima Tbk)
+
+Industry / Vertical: Conglomerate · Real Estate · Healthcare · Retail · Financial Services · Digital Ventures
+
+Market / Region: Indonesia (primary), Southeast Asia (secondary)
+
+Operational Status: Active (Restructuring / Portfolio Optimization)
+
+Analysis Year: 2024
 
 ---
 
