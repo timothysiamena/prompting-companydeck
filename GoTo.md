@@ -1,28 +1,18 @@
-# MASTER PROMPT — Company Intelligence Slide (Reverse Engineered)
-### One-Page Scrollable HTML Intelligence Brief · Consulting Style · 1920px Wide
-**Author:** Timothy Isaac Siamena · **Template Version:** 1.0 · **Base Company:** Mola TV (Djarum Group)
-
----
-
-## HOW TO USE THIS PROMPT
-
-Copy everything between the `---PROMPT START---` and `---PROMPT END---` markers below into a new Claude chat. Replace every instance of `[COMPANY_NAME]`, `[PARENT_GROUP]`, `[TICKER_1]`, `[TICKER_2]`, `[INDUSTRY]`, `[STATUS]`, and `[YEAR]` with your target company. Everything else — layout, design, color system, section order, intelligence framework — stays identical.
-
 ---PROMPT START---
 
 # TASK: Build a Company Intelligence HTML Slide
 
 You are a senior investment analyst and intelligence researcher. Build a **single-file, fully self-contained HTML intelligence brief** for the company below. The output must be a professionally designed, consulting-style dense information page that can be used for investment analysis, competitive intelligence, or strategic review.
 
-## TARGET COMPANY
-- **Company:** [COMPANY_NAME]
-- **Parent / Owner:** [PARENT_GROUP]
-- **Primary Listed Entity (IDX ticker 1):** [TICKER_1] (e.g., parent holding company)
-- **Secondary Listed Entity (IDX ticker 2):** [TICKER_2] (e.g., operating subsidiary, if any)
-- **Industry / Vertical:** [INDUSTRY] (e.g., OTT Streaming, Fintech, E-commerce)
-- **Market / Region:** Indonesia (primary), Southeast Asia (secondary)
-- **Operational Status:** [STATUS] (Active / Closed / Restructuring)
-- **Analysis Year:** [YEAR]
+TARGET COMPANY
+* Company: GoTo (PT GoTo Gojek Tokopedia Tbk (GoTo Group))
+* Parent / Owner: GoTo Group
+* Primary Listed Entity (IDX ticker 1): GOTO (PT GoTo Gojek Tokopedia Tbk)
+* Secondary Listed Entity (IDX ticker 2): None (fully consolidated under GOTO)
+* Industry / Vertical: Super App · Ride-hailing · E-commerce · Fintech · Digital Services
+* Market / Region: Indonesia (primary), Southeast Asia (secondary)
+* Operational Status: Active
+* Analysis Year: 2025~2026
 
 ---
 
@@ -843,35 +833,3 @@ Before finalizing the HTML, verify:
 - [ ] No external file dependencies — single self-contained HTML file
 
 ---PROMPT END---
-
----
-
-## PROMPT EVOLUTION LOG
-
-The following iterative refinements were made to arrive at this final version. Include these as context if you need the model to understand why certain decisions were made.
-
-**R1:** Initial request — research Mola TV, FIFA rights, competitors, Indonesia market. Output: multi-section research plan.
-
-**R2:** "Make it packed like a consulting type of page, all in one page" — Established 1920×1080px dense layout, 4-column grid, sidebar, 6-panel structure.
-
-**R3:** "Make the color whiteish instead of dark color" — Full CSS rewrite from `#0b0f1a` dark theme to `#ffffff` white theme. Changed all text from light-on-dark to dark-on-white.
-
-**R4:** "Make the footer fixed where I can scroll up and down" — Changed footer from static to `position:fixed; bottom:0`. Added `padding-bottom:80px` to main body.
-
-**R5:** "Make the background all white, no square background grid" — Removed CSS pseudo-element grid pattern. Set pure `background:#ffffff`.
-
-**R6:** "Make another section for cloud provider for our Tencent cloud analysis" — Added Cloud Infrastructure Section (full-width, 3-column inner grid: Platform Cloud Map + Market Share Bars + Tencent Opportunity).
-
-**R7:** "Feels like the layout can be widen horizontally" — Fixed `grid-column: 1 / -1` on cloud section wrapper. Changed inner grid from `320px 1fr 340px` to `400px 1fr 520px`.
-
-**R8:** "How did you calculate the market share, give me the very detailed number and explanation" — Added methodology box above bar chart. Changed all single-value percentages to ranges. Added numbered `[¹]` footnotes with source links. AWS corrected from 44% → 55–62%. Alibaba corrected from 18% (with wrong GoTo attribution) → 5–8% declining. Removed unverified 7.67% APAC Tencent stat.
-
-**R9:** "For each figure, get the references for the number... add a download/see link... get their EST IT spend" — Added Platform Financials & IT Spend section. Used IDX reports for EMTK and MNCN. Derived EMTK revenue from Net Income ÷ Net Margin. Applied 8% COGS for IT spend estimate. Added PDF keyword guides.
-
-**R10:** "For each figure... prove it by hyperlink... no need for separate source validation section" — Removed standalone Source Validation section. Embedded all hyperlinks inline in blue directly in sentences.
-
-**R11:** Added News Key Findings section with: keyword clusters strip, 9 ranked signals, synthesis-by-category panel. Dark header to visually anchor the intelligence section.
-
----
-
-*Template by Timothy Isaac Siamena · Built with Claude · Version 1.0 · March 2026*
