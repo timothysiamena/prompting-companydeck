@@ -66,7 +66,7 @@ For each competitor platform (and [COMPANY_NAME] itself):
 
 **IMPORTANT RULES FOR CLOUD MARKET SHARE:**
 - Do NOT assign a specific percentage to any provider unless you can derive it via bottoms-up calculation OR find a published source
-- Bottoms-up method: (Platform's estimated % of total OTT cloud spend) × (% of that platform on each provider) = weighted contribution
+- Bottoms-up method: (Platform's estimated % of total OTT cloud spend) × (% of that platform on each provider) = weighted contribution. Calculation comes from how big the clients are in each market/
 - Show ranges (e.g., ~55–62%) not point estimates when uncertain
 - Clearly label all figures as "Bottoms-up estimate — no public IDC/Canalys report covers this breakdown"
 - The 8% COGS rule applies to IT spend only, not to market share
