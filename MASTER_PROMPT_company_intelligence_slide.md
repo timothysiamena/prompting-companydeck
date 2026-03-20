@@ -1,6 +1,6 @@
 # MASTER PROMPT — Company Intelligence Slide (Reverse Engineered)
 ### One-Page Scrollable HTML Intelligence Brief · Consulting Style · 1920px Wide
-**Author:** Timothy Isaac Siamena · **Template Version:** 1.0 · **Base Company:** Mola TV (Djarum Group)
+**Author:** Timothy Isaac Siamena · **Template Version:** 1.1 · **Base Company:** Mola TV (Djarum Group)
 
 ---
 
@@ -44,8 +44,8 @@ Search IDX portal for listed parent entities. Start at:
 Search by ticker [TICKER_1] and [TICKER_2]. Also check company investor relations pages.
 
 Extract for the most recent full fiscal year (FY 2024 preferred):
-- Total Revenue (IDR)
-- COGS / Cost of Revenue (IDR)
+- Total Revenue — **convert to USD** (see Currency Rule below)
+- COGS / Cost of Revenue — **convert to USD**
 - Gross Profit + Gross Margin %
 - EBITDA + EBITDA Margin %
 - Net Income + Net Margin %
@@ -114,6 +114,7 @@ Build ONE fully self-contained HTML file. No external CSS files, no external JS.
       [2i] PLATFORM FINANCIALS & IT SPEND (full-width)
       [2j] NEWS KEY FINDINGS — INTELLIGENCE BRIEF (full-width)
   [3] FIXED FOOTER
+  [UI] FIXED UI OVERLAY — zoom · scroll · translate (top-right, always on top)
 </body>
 </html>
 ```
@@ -220,6 +221,8 @@ Layout: flex, align-items center, gap 12px
 2. Vertical divider: 1px × 28px, rgba(0,20,80,0.12)
 3. Category tags: Use `.tag` classes. Choose relevant categories for [COMPANY_NAME]. Typical: Sports · OTT · Streaming · Media · Fintech · E-Commerce · Telecom · etc.
 4. Right side (`margin-left: auto`): Brief subtitle text (11px, #9aaac0) then status badge
+
+> **Note:** Leave enough right-side clearance (~340px) for the fixed UI overlay (zoom/scroll/translate controls) which sits at `position:fixed; top:12px; right:20px` above the topbar visually.
 
 ---
 
@@ -375,6 +378,8 @@ Left: colored icon square (20×20px). Right: right name (10.5px, weight 700), de
 grid-column: 4; grid-row: 1
 ```
 Panel title: "Rights Timeline" / "Company Timeline" / "Key Milestones"
+
+> **⚠ ORDERING RULE — Latest → Oldest:** Always render timeline entries with the **most recent year at the TOP** and the oldest year at the **BOTTOM** (reverse chronological order). Never render oldest-to-newest. Add a small `"Latest → Oldest"` label in 8px #c0cce0 muted text directly above the first entry.
 
 **Timeline:** Vertical flex. Each entry:
 ```css
@@ -581,7 +586,7 @@ background: #fff;
 ```css
 background: #fafbfe; padding: 18px 36px 14px; border-bottom: 1px solid rgba(0,20,80,0.07);
 ```
-Icon: 💰 on green gradient. Title: "Platform Financials & Estimated IT Spend". Subtitle: mention IDX annual reports, 8% COGS rule, FY year.
+Icon: 💰 on green gradient. Title: "Platform Financials & Estimated IT Spend". Subtitle: mention IDX annual reports, 8% COGS rule, FY year. **Note in subtitle: "All figures in USD."**
 
 **Three-column cards grid:**
 ```css
@@ -605,6 +610,7 @@ Four 2×2 metric boxes inside:
 display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
 ```
 Metrics: Est. Revenue | Net Income (confirmed) | COGS (derived) | **Est. IT Spend** (highlighted in blue).
+All values in USD — show local currency in small muted text below each figure.
 
 IT Spend box style (highlighted):
 ```css
@@ -626,7 +632,7 @@ Content: IDX portal link → "search ticker: [TICKER]" → "Annual Report [YEAR]
 Same structure but with orange/amber color scheme (`rgba(200,90,0,...)`). Include any segment-specific revenue line (e.g., Subscription Revenue, Digital Segment).
 
 **Card type 3 — Private / Foreign Companies**
-Red/dark color scheme. Show multiple sub-sections for beIN Sports (private), WeTV/Tencent (HKEX), Netflix (NASDAQ). For each: global revenue, IT spend estimate (global only, note Indonesia not disclosed), links to HKEX or SEC filings where available.
+Red/dark color scheme. Show multiple sub-sections for beIN Sports (private), WeTV/Tencent (HKEX), Netflix (NASDAQ). For each: global revenue in USD, IT spend estimate (global only, note Indonesia not disclosed), links to HKEX or SEC filings where available.
 
 **IT Spend Summary Bar (bottom, full-width within section):**
 ```css
@@ -635,7 +641,7 @@ border: 1px solid rgba(0,20,80,0.08);
 border-radius: 8px;
 padding: 12px 18px;
 ```
-Horizontal bar per company: name (120px fixed) + bar track (flex:1) + value (180px fixed) + note.
+Horizontal bar per company: name (120px fixed) + bar track (flex:1) + value in USD (180px fixed) + note.
 Footer note: Explain 8% COGS benchmark and how to find actual IT spend in annual report PDFs.
 
 ---
@@ -766,13 +772,109 @@ Inline hyperlinks where relevant.
 ```
 
 **Include 7 key metrics** relevant to [COMPANY_NAME]. Examples:
-- Revenue / "Closed" (red #cc2222 if applicable)
+- Revenue in USD / "Closed" (red #cc2222 if applicable)
 - Total subscriber count
 - Primary market share metric
 - Key rights or assets
 - A competitive market metric
 - A financial metric
 - Year of analysis or key date
+
+---
+
+### [UI] FIXED UI OVERLAY — Top-Right Corner, Always Visible
+
+Add this block **immediately before the closing `</body>` tag**. It is `position: fixed` and never scrolls. Sits at `top: 12px; right: 20px; z-index: 9999` — always above the topbar and all content.
+
+**Three pill groups in a flex row:** Translate → Scroll → Zoom
+
+```html
+<!-- ═══ FIXED UI CONTROLS (top-right, static) ═══ -->
+<div id="ui-overlay" style="position:fixed;top:12px;right:20px;z-index:9999;display:flex;align-items:center;gap:8px;">
+
+  <!-- TRANSLATE: 2 language buttons + EN restore -->
+  <div style="display:flex;align-items:center;gap:4px;background:#fff;border:1px solid rgba(0,20,80,0.15);border-radius:22px;padding:4px 10px;box-shadow:0 2px 8px rgba(0,20,80,0.1)">
+    <span style="font-size:9px;font-weight:700;color:#8a9ab8;letter-spacing:0.5px;margin-right:4px">🌐</span>
+    <button onclick="setLang('en')" id="btn-en" style="font-size:10px;font-weight:700;padding:3px 9px;border-radius:14px;border:none;cursor:pointer;background:rgba(0,80,220,0.12);color:#0044cc">EN</button>
+    <button onclick="setLang('th')" id="btn-th" style="font-size:10px;font-weight:700;padding:3px 9px;border-radius:14px;border:none;cursor:pointer;background:transparent;color:#8a9ab8">TH</button>
+    <button onclick="setLang('id')" id="btn-id" style="font-size:10px;font-weight:700;padding:3px 9px;border-radius:14px;border:none;cursor:pointer;background:transparent;color:#8a9ab8">ID</button>
+  </div>
+
+  <div style="width:1px;height:22px;background:rgba(0,20,80,0.1)"></div>
+
+  <!-- SCROLL LEFT / RIGHT -->
+  <div style="display:flex;align-items:center;gap:4px;background:#fff;border:1px solid rgba(0,20,80,0.15);border-radius:22px;padding:4px 8px;box-shadow:0 2px 8px rgba(0,20,80,0.1)">
+    <button onclick="window.scrollBy({left:-500,behavior:'smooth'})" title="Scroll Left" style="font-size:13px;font-weight:900;padding:2px 7px;border-radius:12px;border:none;cursor:pointer;background:transparent;color:#4a5a78;line-height:1">‹</button>
+    <span style="font-size:9px;color:#c0cce0;font-weight:600">scroll</span>
+    <button onclick="window.scrollBy({left:500,behavior:'smooth'})" title="Scroll Right" style="font-size:13px;font-weight:900;padding:2px 7px;border-radius:12px;border:none;cursor:pointer;background:transparent;color:#4a5a78;line-height:1">›</button>
+  </div>
+
+  <div style="width:1px;height:22px;background:rgba(0,20,80,0.1)"></div>
+
+  <!-- ZOOM IN / OUT / RESET -->
+  <div style="display:flex;align-items:center;gap:4px;background:#fff;border:1px solid rgba(0,20,80,0.15);border-radius:22px;padding:4px 8px;box-shadow:0 2px 8px rgba(0,20,80,0.1)">
+    <button onclick="adjustZoom(-0.1)" title="Zoom Out" style="font-size:14px;font-weight:900;padding:2px 7px;border-radius:12px;border:none;cursor:pointer;background:transparent;color:#4a5a78;line-height:1">−</button>
+    <span id="zoom-label" style="font-size:9px;font-weight:700;color:#4a5a78;min-width:34px;text-align:center">100%</span>
+    <button onclick="adjustZoom(+0.1)" title="Zoom In" style="font-size:14px;font-weight:900;padding:2px 7px;border-radius:12px;border:none;cursor:pointer;background:transparent;color:#4a5a78;line-height:1">+</button>
+    <button onclick="resetZoom()" title="Reset" style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:12px;border:none;cursor:pointer;background:rgba(0,20,80,0.06);color:#8a9ab8">↺</button>
+  </div>
+
+</div>
+
+<!-- Google Translate hook (hidden) -->
+<div id="google_translate_element" style="display:none"></div>
+
+<script>
+// ── ZOOM ────────────────────────────────────────────────
+var currentZoom = 1.0;
+function adjustZoom(delta) {
+  currentZoom = Math.min(2.0, Math.max(0.4, currentZoom + delta));
+  document.body.style.transform = 'scale(' + currentZoom + ')';
+  document.body.style.transformOrigin = 'top left';
+  document.getElementById('zoom-label').textContent = Math.round(currentZoom * 100) + '%';
+}
+function resetZoom() {
+  currentZoom = 1.0;
+  document.body.style.transform = 'scale(1)';
+  document.body.style.transformOrigin = 'top left';
+  document.getElementById('zoom-label').textContent = '100%';
+}
+
+// ── TRANSLATE ────────────────────────────────────────────
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'th,id',   // Thai + Bahasa Indonesia — change to e.g. 'zh-CN,ms' for other regions
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+function setLang(lang) {
+  ['en','th','id'].forEach(function(l) {
+    var b = document.getElementById('btn-' + l);
+    b.style.background = (l === lang) ? 'rgba(0,80,220,0.12)' : 'transparent';
+    b.style.color = (l === lang) ? '#0044cc' : '#8a9ab8';
+  });
+  if (lang === 'en') {
+    var frame = document.querySelector('.goog-te-banner-frame');
+    if (frame) {
+      var doc = frame.contentDocument || frame.contentWindow.document;
+      var btn = doc.querySelector('.goog-te-button button');
+      if (btn) btn.click();
+    }
+  } else {
+    var sel = document.querySelector('.goog-te-combo');
+    if (sel) { sel.value = lang; sel.dispatchEvent(new Event('change')); }
+  }
+}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+```
+
+> **Language defaults:** TH = Thai · ID = Bahasa Indonesia. To target other regions change `includedLanguages` to any ISO 639-1 pair, e.g. `'zh-CN,ms'` (Mandarin + Malay) or `'ko,ja'` (Korean + Japanese).
+
+> **Zoom range:** 40%–200%, default 100%. Uses `transform: scale()` on `<body>` with `transformOrigin: top left` — preserves 1920px layout without reflow.
+
+> **Scroll buttons:** Each press scrolls 500px horizontally with smooth animation, useful when page overflows viewport width.
 
 ---
 
@@ -785,6 +887,20 @@ Inline hyperlinks where relevant.
 - If a company is closed: red closed badge in topbar, strike-through product section, red failure signal in sidebar
 - Financial data labeled: "(confirmed from annual report)", "(derived)", "(estimated)"
 - GoTo-style timeline corrections: cite both the partnership announcement date AND the execution date
+
+### Currency Rule — All Figures in USD
+> **ALL monetary values must be expressed in USD regardless of the company's home market or listing currency.**
+
+- Convert IDR, SGD, HKD, JPY, CNY, MYR, THB, or any other currency → USD
+- Use the **fiscal year average exchange rate** for historical figures (not spot rate)
+- State the rate used inline: e.g., `"$148M (IDR 2.34T · avg IDR 15,800/$, FY2024)"`
+- **HTML format:** USD amount bold/primary → local currency in small muted span below:
+  ```html
+  <strong>$148M</strong>
+  <span style="font-size:8px;color:#9aaabb;display:block">(IDR 2.34T · IDR 15,800/$)</span>
+  ```
+- **Exchange rate sources to cite inline:** [Wise Historical Rates](https://wise.com/tools/exchange-rate-history/) · [Bank Indonesia](https://www.bi.go.id/en/statistik/informasi-kurs/) · [xe.com](https://www.xe.com/currencytables/)
+- **Exception:** Stock tickers, per-share prices, and exchange-specific data may remain in native currency for accuracy (e.g., "EMTK · IDR 0.XX/share")
 
 ### What to NEVER include
 - Generic homepage URLs as proof of specific data points
@@ -825,22 +941,27 @@ Footer metrics:          18px, weight 900
 | Footer metrics | Subscriber count, FIFA count | Company-specific KPIs |
 | Cloud section focus | Tencent Cloud | Relevant cloud provider to analyze |
 | News sources | Kompas Tekno, CNN Indonesia | Relevant local + regional news sources |
+| Translate languages | `'th,id'` | Any 2 ISO 639-1 language codes |
 
 ---
 
 ## SELF-CHECK BEFORE OUTPUTTING
 
 Before finalizing the HTML, verify:
-- [ ] All sections present: topbar → sidebar → 6 panels → cloud → financials → news → footer
+- [ ] All sections present: topbar → sidebar → 6 panels → cloud → financials → news → footer → UI overlay
 - [ ] ALL cloud percentages are ranges with methodology box, not point estimates
 - [ ] ALL financial figures have "(confirmed)", "(derived)", or "(estimated)" labels
 - [ ] ALL claims have blue hyperlinks inline — no separate sources section
 - [ ] Status badge in topbar matches company status
 - [ ] Sidebar failure signal box present if company is closed/distressed
-- [ ] footer has exactly 7 metric items
+- [ ] Footer has exactly 7 metric items, all values in USD
 - [ ] `grid-column: 1 / -1` applied to ALL full-width sections
 - [ ] `position: sticky` on topbar, `position: fixed` on footer
 - [ ] No external file dependencies — single self-contained HTML file
+- [ ] **[NEW] Timeline (Panel C) ordered LATEST → OLDEST** — newest entry at top, "Latest → Oldest" label above
+- [ ] **[NEW] Fixed UI overlay present** at `top:12px; right:20px; z-index:9999` with EN/TH/ID translate buttons, ‹ › scroll buttons, and − + ↺ zoom controls
+- [ ] **[NEW] ALL monetary figures in USD** — local currency shown in muted secondary text with exchange rate cited and linked
+- [ ] **[NEW] Google Translate script** loaded before `</body>` with `includedLanguages` set to correct 2-language pair
 
 ---PROMPT END---
 
@@ -872,6 +993,12 @@ The following iterative refinements were made to arrive at this final version. I
 
 **R11:** Added News Key Findings section with: keyword clusters strip, 9 ranked signals, synthesis-by-category panel. Dark header to visually anchor the intelligence section.
 
+**R12:** Four structural upgrades applied to user's modified version:
+1. **Timeline ordering** — Panel C now requires latest → oldest (reverse chronological). "Latest → Oldest" label added above first entry. Ordering rule block added to spec.
+2. **Fixed UI overlay** — New `position:fixed; top:12px; right:20px; z-index:9999` pill bar with: 🌐 EN/TH/ID language toggle (Google Translate API, active state highlights in blue), ‹ › horizontal scroll buttons (500px per press, smooth), − + zoom controls (40%–200% via `transform:scale()` on body), ↺ zoom reset to 100%.
+3. **USD currency rule** — All monetary figures must be in USD first; local currency shown as small muted secondary text below each figure with exchange rate cited and linked. Exchange rate source must be hyperlinked (Wise, BI, xe.com). Exception for per-share/ticker data.
+4. **Translate button** — Defaults to Thai (TH) + Bahasa Indonesia (ID). Configurable via `includedLanguages` in Google Translate init. Language toggle highlights active button. EN button triggers Google Translate's built-in restore.
+
 ---
 
-*Template by Timothy Isaac Siamena · Built with Claude · Version 1.0 · March 2026*
+*Template by Timothy Isaac Siamena · Built with Claude · Version 1.1 · March 2026*
