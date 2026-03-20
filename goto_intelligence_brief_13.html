@@ -1,0 +1,2210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>GoTo Group — PT GoTo Gojek Tokopedia Tbk Analysis 2024</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{overflow:hidden;height:100%;width:100%}
+body{width:100%;height:100%;overflow:hidden;background:#ffffff;color:#1a2035;font-family:'Inter',sans-serif;font-size:13px;margin:0}
+
+/* ── VIEWPORT SHELL ── */
+/* Topbar sits fixed at top, viewport sits below it, footer sits at bottom */
+#topbar-shell{position:fixed;top:0;left:0;right:0;height:66px;z-index:500;background:#fff;border-bottom:1.5px solid rgba(0,20,80,0.1);}
+#topbar-inner{width:1920px;height:66px;transform-origin:top left;}/* scales with page */
+#viewport{position:fixed;top:66px;left:0;right:0;bottom:72px;overflow:hidden;}
+#page-wrap{width:1920px;background:#ffffff;transform-origin:top left;overflow:visible;}
+
+/* ── CUSTOM SCROLLBARS ── */
+#vscroll{position:fixed;right:4px;top:74px;bottom:80px;width:7px;z-index:8000;}
+#vscroll-track{position:absolute;inset:0;background:rgba(0,20,80,0.06);border-radius:6px;}
+#vscroll-thumb{position:absolute;left:0;right:0;background:rgba(0,60,180,0.22);border-radius:6px;min-height:28px;cursor:grab;transition:background 0.15s;}
+#vscroll-thumb:hover,#vscroll-thumb.dragging{background:rgba(0,60,180,0.42);cursor:grabbing;}
+#hscroll{position:fixed;left:0;right:14px;bottom:72px;height:7px;z-index:8000;}
+#hscroll-track{position:absolute;inset:0;background:rgba(0,20,80,0.06);border-radius:6px;}
+#hscroll-thumb{position:absolute;top:0;bottom:0;background:rgba(0,60,180,0.22);border-radius:6px;min-width:28px;cursor:grab;transition:background 0.15s;}
+#hscroll-thumb:hover,#hscroll-thumb.dragging{background:rgba(0,60,180,0.42);cursor:grabbing;}
+/* Suppress Google Translate toolbar banner */
+.goog-te-banner-frame,.goog-te-ftab-float,#goog-gt-tt,.goog-te-balloon-frame,.goog-tooltip{display:none!important}
+body{top:0!important}
+.skiptranslate{display:none!important}
+a{color:#0055cc;text-decoration:none}a:hover{text-decoration:underline}
+
+/* TOPBAR — lives inside #topbar-inner which is scaled with the page */
+.topbar{height:66px;background:transparent;padding:0 36px;display:flex;align-items:center;gap:12px;width:1920px;}
+.tb-logo{width:30px;height:30px;border-radius:7px;background:linear-gradient(135deg,#00cc88,#007755);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#fff;flex-shrink:0}
+.tb-name{font-size:18px;font-weight:800;color:#0a1020;letter-spacing:-0.5px}
+.tb-sub{font-size:11px;color:#7a90b0;font-weight:500;margin-top:1px}
+.divider{width:1px;height:28px;background:rgba(0,20,80,0.12);flex-shrink:0}
+.tag{padding:3px 11px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:0.4px;text-transform:uppercase;white-space:nowrap}
+.tag-blue{background:rgba(0,100,220,0.09);color:#0055bb;border:1px solid rgba(0,100,220,0.18)}
+.tag-orange{background:rgba(210,90,0,0.09);color:#aa4400;border:1px solid rgba(210,90,0,0.18)}
+.tag-green{background:rgba(0,160,80,0.09);color:#006633;border:1px solid rgba(0,160,80,0.18)}
+.tag-red{background:rgba(200,30,30,0.09);color:#aa1111;border:1px solid rgba(200,30,30,0.18)}
+.tag-purple{background:rgba(110,50,200,0.09);color:#6622aa;border:1px solid rgba(110,50,200,0.18)}
+.tag-yellow{background:rgba(180,130,0,0.09);color:#7a5500;border:1px solid rgba(180,130,0,0.18)}
+.tag-gray{background:rgba(0,20,60,0.06);color:#5a6a88;border:1px solid rgba(0,20,60,0.11)}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.tb-sub-r{font-size:11px;color:#9aaac0}
+.status-active{padding:4px 14px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;background:rgba(0,160,80,0.08);border:1px solid rgba(0,160,80,0.2);color:#006633}
+
+/* MAIN GRID */
+.main-body{display:grid;grid-template-columns:320px 1fr 1fr 1fr;grid-template-rows:auto auto;padding-bottom:20px;min-height:calc(100vh - 66px)}
+.panel{padding:20px 22px;border-right:1px solid rgba(0,20,80,0.07);border-bottom:1px solid rgba(0,20,80,0.07);display:flex;flex-direction:column;gap:10px;overflow:visible}
+.panel-title{font-size:9px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:#8a9ab8;display:flex;align-items:center;gap:6px;margin-bottom:2px}
+.panel-title::after{content:'';flex:1;height:1px;background:rgba(0,20,80,0.08)}
+
+/* SIDEBAR */
+.sidebar{grid-column:1;grid-row:1/3;background:#fafbfe;padding:24px 20px;border-right:1.5px solid rgba(0,20,80,0.08);display:flex;flex-direction:column;gap:14px}
+.sb-logo-box{background:linear-gradient(135deg,#e0fff4 0%,#c8f5e8 100%);border:1px solid rgba(0,160,100,0.2);border-radius:12px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.sb-circle{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#00aa66,#007744);box-shadow:0 4px 16px rgba(0,160,80,0.3);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:#fff}
+.sb-co-name{font-size:19px;font-weight:900;color:#0a1020;letter-spacing:-0.5px}
+.sb-co-sub{font-size:10px;color:#006633;text-align:center}
+.stat-row{display:flex;gap:6px}
+.stat-box{flex:1;background:#fff;border:1px solid rgba(0,20,80,0.09);border-radius:8px;padding:9px 6px;text-align:center}
+.stat-val{font-size:15px;font-weight:800;color:#0a1020}
+.stat-lbl{font-size:8.5px;color:#9aaabb;font-weight:600;letter-spacing:0.3px;margin-top:2px}
+.info-block{background:#fff;border-radius:8px;border:1px solid rgba(0,20,80,0.08);padding:11px 13px}
+.ib-title{font-size:9px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:#8a9ab8;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid rgba(0,20,80,0.06)}
+.info-row{display:flex;justify-content:space-between;align-items:flex-start;padding:4px 0;border-bottom:1px solid rgba(0,20,80,0.04);gap:8px}
+.info-row:last-child{border-bottom:none}
+.info-key{font-size:8.5px;color:#8a9ab8;font-weight:600;flex-shrink:0}
+.info-val{font-size:8.5px;color:#1a2a44;font-weight:500;text-align:right}
+
+/* PRODUCT CARDS */
+.product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.prod-card{background:#f8faff;border:1px solid rgba(0,20,80,0.07);border-radius:8px;padding:10px 11px}
+.prod-hdr{display:flex;align-items:center;gap:7px;margin-bottom:5px}
+.prod-icon{width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#fff;flex-shrink:0}
+.prod-name{font-size:10.5px;font-weight:700;color:#1a2a44}
+.prod-type{font-size:8px;font-weight:600;color:#6688aa;background:rgba(0,60,180,0.07);border-radius:10px;padding:1px 6px;display:inline-block;margin-bottom:4px}
+.prod-desc{font-size:9.5px;color:#8a9ab8;line-height:1.4}
+
+/* TIMELINE */
+.tl-list{display:flex;flex-direction:column;gap:0}
+.tl-item{display:flex;gap:10px;padding-bottom:10px;border-left:1.5px solid rgba(0,20,80,0.1);padding-left:14px;position:relative}
+.tl-item:last-child{border-left-color:transparent}
+.tl-dot{position:absolute;left:-5px;top:3px;width:9px;height:9px;border-radius:50%;border:1.5px solid #fff}
+.tl-year{font-size:10px;font-weight:800;color:#0a1020;width:36px;flex-shrink:0}
+.tl-title{font-size:10.5px;font-weight:700;color:#1a2a44;line-height:1.3}
+.tl-detail{font-size:9px;color:#9aaabb;line-height:1.45;margin-top:2px}
+.tl-order-label{font-size:8px;color:#c0cce0;margin-bottom:6px;font-weight:500}
+
+/* MARKET BARS */
+.highlight-box{background:linear-gradient(135deg,rgba(0,100,220,0.06),rgba(0,60,180,0.03));border:1px solid rgba(0,100,220,0.12);border-radius:8px;padding:10px 12px}
+.hl-num{font-size:20px;font-weight:900;color:#0044cc}
+.hl-lbl{font-size:9px;color:#4477aa;margin-top:2px}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.bar-label{font-size:10px;font-weight:600;color:#4a5a78;width:130px;flex-shrink:0}
+.bar-track{flex:1;height:6px;background:#f0f2f8;border-radius:3px}
+.bar-fill{height:100%;border-radius:3px}
+.bar-val{font-size:10px;font-weight:600;color:#4a5a78;width:38px;text-align:right;flex-shrink:0}
+
+/* COMPETITOR */
+.comp-card{background:#f8faff;border:1px solid rgba(0,20,80,0.07);border-radius:8px;padding:9px 11px;display:flex;align-items:flex-start;gap:10px}
+.comp-icon{width:28px;height:28px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#fff}
+.comp-right{flex:1}
+.comp-name{font-size:10.5px;font-weight:700;color:#1a2a44}
+.comp-desc{font-size:9px;color:#8a9ab8;margin-top:2px}
+.badge-row{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px;align-items:center}
+.badge{font-size:8px;font-weight:700;border-radius:10px;padding:1px 7px}
+.badge-cloud{background:rgba(0,100,220,0.09);color:#0055bb;border:1px solid rgba(0,100,220,0.18)}
+.badge-type{background:rgba(0,20,60,0.06);color:#5a6a88;border:1px solid rgba(0,20,60,0.11)}
+.badge-high{background:rgba(200,30,30,0.09);color:#aa1111;border:1px solid rgba(200,30,30,0.18)}
+.badge-med{background:rgba(200,90,0,0.09);color:#aa4400;border:1px solid rgba(200,90,0,0.18)}
+.badge-low{background:rgba(0,160,80,0.09);color:#006633;border:1px solid rgba(0,160,80,0.18)}
+
+/* OUTLOOK */
+.outlook-card{background:#f8faff;border:1px solid rgba(0,20,80,0.07);border-radius:8px;padding:10px 12px;margin-bottom:8px}
+.outlook-title{font-size:11px;font-weight:700;color:#1a2a44;margin-bottom:4px}
+.outlook-body{font-size:9px;color:#5a6a88;line-height:1.45}
+
+/* STATUS PILLS */
+.s-active{background:rgba(0,160,80,0.09);color:#006633;border:1px solid rgba(0,160,80,0.18);font-size:8px;padding:1px 6px;border-radius:10px;font-weight:700}
+.s-exp{background:rgba(180,130,0,0.09);color:#7a5500;border:1px solid rgba(180,130,0,0.2);font-size:8px;padding:1px 6px;border-radius:10px;font-weight:700}
+.s-lost{background:rgba(200,30,30,0.09);color:#aa1111;border:1px solid rgba(200,30,30,0.18);font-size:8px;padding:1px 6px;border-radius:10px;font-weight:700}
+
+/* FULL WIDTH SECTIONS */
+.fw-section{grid-column:1/-1;width:100%;border-top:2px solid rgba(0,20,80,0.08);background:#fff}
+.fw-header{display:flex;align-items:center;gap:14px;padding:18px 36px 14px;border-bottom:1px solid rgba(0,20,80,0.07);background:#fafbfe}
+.fw-icon{width:34px;height:34px;border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:16px}
+.fw-title{font-size:15px;font-weight:900;color:#0a1020;letter-spacing:-0.3px}
+.fw-sub{font-size:10.5px;color:#9aaabb;margin-top:2px}
+.fw-badges{margin-left:auto;display:flex;gap:8px;align-items:center}
+.section-label{font-size:9px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:#8a9ab8;margin-bottom:10px}
+
+/* CLOUD */
+.cloud-inner{display:grid;grid-template-columns:400px 1fr 520px;min-height:480px}
+.cloud-col{padding:20px 22px;border-right:1px solid rgba(0,20,80,0.07)}
+.cloud-col:last-child{border-right:none;background:#fafbff}
+.pt-header{display:grid;grid-template-columns:155px 1fr 80px;padding:4px 8px;margin-bottom:2px}
+.pt-hcell{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#9aaabb}
+.pt-row{display:grid;grid-template-columns:155px 1fr 80px;background:#f8faff;border:1px solid rgba(0,20,80,0.08);border-radius:7px;padding:7px 8px;align-items:center;gap:4px;margin-bottom:4px}
+.pt-icon{width:20px;height:20px;border-radius:5px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:900;color:#fff}
+.pt-plat{display:flex;align-items:center;gap:6px}
+.pt-name{font-size:10px;font-weight:700;color:#1a2a44}
+.pt-type{font-size:8px;color:#9aaabb}
+.pt-prim{font-size:9.5px;font-weight:700;color:#1a2a44}
+.pt-sec{font-size:8.5px;color:#9aaabb}
+.pt-pct{font-size:11px;font-weight:900;color:#0044cc;background:rgba(0,80,220,0.07);border-radius:5px;padding:2px 6px;text-align:center}
+.pt-pct-hi{font-size:11px;font-weight:900;color:#00aa44;background:rgba(0,160,60,0.09);border-radius:5px;padding:2px 6px;text-align:center}
+.pt-na{font-size:9px;color:#9aaabb;text-align:center}
+
+.method-box{background:#fffbf0;border:1px solid rgba(200,140,0,0.25);border-radius:8px;padding:9px 12px;margin-bottom:14px}
+.method-title{font-size:8.5px;font-weight:700;color:#996600;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
+.method-body{font-size:8px;color:#886600;line-height:1.55}
+.cbe{margin-bottom:12px}
+.cbe-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
+.cbe-left{display:flex;align-items:center;gap:6px}
+.cbe-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+.cbe-name{font-size:11px;font-weight:700;color:#1a2a44}
+.cbe-clients{font-size:9px;color:#9aaabb;margin-top:1px}
+.cbe-range{font-size:12px;font-weight:900}
+.cbe-track{height:8px;background:#f0f2f8;border-radius:4px;margin-top:3px}
+.cbe-fill{height:100%;border-radius:4px}
+.cbe-desc{font-size:8px;color:#c0cce0;margin-top:3px}
+.cbe-focus{background:rgba(0,80,220,0.04);border:1.5px solid rgba(0,80,220,0.2);border-radius:9px;padding:10px 12px}
+.refs-box{background:#f8faff;border:1px solid rgba(0,20,80,0.07);border-radius:7px;padding:10px 12px;margin-top:14px}
+.refs-title{font-size:8px;font-weight:700;text-transform:uppercase;color:#8a9ab8;margin-bottom:6px;letter-spacing:0.8px}
+.ref-item{font-size:7.8px;color:#9aaabb;line-height:1.65}
+
+.opp-card{background:#fff;border:1px solid rgba(0,80,220,0.14);border-radius:7px;padding:9px 11px;border-left:3px solid #0044cc;margin-bottom:6px}
+.opp-card-or{border-color:rgba(200,90,0,0.15);border-left-color:#dd6600}
+.opp-title{font-size:10.5px;font-weight:700;color:#0033cc}
+.opp-title-or{color:#995500}
+.opp-body{font-size:9px;color:#5577aa;line-height:1.4;margin-top:3px}
+.fp-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+.fp-cell{background:#fff;border:1px solid rgba(0,60,200,0.12);border-radius:6px;padding:8px;text-align:center}
+.fp-val{font-size:14px;font-weight:900;color:#0044cc}
+.fp-lbl{font-size:8px;color:#9aaabb;margin-top:2px}
+
+/* FINANCIALS */
+.fin-inner{padding:20px 36px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.fin-card{background:#f8faff;border:1.5px solid rgba(0,80,200,0.15);border-radius:10px;overflow:hidden}
+.fin-card-or{border-color:rgba(200,90,0,0.18)}
+.fin-card-dk{border-color:rgba(0,20,80,0.15)}
+.fin-hdr{background:linear-gradient(135deg,#0044cc 0%,#0066ff 100%);padding:12px 14px}
+.fin-hdr-or{background:linear-gradient(135deg,#cc5500 0%,#ee7700 100%)}
+.fin-hdr-dk{background:linear-gradient(135deg,#1a2035 0%,#2a3050 100%)}
+.fin-ticker{display:inline-block;font-size:9px;font-weight:700;background:rgba(255,255,255,0.2);color:#fff;border-radius:5px;padding:2px 8px;margin-bottom:4px}
+.fin-co-name{font-size:12px;font-weight:800;color:#fff}
+.fin-co-sub{font-size:9px;color:rgba(255,255,255,0.7);margin-top:2px}
+.fin-metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px 14px}
+.fm-box{background:#fff;border:1px solid rgba(0,20,80,0.08);border-radius:7px;padding:8px 10px}
+.fm-box-blue{background:rgba(0,80,200,0.06);border:1.5px solid rgba(0,80,200,0.2);border-radius:7px;padding:8px 10px}
+.fm-box-or{background:rgba(200,80,0,0.06);border:1.5px solid rgba(200,80,0,0.2);border-radius:7px;padding:8px 10px}
+.fm-lbl{font-size:8px;color:#9aaabb;font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
+.fm-val{font-size:13px;font-weight:900;color:#0a1020;margin-top:2px}
+.fm-note{font-size:8px;color:#9aaabb;margin-top:2px}
+.fin-margin-row{display:flex;gap:5px;padding:0 14px 10px;flex-wrap:wrap}
+.mpill{font-size:8px;font-weight:700;border-radius:10px;padding:2px 8px;background:rgba(0,160,80,0.09);color:#006633;border:1px solid rgba(0,160,80,0.18)}
+.mpill-red{background:rgba(200,30,30,0.09);color:#aa1111;border-color:rgba(200,30,30,0.18)}
+.mpill-or{background:rgba(200,90,0,0.09);color:#aa4400;border-color:rgba(200,90,0,0.18)}
+.fin-access{background:#f0f4ff;border:1px solid rgba(0,60,200,0.1);border-radius:7px;margin:0 14px 14px;padding:8px 10px}
+.fa-title{font-size:8.5px;font-weight:700;color:#4466aa;margin-bottom:4px}
+.fa-body{font-size:8px;color:#6688bb;line-height:1.6}
+.fsb-wrap{background:#f4f6fb;border:1px solid rgba(0,20,80,0.08);border-radius:8px;margin:0 36px 16px;padding:12px 18px}
+.fsb-row{display:flex;align-items:center;gap:0;margin-bottom:6px}
+.fsb-name{font-size:10px;font-weight:600;color:#4a5a78;width:160px;flex-shrink:0}
+.fsb-track{flex:1;height:6px;background:#e0e4f0;border-radius:3px;margin:0 8px}
+.fsb-fill{height:100%;border-radius:3px}
+.fsb-val{font-size:10px;font-weight:700;color:#1a2a44;width:220px;flex-shrink:0}
+.fsb-note{font-size:8px;color:#9aaabb;width:220px;flex-shrink:0}
+.fsb-footer{font-size:8px;color:#9aaabb;margin-top:8px;line-height:1.55}
+
+/* NEWS */
+.news-section{grid-column:1/-1;width:100%;border-top:2px solid rgba(0,20,80,0.08)}
+.news-hdr{background:linear-gradient(135deg,#0a1020,#0f1a30);padding:18px 36px 14px;border-bottom:1px solid rgba(0,20,80,0.07);display:flex;align-items:center;gap:14px}
+.news-icon{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#cc2222,#ee3333);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.news-title{font-size:15px;font-weight:900;color:#fff;letter-spacing:-0.3px}
+.news-sub{font-size:10.5px;color:#7a9acc;margin-top:2px}
+.news-hdr-r{margin-left:auto;display:flex;gap:8px;align-items:center}
+.npill-blue{background:rgba(0,80,200,0.25);color:#88aaee;border:1px solid rgba(0,80,200,0.35);font-size:10px;font-weight:700;padding:3px 12px;border-radius:20px}
+.kw-strip{background:#0e1628;padding:10px 36px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.kw-label{font-size:8px;font-weight:700;color:#4a6a99;text-transform:uppercase;letter-spacing:0.8px;flex-shrink:0}
+.kw-b{font-size:8px;font-weight:600;border-radius:10px;padding:2px 9px;background:rgba(0,80,200,0.2);color:#88aaee;border:1px solid rgba(0,80,200,0.25)}
+.kw-o{font-size:8px;font-weight:600;border-radius:10px;padding:2px 9px;background:rgba(200,60,0,0.2);color:#ff9966;border:1px solid rgba(200,60,0,0.25)}
+.kw-g{font-size:8px;font-weight:600;border-radius:10px;padding:2px 9px;background:rgba(0,160,80,0.18);color:#66dd99;border:1px solid rgba(0,160,80,0.25)}
+.news-inner{display:grid;grid-template-columns:1fr 420px;min-height:560px;background:#fafbfe}
+.news-signals{padding:20px 30px}
+.sig-card{background:#fff;border:1px solid rgba(0,20,80,0.08);border-radius:9px;padding:11px 14px;margin-bottom:8px;display:flex;align-items:flex-start;gap:10px}
+.rank-b{color:#fff;border-radius:5px;padding:2px 7px;font-size:8px;font-weight:900;flex-shrink:0;margin-top:1px}
+.sig-content{flex:1}
+.sig-hdr{display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap}
+.sig-title{font-size:10.5px;font-weight:700;color:#1a2a44}
+.cat-tag{border-radius:8px;padding:1px 7px;font-size:7.5px;font-weight:700}
+.cat-s{background:rgba(200,30,30,0.09);color:#aa1111}
+.cat-c{background:rgba(200,90,0,0.09);color:#995500}
+.cat-m{background:rgba(0,160,80,0.09);color:#006633}
+.cat-r{background:rgba(120,30,200,0.09);color:#6622aa}
+.cat-o{background:rgba(0,160,80,0.09);color:#006633}
+.sig-body{font-size:9px;color:#3a4a64;line-height:1.5}
+.sig-impact{font-size:8px;font-weight:600;margin-top:4px}
+.news-synth{padding:20px 22px;background:#fafbfe;border-left:1px solid rgba(0,20,80,0.07)}
+.synth-cat{margin-bottom:12px}
+.synth-hdr{display:flex;align-items:center;gap:6px;margin-bottom:5px}
+.synth-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+.synth-ttl{font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px}
+.synth-body{background:#fff;border-radius:7px;padding:9px 11px;font-size:8.5px;color:#3a4a64;line-height:1.55}
+
+/* FOOTER — fixed outside zoom transform */
+.bottombar{position:fixed;bottom:0;left:0;width:100vw;height:64px;background:#fff;border-top:1.5px solid rgba(0,20,80,0.09);display:flex;align-items:center;padding:0 36px;gap:0;z-index:9000;box-shadow:0 -2px 12px rgba(0,20,80,0.05);}
+.key-metrics{display:flex;gap:0;flex:1}
+.metric-item{flex:1;text-align:center;padding:8px 12px;border-right:1px solid rgba(0,20,80,0.07)}
+.metric-item:last-child{border-right:none}
+.metric-val{font-size:18px;font-weight:900;color:#0a1020}
+.metric-val-g{color:#00aa44}
+.metric-val-o{color:#dd6600}
+.metric-val-b{color:#0044cc}
+.metric-lbl{font-size:9px;color:#9aaabb;font-weight:600;letter-spacing:0.3px;margin-top:2px}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ TOPBAR SHELL ═══════════════════ -->
+<div id="topbar-shell">
+  <div id="topbar-inner">
+    <div id="topbar-en"><div class="topbar">
+  <div class="tb-logo">G</div>
+  <div>
+    <div class="tb-name">GoTo Group</div>
+    <div class="tb-sub">PT GoTo Gojek Tokopedia Tbk · IDX: GOTO · Indonesia's Largest Digital Ecosystem</div>
+  </div>
+  <div class="divider"></div>
+  <span class="tag tag-green">Ride-Hailing</span>
+  <span class="tag tag-blue">Fintech</span>
+  <span class="tag tag-orange">Food Delivery</span>
+  <span class="tag tag-purple">On-Demand</span>
+  <span class="tag tag-yellow">Logistics</span>
+  <span class="tag tag-gray">E-Commerce</span>
+  <div class="tb-right">
+    <span class="tb-sub-r">IDX: GOTO · FY2024 Analysis · Avg IDR 15,800/$ (FY2024)</span>
+    <span class="status-active">ACTIVE</span>
+  </div>
+</div></div>
+    <div id="topbar-zh" style="display:none"><div class="topbar">
+  <div class="tb-logo">G</div>
+  <div>
+    <div class="tb-name">GoTo集团</div>
+    <div class="tb-sub">PT GoTo Gojek Tokopedia Tbk · 印尼证交所：GOTO · 印度尼西亚最大数字生态系统</div>
+  </div>
+  <div class="divider"></div>
+  <span class="tag tag-green">网约车</span>
+  <span class="tag tag-blue">金融科技</span>
+  <span class="tag tag-orange">外卖配送</span>
+  <span class="tag tag-purple">按需服务</span>
+  <span class="tag tag-yellow">物流</span>
+  <span class="tag tag-gray">电子商务</span>
+  <div class="tb-right">
+    <span class="tb-sub-r">印尼证交所：GOTO · 2024财年分析 · 平均汇率 IDR 15,800/$（2024财年）</span>
+    <span class="status-active">运营中</span>
+  </div>
+</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<div class="bottombar">
+  <div id="footer-en" class="key-metrics">
+    <div class="metric-item"><div class="metric-val metric-val-b">$1.15B</div><div class="metric-lbl">FY2024 Gross Revenue (IDR 18.1T · +30% YoY)</div></div>
+    <div class="metric-item"><div class="metric-val metric-val-g">+$24M</div><div class="metric-lbl">FY2024 Adj. EBITDA (First-Ever Positive)</div></div>
+    <div class="metric-item"><div class="metric-val">61.1M</div><div class="metric-lbl">Annual Transacting Users (~30% Indonesia Adults)</div></div>
+    <div class="metric-item"><div class="metric-val metric-val-g">$32.9B</div><div class="metric-lbl">Full-Year GTV (IDR 519.8T · +29% YoY)</div></div>
+    <div class="metric-item"><div class="metric-val metric-val-o">5 yr</div><div class="metric-lbl">Tencent + Alibaba Cloud Contracts (Sep 2024)</div></div>
+    <div class="metric-item"><div class="metric-val metric-val-b">$1.3B</div><div class="metric-lbl">Cash &amp; Equivalents (Dec 31, 2024)</div></div>
+    <div class="metric-item"><div class="metric-val">FY2024</div><div class="metric-lbl">Analysis Year · IDX: GOTO · Jakarta, Indonesia</div></div>
+  </div>
+  <div id="footer-zh" class="key-metrics" style="display:none">
+    <div class="metric-item"><div class="metric-val metric-val-b">$1.15B</div><div class="metric-lbl">2024财年总收入（印尼盾18.1万亿·同比+30%）</div></div>
+    <div class="metric-item"><div class="metric-val metric-val-g">+$24M</div><div class="metric-lbl">2024财年调整后EBITDA（首次转正）</div></div>
+    <div class="metric-item"><div class="metric-val">61.1M</div><div class="metric-lbl">年度交易用户（约占印尼成年人30%）</div></div>
+    <div class="metric-item"><div class="metric-val metric-val-g">$32.9B</div><div class="metric-lbl">全年总交易额（印尼盾519.8万亿·同比+29%）</div></div>
+    <div class="metric-item"><div class="metric-val metric-val-o">5年</div><div class="metric-lbl">腾讯云+阿里云合同（2024年9月签署）</div></div>
+    <div class="metric-item"><div class="metric-val metric-val-b">$1.3B</div><div class="metric-lbl">现金及等价物（2024年12月31日）</div></div>
+    <div class="metric-item"><div class="metric-val">FY2024</div><div class="metric-lbl">分析年度·印尼证交所：GOTO·雅加达</div></div>
+  </div>
+</div>
+
+<!-- Scrollbars -->
+<div id="vscroll"><div id="vscroll-track"></div><div id="vscroll-thumb"></div></div>
+<div id="hscroll"><div id="hscroll-track"></div><div id="hscroll-thumb"></div></div>
+
+<!-- UI Overlay: language toggle + zoom -->
+<div id="ui-overlay" style="position:fixed;top:14px;right:20px;z-index:9999;display:flex;align-items:center;gap:8px;">
+  <div style="display:flex;align-items:center;gap:3px;background:#fff;border:1px solid rgba(0,20,80,0.15);border-radius:22px;padding:4px 10px;box-shadow:0 2px 8px rgba(0,20,80,0.1)">
+    <span style="font-size:10px;margin-right:3px">🌐</span>
+    <button id="btn-en" onclick="setLang('en')" style="font-size:10px;font-weight:700;padding:3px 9px;border-radius:14px;border:none;cursor:pointer;background:rgba(0,80,220,0.12);color:#0044cc">EN</button>
+    <button id="btn-zh" onclick="setLang('zh')" style="font-size:10px;font-weight:700;padding:3px 9px;border-radius:14px;border:none;cursor:pointer;background:transparent;color:#8a9ab8">中文</button>
+  </div>
+  <div style="width:1px;height:22px;background:rgba(0,20,80,0.1)"></div>
+  <div style="display:flex;align-items:center;gap:4px;background:#fff;border:1px solid rgba(0,20,80,0.15);border-radius:22px;padding:4px 8px;box-shadow:0 2px 8px rgba(0,20,80,0.1)">
+    <button onclick="adjustZoom(-0.1)" style="font-size:14px;font-weight:900;padding:2px 7px;border-radius:12px;border:none;cursor:pointer;background:transparent;color:#4a5a78;line-height:1">−</button>
+    <span id="zoom-label" style="font-size:9px;font-weight:700;color:#4a5a78;min-width:34px;text-align:center">100%</span>
+    <button onclick="adjustZoom(+0.1)" style="font-size:14px;font-weight:900;padding:2px 7px;border-radius:12px;border:none;cursor:pointer;background:transparent;color:#4a5a78;line-height:1">+</button>
+    <button onclick="resetZoom()" style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:12px;border:none;cursor:pointer;background:rgba(0,20,80,0.06);color:#8a9ab8">↺</button>
+  </div>
+</div>
+
+<!-- ═══════════════════ VIEWPORT ═══════════════════ -->
+<div id="viewport">
+<div id="page-wrap">
+
+<!-- ══ ENGLISH SECTION ══ -->
+<div id="section-en">
+<div class="main-body">
+
+<!-- ─── SIDEBAR ─── -->
+<div class="sidebar">
+  <div class="sb-logo-box">
+    <div class="sb-circle">G</div>
+    <div class="sb-co-name">GoTo Group</div>
+    <div class="sb-co-sub">Indonesia's Largest Digital Ecosystem · Formed May 2021</div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="stat-val">61.1M</div>
+      <div class="stat-lbl">Annual Transacting Users</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-val">$1.15B</div>
+      <div class="stat-lbl">FY2024 Gross Revenue</div>
+    </div>
+  </div>
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="stat-val">$24M</div>
+      <div class="stat-lbl">Adj. EBITDA (FY2024)</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-val">GOTO</div>
+      <div class="stat-lbl">IDX Ticker</div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <div class="ib-title">Company Profile</div>
+    <div class="info-row"><span class="info-key">Founded</span><span class="info-val">May 17, 2021 (merger)</span></div>
+    <div class="info-row"><span class="info-key">Gojek Founded</span><span class="info-val">2010 · Tokopedia: 2009</span></div>
+    <div class="info-row"><span class="info-key">HQ</span><span class="info-val">Jakarta, Indonesia</span></div>
+    <div class="info-row"><span class="info-key">Listed</span><span class="info-val"><a href="https://www.idx.co.id/" target="_blank">IDX: GOTO (Apr 2022)</a></span></div>
+    <div class="info-row"><span class="info-key">IPO Price</span><span class="info-val">IDR 338/share (Apr 2022)</span></div>
+    <div class="info-row"><span class="info-key">Market Cap</span><span class="info-val">~$3.76B (PitchBook 2025)</span></div>
+    <div class="info-row"><span class="info-key">Key Investors</span><span class="info-val">Alibaba, Tencent, Google, GIC</span></div>
+    <div class="info-row"><span class="info-key">CEO</span><span class="info-val">Patrick Walujo</span></div>
+    <div class="info-row"><span class="info-key">Employees</span><span class="info-val">~7,000+ (post-restructuring)</span></div>
+    <div class="info-row"><span class="info-key">Cloud Providers</span><span class="info-val">Tencent + Alibaba (5-yr deals)</span></div>
+    <div class="info-row"><span class="info-key">Tokopedia Stake</span><span class="info-val">24.99% (post TikTok deal)</span></div>
+  </div>
+
+  <div class="info-block">
+    <div class="ib-title">Key Investors & Ownership</div>
+    <div class="info-row"><span class="info-key">Alibaba Group</span><span class="info-val">Strategic shareholder + cloud</span></div>
+    <div class="info-row"><span class="info-key">Tencent Holdings</span><span class="info-val">Strategic investor (Gojek-era)</span></div>
+    <div class="info-row"><span class="info-key">Google</span><span class="info-val">Investor since Gojek era</span></div>
+    <div class="info-row"><span class="info-key">GIC Singapore</span><span class="info-val">Sovereign fund investor</span></div>
+    <div class="info-row"><span class="info-key">TikTok / ByteDance</span><span class="info-val">75.01% of Tokopedia (JV)</span></div>
+    <div class="info-row"><span class="info-key">Bank Jago</span><span class="info-val">Banking partner (fintech)</span></div>
+  </div>
+
+  <div style="background:rgba(0,160,60,0.05);border:1px solid rgba(0,160,60,0.18);border-radius:8px;padding:11px 13px;border-left:3px solid #00aa55">
+    <div style="font-size:9px;font-weight:700;text-transform:uppercase;color:#006633;letter-spacing:0.8px;margin-bottom:6px">💡 Milestone Achieved</div>
+    <div style="font-size:8.5px;color:#005522;line-height:1.5">• <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#006633;">First-ever positive adj. EBITDA</a>: Rp 386B ($24M) in FY2024 — exceeded breakeven guidance</div>
+    <div style="font-size:8.5px;color:#005522;line-height:1.5;margin-top:3px">• FinTech turned adj. EBITDA+ in Q4 2024 — <strong>one full year ahead</strong> of previous guidance</div>
+    <div style="font-size:8.5px;color:#005522;line-height:1.5;margin-top:3px">• Net loss narrowed 94% YoY: from IDR 90.4T to IDR 5.15T in FY2024</div>
+  </div>
+</div>
+
+<!-- ─── PANEL A: Products ─── -->
+<div class="panel" style="grid-column:2;grid-row:1">
+  <div class="panel-title">Products & Services</div>
+  <div class="product-grid">
+    <div class="prod-card" style="border-top:2px solid #00aa55">
+      <div class="prod-hdr"><div class="prod-icon" style="background:#00aa55">GJ</div><div class="prod-name">Gojek (On-Demand)</div></div>
+      <div class="prod-type">Ride-Hailing / Delivery</div>
+      <div class="prod-desc"><a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">ODS GTV up 13% FY2024.</a> GoRide, GoCar, GoFood, GoSend, GoMart, GoBlueBird. 2M+ drivers. Indonesia + Singapore + Vietnam. Premium + mass-market tiers. EBITDA: Rp 679B ($43M) FY2024.</div>
+    </div>
+    <div class="prod-card" style="border-top:2px solid #0066cc">
+      <div class="prod-hdr"><div class="prod-icon" style="background:#0066cc">GP</div><div class="prod-name">GoPay / GoTo Financial</div></div>
+      <div class="prod-type">Fintech / Payments / Lending</div>
+      <div class="prod-desc"><a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">20.2M FinTech MTUs (+35% YoY).</a> GoPay app: 30M+ downloads. BNPL (GoPay Later), consumer loans (Rp 5.1T book), insurance via Bank Jago partnership. Lending revenue +373% YoY in 2024.</div>
+    </div>
+    <div class="prod-card" style="border-top:2px solid #ee5500">
+      <div class="prod-hdr"><div class="prod-icon" style="background:#ee5500">TK</div><div class="prod-name">Tokopedia (Associate)</div></div>
+      <div class="prod-type">E-Commerce (Deconsolidated)</div>
+      <div class="prod-desc"><a href="https://thelowdown.momentum.asia/winners-and-losers-of-the-tiktok-goto-deal/" target="_blank" style="color:#0055cc;">TikTok holds 75.01%</a> since Dec 2023. GoTo retains 24.99%. Service fee ~$39M in 2024. 14M merchants. TikTok Shop Indonesia merged within Tokopedia entity. GoTo no longer consolidates.</div>
+    </div>
+    <div class="prod-card" style="border-top:2px solid #7722cc">
+      <div class="prod-hdr"><div class="prod-icon" style="background:#7722cc">GL</div><div class="prod-name">GoTo Logistics</div></div>
+      <div class="prod-type">Last-Mile Delivery</div>
+      <div class="prod-desc">Courier and express delivery service supporting GoFood and merchant orders. Delivery Services revenue <a href="https://www.idnfinancials.com/news/53102/gotos-losses-shrink-down-by-94-29" target="_blank" style="color:#0055cc;">↑150.77% YoY</a> to IDR 5.34T ($338M) in FY2024. Same-day delivery infrastructure for e-commerce and F&B.</div>
+    </div>
+    <div class="prod-card" style="border-top:2px solid #cc0055">
+      <div class="prod-hdr"><div class="prod-icon" style="background:#cc0055">GF</div><div class="prod-name">GoFood</div></div>
+      <div class="prod-type">Food Delivery</div>
+      <div class="prod-desc">Indonesia's leading food delivery by order volume. <a href="https://technode.global/2024/08/02/indonesian-gotos-q2-revenue-up-39-percent-on-year-to-265-58m/" target="_blank" style="color:#0055cc;">Premium Food Express</a> tier launched. Merchant-funded promotions ↑190% in 2024. TikTok local services pilot: GoFood merchants visible inside TikTok app. Ad revenue ↑92% YoY.</div>
+    </div>
+    <div class="prod-card" style="border-top:2px solid #0099aa">
+      <div class="prod-hdr"><div class="prod-icon" style="background:#0099aa">AI</div><div class="prod-name">Sahabat AI / Dira</div></div>
+      <div class="prod-type">AI · LLM · Voice Assistant</div>
+      <div class="prod-desc"><a href="https://www.investing.com/news/company-news/goto-q2-2025-presentation-achieves-profitability-milestone-with-23-revenue-growth-93CH-4187897" target="_blank" style="color:#0055cc;">Sahabat AI: 70B+ parameter LLM</a> in Bahasa Indonesia. Dira: AI voice assistant in GoPay app (Google Cloud powered, Sep 2024). Open ecosystem model, multilingual, built with local partners for Indonesia.</div>
+    </div>
+  </div>
+  <div style="background:rgba(0,60,180,0.04);border:1px solid rgba(0,60,180,0.12);border-radius:7px;padding:9px 12px;margin-top:4px">
+    <div style="font-size:9px;font-weight:700;color:#0044cc;margin-bottom:4px">2024 Strategic Shift: Ecosystem → Profitability</div>
+    <div style="font-size:9px;color:#4466aa;line-height:1.45">GoTo pivoted from GMV growth at any cost to <strong>profitable growth</strong>. Cost management drove recurring cash fixed costs down 3% YoY to Rp 5.3T ($335M) while gross revenue grew 30%. Advertising revenue ↑92% YoY reflects new B2B monetization layer. <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">FY2024 press release ↗</a></div>
+  </div>
+</div>
+
+<!-- ─── PANEL B: Key Assets & IP ─── -->
+<div class="panel" style="grid-column:3;grid-row:1">
+  <div class="panel-title">Key Assets & Strategic Moves</div>
+  <div style="display:flex;flex-direction:column;gap:6px">
+
+    <div style="background:#f8faff;border:1px solid rgba(0,20,80,0.07);border-radius:7px;padding:8px 11px;display:flex;align-items:flex-start;gap:10px">
+      <div style="width:20px;height:20px;border-radius:5px;background:#0066cc;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#fff;margin-top:1px">TC</div>
+      <div style="flex:1">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:10.5px;font-weight:700;color:#1a2a44">Tencent Cloud — 5-Year Contract (Gojek)</span><span class="s-active">Active</span></div>
+        <div style="font-size:8.5px;color:#8a9ab8;margin-top:2px"><a href="https://www.datacenterdynamics.com/en/news/goto-group-signs-five-year-cloud-deals-with-tencent-and-alibaba-cloud/" target="_blank" style="color:#0055cc;">Signed Sep 20, 2024.</a> Tencent Cloud powers all On-Demand Services (Gojek). 1,000+ microservices migrated. Tencent servers hosted onshore in Indonesia. 3rd IDC planned, ~$500M investment by 2030.</div>
+      </div>
+    </div>
+
+    <div style="background:#f8faff;border:1px solid rgba(0,20,80,0.07);border-radius:7px;padding:8px 11px;display:flex;align-items:flex-start;gap:10px">
+      <div style="width:20px;height:20px;border-radius:5px;background:#ff6600;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#fff;margin-top:1px">AC</div>
+      <div style="flex:1">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:10.5px;font-weight:700;color:#1a2a44">Alibaba Cloud — 5-Year Contract (GoTo Financial)</span><span class="s-active">Active</span></div>
+        <div style="font-size:8.5px;color:#8a9ab8;margin-top:2px"><a href="https://www.computerweekly.com/news/366626981/How-GoTos-high-stakes-cloud-shift-is-powering-Its-AI-future" target="_blank" style="color:#0055cc;">50% of GoTo's infra migrated</a> to Alibaba Cloud — 9,000 services, tens of petabytes. Alibaba is also a long-term equity shareholder. MaxCompute big data + PolarDB database. Migration done with zero downtime.</div>
+      </div>
+    </div>
+
+    <div style="background:#f8faff;border:1px solid rgba(0,20,80,0.07);border-radius:7px;padding:8px 11px;display:flex;align-items:flex-start;gap:10px">
+      <div style="width:20px;height:20px;border-radius:5px;background:#ee5500;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#fff;margin-top:1px">TT</div>
+      <div style="flex:1">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:10.5px;font-weight:700;color:#1a2a44">TikTok–Tokopedia Strategic JV</span><span class="s-active">Active</span></div>
+        <div style="font-size:8.5px;color:#8a9ab8;margin-top:2px"><a href="https://salaamgateway.com/story/indonesias-tech-soul-is-on-the-line" target="_blank" style="color:#0055cc;">Jan 2024: TikTok paid $1.5B+</a> for 75.01% of Tokopedia. GoTo retains 24.99% + service fee (~$39M/yr). GoPay Later BNPL integrated on TikTok Shop. GoFood merchants now discoverable on TikTok app.</div>
+      </div>
+    </div>
+
+    <div style="background:#f8faff;border:1px solid rgba(0,20,80,0.07);border-radius:7px;padding:8px 11px;display:flex;align-items:flex-start;gap:10px">
+      <div style="width:20px;height:20px;border-radius:5px;background:#0099cc;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#fff;margin-top:1px">BJ</div>
+      <div style="flex:1">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:10.5px;font-weight:700;color:#1a2a44">Bank Jago Partnership (Banking-as-a-Service)</span><span class="s-active">Active</span></div>
+        <div style="font-size:8.5px;color:#8a9ab8;margin-top:2px">GoTo's embedded banking layer. Savings, lending, insurance via Jago's banking license. GoTo holds strategic stake in Bank Jago (IDX: ARTO). Consumer loans outstanding principal <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">grew 172% YoY in Q4 2024</a> to Rp 5.1T.</div>
+      </div>
+    </div>
+
+    <div style="background:#f8faff;border:1px solid rgba(0,20,80,0.07);border-radius:7px;padding:8px 11px;display:flex;align-items:flex-start;gap:10px">
+      <div style="width:20px;height:20px;border-radius:5px;background:#009900;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#fff;margin-top:1px">GC</div>
+      <div style="flex:1">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:10.5px;font-weight:700;color:#1a2a44">Google Cloud — AI Partnership (GoPay Dira)</span><span class="s-active">Active</span></div>
+        <div style="font-size:8.5px;color:#8a9ab8;margin-top:2px"><a href="https://www.computerweekly.com/news/366626981/How-GoTos-high-stakes-cloud-shift-is-powering-Its-AI-future" target="_blank" style="color:#0055cc;">Sep 2024: Google Cloud gen-AI partnership</a> powers Dira voice assistant inside GoPay app. First AI voice tool supporting Bahasa Indonesia in Indonesia's fintech sector. GoTo also previously ran workloads on Google Cloud before Tencent/Alibaba migration.</div>
+      </div>
+    </div>
+
+    <div style="background:#f8faff;border:1px solid rgba(0,20,80,0.07);border-radius:7px;padding:8px 11px;display:flex;align-items:flex-start;gap:10px">
+      <div style="width:20px;height:20px;border-radius:5px;background:#aa6600;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#fff;margin-top:1px">CD</div>
+      <div style="flex:1">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:10.5px;font-weight:700;color:#1a2a44">ComfortDelGro Partnership (Singapore)</span><span class="s-active">Active</span></div>
+        <div style="font-size:8.5px;color:#8a9ab8;margin-top:2px"><a href="https://www.gotocompany.com/en/news/press/goto-group-reports-strong-group-gtv-and-revenue-growth-as-company-announces-2024-first-quarter-results" target="_blank" style="color:#0055cc;">Q1 2024:</a> Gojek Singapore partnered with ComfortDelGro taxi fleet to strengthen driver supply and boost growth in the Singapore market, directly competing with Grab's dominant position.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── PANEL C: Timeline (LATEST → OLDEST) ─── -->
+<div class="panel" style="grid-column:4;grid-row:1">
+  <div class="panel-title">Corporate Timeline</div>
+  <div class="tl-order-label">Latest → Oldest</div>
+  <div class="tl-list">
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#00aa55"></div>
+      <div><div class="tl-year">2025</div>
+      <div class="tl-title">Cloud Migration Complete · Profitability Sustained</div>
+      <div class="tl-detail"><a href="https://www.investing.com/news/company-news/goto-q2-2025-presentation-achieves-profitability-milestone-with-23-revenue-growth-93CH-4187897" target="_blank" style="color:#0055cc;">Jun 2025: Full cloud migration</a> to Tencent + Alibaba Cloud completed. 50% reduction in annual cloud spend. Q1–Q2 2025: Group adj. EBITDA positive; FY25 guidance raised to Rp 1.8–1.9T. Sahabat AI (70B param LLM) launched publicly.</div></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#0066cc"></div>
+      <div><div class="tl-year">2024</div>
+      <div class="tl-title">First-Ever Positive Adj. EBITDA — Record Year</div>
+      <div class="tl-detail"><a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">Adj. EBITDA: Rp 386B ($24M)</a>. Gross revenue ↑30% to Rp 18.1T. Jan: Tokopedia transferred to TikTok (75.01%). Sep: 5-year cloud deals signed with Tencent Cloud + Alibaba Cloud simultaneously. Net loss narrowed 94% to Rp 5.15T.</div></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#dd6600"></div>
+      <div><div class="tl-year">2023</div>
+      <div class="tl-title">TikTok Deal Announced · Massive Net Loss</div>
+      <div class="tl-detail"><a href="https://thelowdown.momentum.asia/winners-and-losers-of-the-tiktok-goto-deal/" target="_blank" style="color:#0055cc;">Dec 11, 2023:</a> TikTok/ByteDance acquires 75.01% of Tokopedia for $1.5B+ investment. GoTo net loss: Rp 90.4T ($5.7B) — largely from impairments. Revenue Rp 14.78T. Adj. EBITDA loss of Rp 23B — narrowing path visible.</div></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#cc2222"></div>
+      <div><div class="tl-year">2022</div>
+      <div class="tl-title">IDX IPO — Indonesia's Largest Tech Listing</div>
+      <div class="tl-detail"><a href="https://en.wikipedia.org/wiki/GoTo_(Indonesian_company)" target="_blank" style="color:#0055cc;">Apr 11, 2022: GOTO listed on IDX</a> at IDR 338/share; raised $1.1B. Stock jumped 15%+ on Day 1 to IDR 388. Peak valuation ~$28B. Post-IPO: major cost-cutting program initiated as tech valuations collapsed globally.</div></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#0066cc"></div>
+      <div><div class="tl-year">2021</div>
+      <div class="tl-title">Gojek + Tokopedia Merge → GoTo Group</div>
+      <div class="tl-detail"><a href="https://www.cnbc.com/2021/05/17/goto-indonesia-internet-start-ups-gojektokopedia-announce-merger.html" target="_blank" style="color:#0055cc;">May 17, 2021: $18B merger announced</a>. Combined 100M+ MAU, 11M+ merchants, 2M+ drivers. GoTo Financial formed. Investors include Alibaba, Tencent, Google, GIC, KKR, Temasek.</div></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#44aa77"></div>
+      <div><div class="tl-year">2016</div>
+      <div class="tl-title">GoPay Launched — Payments Foundation</div>
+      <div class="tl-detail">Gojek launches GoPay digital wallet, initially for ride-hailing. Rapidly expands to merchant payments, food delivery, and bill payments. Becomes foundation of GoTo Financial which later scales into BNPL and consumer lending by 2021–2024.</div></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#44aa77"></div>
+      <div><div class="tl-year">2010</div>
+      <div class="tl-title">Gojek Founded · Tokopedia Founded (2009)</div>
+      <div class="tl-detail">Gojek starts as SMS-based ojek (motorcycle taxi) booking service in Jakarta. <a href="https://www.cnbc.com/2021/06/09/goto-how-gojek-and-tokopedia-teamed-up-in-indonesias-biggest-merger.html" target="_blank" style="color:#0055cc;">Tokopedia launched 2009</a> as Indonesia's first online marketplace. Two separate companies partner on same-day delivery from 2015 before eventually merging in 2021.</div></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ─── PANEL D: Market Analysis ─── -->
+<div class="panel" style="grid-column:2;grid-row:2">
+  <div class="panel-title">Indonesia Market Position</div>
+
+  <div class="highlight-box">
+    <div class="hl-num">$32.9B</div>
+    <div class="hl-lbl">FY2024 GoTo Group GTV (Full Year · Rp 519.8T · <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">FY2024 Results ↗</a>)</div>
+  </div>
+
+  <div style="font-size:9px;font-weight:700;color:#8a9ab8;text-transform:uppercase;letter-spacing:1px;margin-top:4px;margin-bottom:6px">Indonesia Ride-Hailing Market — Estimated Share</div>
+  <div class="bar-row">
+    <div class="bar-label" style="color:#00aa44;font-weight:700">GoTo (Gojek)</div>
+    <div class="bar-track"><div class="bar-fill" style="width:54%;background:linear-gradient(90deg,#00aa44,#00cc66)"></div></div>
+    <div class="bar-val" style="color:#00aa44">~54%</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Grab</div>
+    <div class="bar-track"><div class="bar-fill" style="width:38%;background:linear-gradient(90deg,#00cc44,#44ee66)"></div></div>
+    <div class="bar-val">~38%</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">InDriver / Others</div>
+    <div class="bar-track"><div class="bar-fill" style="width:8%;background:linear-gradient(90deg,#9aaabb,#b0bcc8)"></div></div>
+    <div class="bar-val">~8%</div>
+  </div>
+  <div style="font-size:8px;color:#9aaabb;margin-top:-2px;margin-bottom:4px">Bottoms-up estimate from <a href="https://pitchbook.com/profiles/company/537358-87" target="_blank" style="color:#0055cc;">PitchBook</a> context + GTV reporting. No published IDC share breakdown available. Estimates only.</div>
+
+  <div style="font-size:9px;font-weight:700;color:#8a9ab8;text-transform:uppercase;letter-spacing:1px;margin-top:4px;margin-bottom:6px">Indonesia Digital Payments Market — Estimated Share</div>
+  <div class="bar-row">
+    <div class="bar-label">OVO (Grab-linked)</div>
+    <div class="bar-track"><div class="bar-fill" style="width:30%;background:linear-gradient(90deg,#7722cc,#9944ee)"></div></div>
+    <div class="bar-val">~30%</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label" style="color:#0066cc;font-weight:700">GoPay (GoTo)</div>
+    <div class="bar-track"><div class="bar-fill" style="width:28%;background:linear-gradient(90deg,#0066cc,#2288ff)"></div></div>
+    <div class="bar-val" style="color:#0066cc">~28%</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">DANA</div>
+    <div class="bar-track"><div class="bar-fill" style="width:22%;background:linear-gradient(90deg,#0099aa,#00bbcc)"></div></div>
+    <div class="bar-val">~22%</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">ShopeePay</div>
+    <div class="bar-track"><div class="bar-fill" style="width:15%;background:linear-gradient(90deg,#ee5500,#ff7700)"></div></div>
+    <div class="bar-val">~15%</div>
+  </div>
+  <div style="font-size:8px;color:#9aaabb;margin-top:-2px;margin-bottom:4px">Bottoms-up estimate — no public Bank Indonesia breakdown. Labeled as estimated share of digital wallet transactions. All figures approximate.</div>
+
+  <div style="background:#f0f4ff;border:1px solid rgba(0,60,200,0.12);border-radius:7px;padding:9px 12px;margin-top:4px">
+    <div style="font-size:9px;font-weight:700;color:#0044cc;margin-bottom:4px">Indonesia Digital Economy Context</div>
+    <div style="font-size:9px;color:#4466aa;line-height:1.45">Indonesia is SEA's largest digital economy. <a href="https://www.aseanbriefing.com/news/tokopedia-and-gojek-merger-creates-indonesias-largest-digital-services-company/" target="_blank" style="color:#0055cc;">Internet users: 170M+</a>, mobile-first population. GoTo contributes ~2% of GDP (~$26B annual impact per World Bank). 61.1M annual transacting users = ~30% of Indonesia's adult population. 2M+ driver-partners; 14M merchant ecosystem.</div>
+  </div>
+</div>
+
+<!-- ─── PANEL E: Competitors ─── -->
+<div class="panel" style="grid-column:3;grid-row:2">
+  <div class="panel-title">Competitor Landscape</div>
+
+  <div style="display:flex;flex-direction:column;gap:7px">
+    <div class="comp-card">
+      <div class="comp-icon" style="background:#00cc44">GB</div>
+      <div class="comp-right">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div><div class="comp-name">Grab Holdings (NASDAQ: GRAB)</div>
+          <div class="comp-desc">SEA super-app. Ride-hailing, food, fintech. Singapore HQ. ~$1.9B revenue FY2024. Strong in Philippines, Malaysia, Thailand, Vietnam. <a href="https://www.cnbc.com/2021/05/17/goto-indonesia-internet-start-ups-gojektokopedia-announce-merger.html" target="_blank" style="color:#0055cc;">Arch-rival since 2021</a></div></div>
+          <span class="badge badge-high" style="flex-shrink:0;margin-left:8px">High</span>
+        </div>
+        <div class="badge-row"><span class="badge badge-type">Super-App</span><span class="badge badge-cloud">Cloud: AWS</span></div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-icon" style="background:#ee5500">SE</div>
+      <div class="comp-right">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div><div class="comp-name">Sea Group / Shopee (NYSE: SE)</div>
+          <div class="comp-desc">E-commerce (Shopee) + ShopeePay + SeaMoney. Indonesia is Sea's #1 market. Competes on e-commerce and digital payments. <a href="https://agfundernews.com/gojek-tokopedia-confirm-18bn-merger-to-form-goto" target="_blank" style="color:#0055cc;">Direct e-comm rival</a></div></div>
+          <span class="badge badge-high" style="flex-shrink:0;margin-left:8px">High</span>
+        </div>
+        <div class="badge-row"><span class="badge badge-type">E-Commerce + Fintech</span><span class="badge badge-cloud">Cloud: AWS + GCP</span></div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-icon" style="background:#0044aa">TK</div>
+      <div class="comp-right">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div><div class="comp-name">TikTok Shop / Tokopedia JV</div>
+          <div class="comp-desc">ByteDance owns 75.01% of GoTo's former crown jewel. GoFood + GoTo Financial integrated inside TikTok app — partnership AND competition simultaneously. <a href="https://thelowdown.momentum.asia/winners-and-losers-of-the-tiktok-goto-deal/" target="_blank" style="color:#0055cc;">Complex relationship</a></div></div>
+          <span class="badge badge-med" style="flex-shrink:0;margin-left:8px">Medium</span>
+        </div>
+        <div class="badge-row"><span class="badge badge-type">E-Commerce + Social</span><span class="badge badge-cloud">Cloud: Alibaba</span></div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-icon" style="background:#7722cc">OV</div>
+      <div class="comp-right">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div><div class="comp-name">OVO (Grab / Lippo)</div>
+          <div class="comp-desc">Indonesia's leading e-wallet by some estimates. Backed by Grab + Lippo Group. Strong merchant network. Competes directly with GoPay for everyday consumer payments and BNPL offerings.</div></div>
+          <span class="badge badge-med" style="flex-shrink:0;margin-left:8px">Medium</span>
+        </div>
+        <div class="badge-row"><span class="badge badge-type">Fintech / E-Wallet</span><span class="badge badge-cloud">Cloud: AWS</span></div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-icon" style="background:#0099aa">DN</div>
+      <div class="comp-right">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div><div class="comp-name">DANA (Ant Group / Emtek)</div>
+          <div class="comp-desc">Alibaba-backed e-wallet. Strong in QR code payments, merchant ecosystem. Notable: Alibaba is simultaneously a GoTo shareholder and cloud partner — indirect competitive dynamic.</div></div>
+          <span class="badge badge-med" style="flex-shrink:0;margin-left:8px">Medium</span>
+        </div>
+        <div class="badge-row"><span class="badge badge-type">Fintech / E-Wallet</span><span class="badge badge-cloud">Cloud: Alibaba</span></div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-icon" style="background:#cc0055">IN</div>
+      <div class="comp-right">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div><div class="comp-name">InDriver / Maxim</div>
+          <div class="comp-desc">Low-cost ride-hailing challengers targeting price-sensitive segments. InDriver's "bid-your-own-price" model gaining traction in second-tier Indonesian cities. Limited fintech / delivery integration vs GoTo ecosystem.</div></div>
+          <span class="badge badge-low" style="flex-shrink:0;margin-left:8px">Low</span>
+        </div>
+        <div class="badge-row"><span class="badge badge-type">Ride-Hailing</span><span class="badge badge-cloud">Cloud: AWS</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── PANEL F: Outlook ─── -->
+<div class="panel" style="grid-column:4;grid-row:2">
+  <div class="panel-title">2025–2026 Strategic Outlook</div>
+
+  <div class="outlook-card" style="border-left:3px solid #44aa77">
+    <div class="outlook-title" style="color:#006633">Profitability Inflection — EBITDA Ramp Ahead</div>
+    <div class="outlook-body"><a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">FY2025 guidance: Rp 1.4–1.6T adj. EBITDA</a> ($89–101M) — 4x FY2024. Q1+Q2 2025 already positive. FinTech targets ≥Rp 350B EBITDA contribution alone. This signals durable, not one-off, profitability shift.</div>
+  </div>
+
+  <div class="outlook-card" style="border-left:3px solid #44aa77">
+    <div class="outlook-title" style="color:#006633">Lending Business: Fastest Growth Engine</div>
+    <div class="outlook-body">Consumer loan book grew 172% YoY in Q4 2024. <a href="https://www.gotocompany.com/en/news/press/goto-group-achieves-record-profitability-and-strong-growth-as-it-reports-2025-first-quarter-earnings" target="_blank" style="color:#0055cc;">Target: loan book exceeds Rp 8T by end 2025</a>. Only ~few % of GoTo ecosystem users currently have loans — massive headroom. Ecosystem data (ride, food, payment history) provides proprietary credit scoring advantage over banks.</div>
+  </div>
+
+  <div class="outlook-card" style="border-left:3px solid #44aa77">
+    <div class="outlook-title" style="color:#006633">Cloud Migration → 50% Cost Reduction</div>
+    <div class="outlook-body"><a href="https://www.investing.com/news/company-news/goto-q2-2025-presentation-achieves-profitability-milestone-with-23-revenue-growth-93CH-4187897" target="_blank" style="color:#0055cc;">Migration to Tencent + Alibaba Cloud completed by mid-2025</a>, delivering 50% reduction in annual cloud spend while improving reliability. Fixed cost base now structurally lower, directly amplifying EBITDA margin expansion at scale.</div>
+  </div>
+
+  <div class="outlook-card" style="border-left:3px solid #dd6600">
+    <div class="outlook-title" style="color:#995500">Competition Intensifying in On-Demand</div>
+    <div class="outlook-body">Grab investing aggressively in Indonesia. TikTok piloting local services (food delivery) that could compete with GoFood on the same TikTok app where GoTo has its own GoFood integration. <a href="https://finance.yahoo.com/news/pt-goto-gojek-tokopedia-tbk-070302337.html" target="_blank" style="color:#0055cc;">Management acknowledges</a> "intense battle for the Indonesian consumer."</div>
+  </div>
+
+  <div class="outlook-card" style="border-left:3px solid #dd6600">
+    <div class="outlook-title" style="color:#995500">Tokopedia Stake Dilution Risk</div>
+    <div class="outlook-body">GoTo holds only 24.99% of Tokopedia — a business it built from scratch. The TikTok partnership provides e-commerce service fees but limits GoTo's ability to control strategy. If TikTok increases its stake further, GoTo loses the fee stream entirely. Over-dependence on one partner's goodwill is structural risk.</div>
+  </div>
+
+  <div class="outlook-card" style="border-left:3px solid #cc2222">
+    <div class="outlook-title" style="color:#aa1111">China Cloud Dependency — Geopolitical Risk</div>
+    <div class="outlook-body">Both primary cloud contracts (Tencent + Alibaba) are with Chinese companies. Alibaba and Tencent are also equity investors. In a scenario involving US/Western geopolitical pressure on Chinese tech in SEA, GoTo's entire cloud stack — and its investor base — faces correlated risk. Data sovereignty (all data now onshore in Indonesia) partially mitigates this.</div>
+  </div>
+
+  <div class="outlook-card" style="border-left:3px solid #9aaabb">
+    <div class="outlook-title" style="color:#4a5a78">Sahabat AI — Long-Term Differentiation</div>
+    <div class="outlook-body">GoTo's <a href="https://www.investing.com/news/company-news/goto-q2-2025-presentation-achieves-profitability-milestone-with-23-revenue-growth-93CH-4187897" target="_blank" style="color:#0055cc;">70B-parameter Sahabat AI LLM</a> positions GoTo as Indonesia's homegrown AI company. Multilinguality in Bahasa Indonesia + regional languages is a real moat vs OpenAI/Google. Risk: building LLMs is expensive and the AI landscape moves fast.</div>
+  </div>
+</div>
+
+<!-- ══════════ CLOUD SECTION ══════════ -->
+<div class="fw-section">
+  <div class="fw-header">
+    <div class="fw-icon" style="background:linear-gradient(135deg,#0066ff,#0044cc)">☁</div>
+    <div>
+      <div class="fw-title">Cloud Infrastructure — GoTo's Landmark Migration to Tencent & Alibaba Cloud</div>
+      <div class="fw-sub">Largest cloud migration in SEA history · 5-year contracts signed Sep 2024 · Onshore Indonesia data sovereignty · Completed Q2 2025</div>
+    </div>
+    <div class="fw-badges">
+      <span class="tag tag-blue">Tencent Cloud — Gojek ODS</span>
+      <span class="tag tag-orange">Alibaba Cloud — GoTo Financial</span>
+      <span class="tag tag-green">50% Cloud Cost Reduction Achieved</span>
+      <span class="tag tag-yellow">Bottoms-up Estimate — No IDC/Canalys Indonesia Breakdown</span>
+    </div>
+  </div>
+
+  <div class="cloud-inner">
+    <!-- COL 1 -->
+    <div class="cloud-col">
+      <div class="section-label">Indonesia Tech Platform Cloud Map</div>
+      <div class="pt-header"><div class="pt-hcell">Platform</div><div class="pt-hcell">Primary / Secondary Cloud</div><div class="pt-hcell">TCloud %</div></div>
+
+      <div class="pt-row" style="background:rgba(0,170,80,0.04);border-color:rgba(0,170,80,0.15)">
+        <div class="pt-plat"><div class="pt-icon" style="background:#00aa55">GJ</div><div><div class="pt-name">GoTo — Gojek ODS</div><div class="pt-type">Ride-hailing / Food / Logistics</div></div></div>
+        <div><div class="pt-prim">Tencent Cloud (Primary)</div><div class="pt-sec"><a href="https://www.datacenterdynamics.com/en/news/goto-group-signs-five-year-cloud-deals-with-tencent-and-alibaba-cloud/" target="_blank" style="color:#0055cc;">5-yr contract Sep 2024</a> · 1,000+ microservices migrated · Onshore Jakarta DCs</div></div>
+        <div class="pt-pct-hi">~100%</div>
+      </div>
+
+      <div class="pt-row" style="background:rgba(0,170,80,0.04);border-color:rgba(0,170,80,0.15)">
+        <div class="pt-plat"><div class="pt-icon" style="background:#0066cc">GP</div><div><div class="pt-name">GoTo Financial / GoPay</div><div class="pt-type">Fintech · Payments · Lending</div></div></div>
+        <div><div class="pt-prim">Alibaba Cloud (Primary)</div><div class="pt-sec"><a href="https://www.computerweekly.com/news/366626981/How-GoTos-high-stakes-cloud-shift-is-powering-Its-AI-future" target="_blank" style="color:#0055cc;">9,000 services, tens of PB data</a> · MaxCompute + PolarDB · Zero downtime migration</div></div>
+        <div class="pt-na">—</div>
+      </div>
+
+      <div class="pt-row">
+        <div class="pt-plat"><div class="pt-icon" style="background:#00cc44">GB</div><div><div class="pt-name">Grab (Indonesia)</div><div class="pt-type">Super-App · Ride + Fintech</div></div></div>
+        <div><div class="pt-prim">AWS (Primary) · GCP (Secondary)</div><div class="pt-sec">No confirmed contract change. AWS case studies reference Grab across SEA for core infra</div></div>
+        <div class="pt-na">N/A</div>
+      </div>
+
+      <div class="pt-row">
+        <div class="pt-plat"><div class="pt-icon" style="background:#ee5500">SE</div><div><div class="pt-name">Shopee / Sea Group</div><div class="pt-type">E-Commerce · ShopeePay</div></div></div>
+        <div><div class="pt-prim">AWS (Primary) · Alibaba Cloud</div><div class="pt-sec">Sea Group uses AWS globally; Alibaba Cloud for some APAC workloads historically</div></div>
+        <div class="pt-na">N/A</div>
+      </div>
+
+      <div class="pt-row">
+        <div class="pt-plat"><div class="pt-icon" style="background:#7722cc">OV</div><div><div class="pt-name">OVO (Grab / Lippo)</div><div class="pt-type">Fintech · E-Wallet</div></div></div>
+        <div><div class="pt-prim">AWS (Primary)</div><div class="pt-sec">No public alternative cloud announcement. Operates under Grab's wider AWS relationship</div></div>
+        <div class="pt-na">N/A</div>
+      </div>
+
+      <div class="pt-row">
+        <div class="pt-plat"><div class="pt-icon" style="background:#0099aa">DN</div><div><div class="pt-name">DANA (Ant Group)</div><div class="pt-type">Fintech · E-Wallet</div></div></div>
+        <div><div class="pt-prim">Alibaba Cloud (Primary)</div><div class="pt-sec">Ant Group / Alibaba investment implies Alibaba Cloud preference; no public announcement confirming workload %</div></div>
+        <div class="pt-na">N/A</div>
+      </div>
+    </div>
+
+    <!-- COL 2 -->
+    <div class="cloud-col">
+      <div class="section-label">Indonesia Cloud Market — Provider Share Estimate</div>
+      <div class="method-box">
+        <div class="method-title">📐 Methodology — How These Ranges Were Derived</div>
+        <div class="method-body">
+          <strong>Step 1 — Platform→Cloud Mapping:</strong> Confirmed via press releases, Data Center Dynamics, Computer Weekly, GoTo official announcements (Sep–Nov 2024). GoTo Gojek = Tencent; GoTo Financial = Alibaba; Grab/OVO = AWS; DANA = Alibaba; Shopee = AWS confirmed.<br><br>
+          <strong>Step 2 — Workload Weight:</strong> GoTo = ~40% of Indonesia hyperscaler cloud spend (largest digital co). Grab ~20%. Shopee/Sea ~15%. DANA, OVO, others ~25%. Based on GTV, MTU, and revenue footprint ratios.<br><br>
+          <strong>Step 3 — Cross-Multiply:</strong> GoTo: 40% weight × 50% Tencent + 50% Alibaba. Grab: 20% × 100% AWS. Shopee: 15% × 70% AWS + 30% Alibaba. Others: 25% across AWS/Azure/GCP.<br><br>
+          ⚠ These are bottoms-up internal estimates. No IDC, Canalys, or Gartner report covers Indonesia cloud spend at this granularity. All figures labeled as estimates only.
+        </div>
+      </div>
+
+      <div class="cbe cbe-focus">
+        <div class="cbe-hdr">
+          <div class="cbe-left"><div class="cbe-dot" style="background:#0044cc"></div><div><div class="cbe-name" style="color:#0044cc">Tencent Cloud</div><div class="cbe-clients" style="color:#4466aa">GoTo Gojek (ODS) — entire on-demand workload · 2 Jakarta DCs + 3rd planned</div></div></div>
+          <div class="cbe-range" style="color:#0044cc">~18–24%</div>
+        </div>
+        <div class="cbe-track"><div class="cbe-fill" style="width:21%;background:linear-gradient(90deg,#0044cc,#2266ff)"></div></div>
+        <div class="cbe-desc" style="color:#4466aa">Largest single-platform win in SEA cloud history. ~100% of Gojek ODS workloads. Onshore Jakarta servers per data sovereignty requirement. <a href="https://www.prnewswire.com/apac/news-releases/tencent-cloud-and-goto-complete-groundbreaking-migration-of-gotos-on-demand-services-302473962.html" target="_blank" style="color:#0055cc;">Migration complete Jun 2025 ↗</a></div>
+      </div>
+
+      <div class="cbe">
+        <div class="cbe-hdr">
+          <div class="cbe-left"><div class="cbe-dot" style="background:#ff6600"></div><div><div class="cbe-name">Alibaba Cloud</div><div class="cbe-clients">GoTo Financial (50% of all GoTo infra) + DANA + parts of Shopee SEA</div></div></div>
+          <div class="cbe-range" style="color:#ff6600">~24–30%</div>
+        </div>
+        <div class="cbe-track"><div class="cbe-fill" style="width:27%;background:linear-gradient(90deg,#ff6600,#ff9944)"></div></div>
+        <div class="cbe-desc">GoTo Financial is Indonesia's largest cloud financial workload. 9,000 services migrated. Alibaba is also equity investor in GoTo.</div>
+      </div>
+
+      <div class="cbe">
+        <div class="cbe-hdr">
+          <div class="cbe-left"><div class="cbe-dot" style="background:#ff9900"></div><div><div class="cbe-name">AWS</div><div class="cbe-clients">Grab, OVO, Shopee (partial), enterprise/mid-market Indonesia</div></div></div>
+          <div class="cbe-range" style="color:#ff9900">~28–35%</div>
+        </div>
+        <div class="cbe-track"><div class="cbe-fill" style="width:31%;background:linear-gradient(90deg,#ff9900,#ffbb44)"></div></div>
+        <div class="cbe-desc">Lost GoTo as client Sep 2024 after GoTo chose Tencent + Alibaba. Remains dominant for Grab, OVO, many enterprise clients. GoTo CEO confirmed AWS was invited to bid but lost. Largest remaining share due to long-tail enterprise market.</div>
+      </div>
+
+      <div class="cbe">
+        <div class="cbe-hdr">
+          <div class="cbe-left"><div class="cbe-dot" style="background:#4285f4"></div><div><div class="cbe-name">Google Cloud</div><div class="cbe-clients">GoTo AI partnership (Dira), startups, media, AI-native workloads</div></div></div>
+          <div class="cbe-range" style="color:#4285f4">~8–14%</div>
+        </div>
+        <div class="cbe-track"><div class="cbe-fill" style="width:11%;background:linear-gradient(90deg,#4285f4,#66aaff)"></div></div>
+        <div class="cbe-desc">Lost GoTo core infra to Tencent/Alibaba but retained AI partnership for Dira voice assistant. Growing with AI-native startups. <a href="https://www.computerweekly.com/news/366626981/How-GoTos-high-stakes-cloud-shift-is-powering-Its-AI-future" target="_blank" style="color:#0055cc;">Sep 2024 gen-AI deal ↗</a></div>
+      </div>
+
+      <div class="cbe">
+        <div class="cbe-hdr">
+          <div class="cbe-left"><div class="cbe-dot" style="background:#0066ff"></div><div><div class="cbe-name">Microsoft Azure</div><div class="cbe-clients">Enterprise, government, financial institutions</div></div></div>
+          <div class="cbe-range" style="color:#0066ff">~6–10%</div>
+        </div>
+        <div class="cbe-track"><div class="cbe-fill" style="width:8%;background:linear-gradient(90deg,#0066ff,#4488ff)"></div></div>
+        <div class="cbe-desc">Enterprise focus in Indonesia. M365 adjacency drives adoption among corporates. Limited presence in consumer tech platforms.</div>
+      </div>
+
+      <div class="refs-box">
+        <div class="refs-title">References & Sources</div>
+        <div class="ref-item">¹ GoTo Tencent + Alibaba 5-yr contracts: <a href="https://www.datacenterdynamics.com/en/news/goto-group-signs-five-year-cloud-deals-with-tencent-and-alibaba-cloud/" target="_blank" style="color:#0055cc;">Data Center Dynamics Sep 2024 ↗</a></div>
+        <div class="ref-item">² Alibaba Cloud migration details (9,000 services, zero downtime): <a href="https://www.computerweekly.com/news/366626981/How-GoTos-high-stakes-cloud-shift-is-powering-Its-AI-future" target="_blank" style="color:#0055cc;">Computer Weekly ↗</a></div>
+        <div class="ref-item">³ Tencent Cloud migration completion Jun 2025: <a href="https://www.prnewswire.com/apac/news-releases/tencent-cloud-and-goto-complete-groundbreaking-migration-of-gotos-on-demand-services-302473962.html" target="_blank" style="color:#0055cc;">PR Newswire ↗</a></div>
+        <div class="ref-item">⁴ GoTo CEO on bidding: AWS + Google invited but lost: <a href="https://longportapp.com/en/news/244360129" target="_blank" style="color:#0055cc;">LongPort/Wall Street Insight ↗</a></div>
+        <div class="ref-item">⁵ GoTo + Tencent Cloud + Alibaba Cloud government ceremony (witnessed by President Prabowo): <a href="https://www.gotocompany.com/en/news/press/goto-group-tencent-cloud-and-alibaba-cloud-sign-agreement-to-boost-cloud-infrastructure-and-nurture-local-digital-talent-in-indonesia" target="_blank" style="color:#0055cc;">GoTo Press Release Nov 2024 ↗</a></div>
+        <div class="ref-item">⁶ 50% cloud cost reduction: <a href="https://www.investing.com/news/company-news/goto-q2-2025-presentation-achieves-profitability-milestone-with-23-revenue-growth-93CH-4187897" target="_blank" style="color:#0055cc;">GoTo Q2 2025 Results ↗</a></div>
+      </div>
+    </div>
+
+    <!-- COL 3 -->
+    <div class="cloud-col">
+      <div class="section-label">Tencent Cloud — GoTo Opportunity Analysis</div>
+
+      <div style="font-size:9px;font-weight:700;color:#0044cc;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px">✓ Current Wins</div>
+      <div class="opp-card">
+        <div class="opp-title">Gojek On-Demand Services — 100% Workload</div>
+        <div class="opp-body">Tencent Cloud now runs all of Gojek's ride-hailing, food delivery, logistics, and messenger services. 1,000+ microservices. Jakarta onshore DCs. This is the <a href="https://longportapp.com/en/news/244360129" target="_blank" style="color:#0055cc;">largest single cloud migration in SEA history</a> — confirmed publicly by both Tencent and GoTo leadership.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-title">Indonesia Sovereign Cloud — Data Onshoring</div>
+        <div class="opp-body"><a href="https://technode.global/2024/11/12/goto-tencent-cloud-and-alibaba-cloud-team-up-to-boost-cloud-infrastructure-in-indonesia/" target="_blank" style="color:#0055cc;">All GoTo data now onshore in Indonesia</a>, aligned with government's data sovereignty requirements. Tencent committed ~$500M investment by 2030 in Indonesia infra. Third IDC in Jakarta in planning — witnessed by President Prabowo Subianto.</div>
+      </div>
+
+      <div style="font-size:9px;font-weight:700;color:#aa6600;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;margin-top:10px">↗ Growth Opportunities</div>
+      <div class="opp-card opp-card-or">
+        <div class="opp-title opp-title-or">Expand from ODS → GoTo Financial Workloads</div>
+        <div class="opp-body opp-body" style="color:#775500">Currently Alibaba Cloud handles GoTo Financial (50% of all GoTo infra). As GoTo's lending book grows to Rp 8T+ by end 2025 and FinTech becomes the #1 profit driver, Tencent Cloud has opportunity to propose integrated financial AI services and expand its footprint into GoTo's banking/lending stack.</div>
+      </div>
+      <div class="opp-card opp-card-or">
+        <div class="opp-title opp-title-or">Sahabat AI — LLM Training Infrastructure</div>
+        <div class="opp-body" style="color:#775500"><a href="https://www.investing.com/news/company-news/goto-q2-2025-presentation-achieves-profitability-milestone-with-23-revenue-growth-93CH-4187897" target="_blank" style="color:#0055cc;">Sahabat AI (70B+ parameter LLM)</a> requires massive training compute. As GoTo develops more AI products on its own model, Tencent Cloud's GPU infrastructure in Jakarta positions it to capture these training and inference workloads vs hyperscalers.</div>
+      </div>
+      <div class="opp-card opp-card-or">
+        <div class="opp-title opp-title-or">Indonesia Reference Case → SEA Replication</div>
+        <div class="opp-body" style="color:#775500">GoTo is the most publicly prominent cloud client in SEA. Tencent Cloud SVP Jimmy Chen confirmed: <em>"GoTo migration is a milestone that will attract more attention to Tencent Cloud"</em> across entire overseas market. Success here unlocks deals with Grab rivals, regional super-apps.</div>
+      </div>
+
+      <div style="background:rgba(0,60,200,0.05);border:1px solid rgba(0,60,200,0.15);border-radius:8px;padding:10px 12px;margin-top:10px">
+        <div style="font-size:9px;font-weight:700;color:#0044cc;margin-bottom:6px">🇮🇩 Indonesia Cloud Footprint — Tencent</div>
+        <div class="fp-grid">
+          <div class="fp-cell"><div class="fp-val">2+1</div><div class="fp-lbl">Current + Planned Jakarta DCs</div></div>
+          <div class="fp-cell"><div class="fp-val">$500M</div><div class="fp-lbl">Committed Indonesia Invest. by 2030</div></div>
+          <div class="fp-cell"><div class="fp-val">5 yr</div><div class="fp-lbl">GoTo Contract Duration</div></div>
+          <div class="fp-cell"><div class="fp-val">1,000+</div><div class="fp-lbl">Microservices Migrated (Gojek)</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ FINANCIALS ══════════ -->
+<div class="fw-section">
+  <div class="fw-header">
+    <div class="fw-icon" style="background:linear-gradient(135deg,#00aa55,#006633)">💰</div>
+    <div>
+      <div class="fw-title">Platform Financials & Estimated IT Spend</div>
+      <div class="fw-sub">Source: IDX: GOTO filings, GoTo FY2024 press release (Mar 12 2025), IDNFinancials · 8% COGS rule applied where not disclosed · FY2024 · All figures in USD · Avg IDR 15,800/$ (FY2024)</div>
+    </div>
+    <div class="fw-badges"><span class="tag tag-blue">IDX: GOTO Listed</span><span class="tag tag-yellow">8% COGS Rule Applied</span><span class="tag tag-green">All Values in USD</span></div>
+  </div>
+
+  <div class="fin-inner">
+    <!-- Card 1: GoTo GOTO -->
+    <div class="fin-card">
+      <div class="fin-hdr">
+        <div class="fin-ticker">IDX: GOTO</div>
+        <div class="fin-co-name">PT GoTo Gojek Tokopedia Tbk</div>
+        <div class="fin-co-sub">Primary listed entity · Indonesia Stock Exchange · FY2024 Full Year</div>
+      </div>
+      <div class="fin-metrics">
+        <div class="fm-box">
+          <div class="fm-lbl">Gross Revenue (FY2024)</div>
+          <div class="fm-val"><strong>$1.15B</strong></div>
+          <div class="fm-note" style="font-size:8px;color:#9aaabb">(IDR 18.1T · IDR 15,800/$) (confirmed +30% YoY) · <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">source ↗</a></div>
+        </div>
+        <div class="fm-box">
+          <div class="fm-lbl">Net Revenue (FY2024)</div>
+          <div class="fm-val"><strong>$1.01B</strong></div>
+          <div class="fm-note">(IDR 15.89T · IDR 15,800/$) (confirmed +7.5% YoY) · <a href="https://www.idnfinancials.com/news/53102/gotos-losses-shrink-down-by-94-29" target="_blank" style="color:#0055cc;">source ↗</a></div>
+        </div>
+        <div class="fm-box">
+          <div class="fm-lbl">Net Loss (FY2024)</div>
+          <div class="fm-val" style="color:#cc2222"><strong>-$326M</strong></div>
+          <div class="fm-note">(IDR 5.15T · IDR 15,800/$) (confirmed · ↓94% from -$5.7B in 2023) · <a href="https://www.idnfinancials.com/news/53116/goto-estimates-ebitda-to-reach-idr-1-4-trillion-in-2025" target="_blank" style="color:#0055cc;">source ↗</a></div>
+        </div>
+        <div class="fm-box fm-box-blue">
+          <div class="fm-lbl">Adj. EBITDA (FY2024)</div>
+          <div class="fm-val" style="color:#0044cc"><strong>+$24M</strong></div>
+          <div class="fm-note">(IDR 386B · IDR 15,800/$) (confirmed — first-ever positive) · <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">source ↗</a></div>
+        </div>
+      </div>
+      <div class="fin-margin-row">
+        <span class="mpill">Gross Rev ↑30% YoY</span>
+        <span class="mpill">Core GTV ↑58% FY</span>
+        <span class="mpill-or">Net Loss: -$326M</span>
+        <span class="mpill-red">Op. Loss: -$152M</span>
+      </div>
+      <div class="fin-access">
+        <div class="fa-title">Annual Report Access</div>
+        <div class="fa-body">
+          IDX filing: <a href="https://www.idx.co.id/en/listed-companies/company-information/" target="_blank" style="color:#0055cc;">idx.co.id → search GOTO ↗</a><br>
+          GoTo IR page: <a href="https://www.gotocompany.com/en/investors" target="_blank" style="color:#0055cc;">gotocompany.com/investors ↗</a><br>
+          FY2024 press release (Mar 12 2025): <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">GoTo Q4+FY2024 ↗</a><br>
+          In PDF: Search "Pendapatan" (Revenue) · "Beban" (Costs) · "Teknologi Informasi" (IT)
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Segment breakdown -->
+    <div class="fin-card fin-card-or">
+      <div class="fin-hdr fin-hdr-or">
+        <div class="fin-ticker">SEGMENT DATA</div>
+        <div class="fin-co-name">Revenue Breakdown by Business Unit (FY2024)</div>
+        <div class="fin-co-sub">On-Demand Services · GoTo Financial · E-Commerce (Service Fee) · <a href="https://www.idnfinancials.com/news/53102/gotos-losses-shrink-down-by-94-29" target="_blank" style="color:rgba(255,255,255,0.8)">IDNFinancials source ↗</a></div>
+      </div>
+      <div class="fin-metrics">
+        <div class="fm-box">
+          <div class="fm-lbl">Service Fee (ODS) Revenue</div>
+          <div class="fm-val"><strong>$367M</strong></div>
+          <div class="fm-note">(IDR 5.80T) (confirmed · ↓33% YoY from e-comm deconsolidation) · Ride, food, delivery fees</div>
+        </div>
+        <div class="fm-box">
+          <div class="fm-lbl">Delivery Services Revenue</div>
+          <div class="fm-val"><strong>$338M</strong></div>
+          <div class="fm-note">(IDR 5.34T) (confirmed · ↑151% YoY) · <a href="https://www.idnfinancials.com/news/53102/gotos-losses-shrink-down-by-94-29" target="_blank" style="color:#0055cc;">source ↗</a> · New major revenue line</div>
+        </div>
+        <div class="fm-box">
+          <div class="fm-lbl">Lending Revenue</div>
+          <div class="fm-val"><strong>$122M</strong></div>
+          <div class="fm-note">(IDR 1.93T) (confirmed · ↑373% YoY) · Fastest-growing segment. Loan book Rp 5.1T at year-end</div>
+        </div>
+        <div class="fm-box fm-box-or">
+          <div class="fm-lbl">Est. IT Spend (8% COGS proxy)</div>
+          <div class="fm-val" style="color:#cc5500"><strong>~$55–70M</strong></div>
+          <div class="fm-note">(estimated · 8% of COGS basis) 50% cloud cost reduction in 2025 means actual 2025 IT spend will be materially lower. FY2024 pre-migration rates.</div>
+        </div>
+      </div>
+      <div class="fin-margin-row">
+        <span class="mpill">Lending: ↑373% YoY</span>
+        <span class="mpill">Delivery: ↑151% YoY</span>
+        <span class="mpill-or">E-Comm Fee ~$39M</span>
+      </div>
+      <div class="fin-access" style="background:#fff7f0;border-color:rgba(200,90,0,0.15)">
+        <div class="fa-title" style="color:#995500">Segment Note</div>
+        <div class="fa-body" style="color:#995500">GoTo deconsolidated Tokopedia from Jan 2024. All 2024 segment comparisons are pro-forma. Advertising revenue ↑92% YoY; Merchant Promoted Spend ↑190% YoY. E-commerce Service Fee segment is new line in 2024 ($39M from Tokopedia service agreement). <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#cc5500;">Full details in FY2024 press release ↗</a></div>
+      </div>
+    </div>
+
+    <!-- Card 3: Competitors -->
+    <div class="fin-card fin-card-dk">
+      <div class="fin-hdr fin-hdr-dk">
+        <div class="fin-ticker">COMPARABLE / COMPETITOR</div>
+        <div class="fin-co-name">Key Competitor Financials (Global USD)</div>
+        <div class="fin-co-sub">Grab (NASDAQ: GRAB) · Sea Group (NYSE: SE) · GoTo context</div>
+      </div>
+      <div class="fin-metrics">
+        <div class="fm-box">
+          <div class="fm-lbl">Grab FY2024 Revenue</div>
+          <div class="fm-val"><strong>~$2.8B</strong></div>
+          <div class="fm-note">(estimated from Q4+FY24 disclosures) Grab is ~2.4x GoTo's gross revenue. Profitable on adj. EBITDA. Stronger SEA-wide presence. <a href="https://pitchbook.com/profiles/company/537358-87" target="_blank" style="color:#0055cc;">PitchBook ↗</a></div>
+        </div>
+        <div class="fm-box">
+          <div class="fm-lbl">Sea Group FY2024 Revenue</div>
+          <div class="fm-val"><strong>$16.8B</strong></div>
+          <div class="fm-note">(confirmed) Net income $448M. Shopee dominant in Indonesia e-comm. <a href="https://pitchbook.com/profiles/company/537358-87" target="_blank" style="color:#0055cc;">Scale dwarfs GoTo ↗</a></div>
+        </div>
+        <div class="fm-box">
+          <div class="fm-lbl">GoTo Market Cap (2025)</div>
+          <div class="fm-val"><strong>~$3.76B</strong></div>
+          <div class="fm-note">(confirmed via <a href="https://pitchbook.com/profiles/company/537358-87" target="_blank" style="color:#0055cc;">PitchBook ↗</a>) vs Grab ~$17B. GoTo trading at deep discount despite profitability milestone. TTM revenue $1.08B.</div>
+        </div>
+        <div class="fm-box fm-box-blue" style="background:rgba(0,60,200,0.06)">
+          <div class="fm-lbl">GoTo Cash (Dec 31 2024)</div>
+          <div class="fm-val" style="color:#0044cc"><strong>$1.3B</strong></div>
+          <div class="fm-note">(IDR 21T · IDR 15,800/$) (confirmed) · <a href="https://finance.yahoo.com/news/pt-goto-gojek-tokopedia-tbk-070302337.html" target="_blank" style="color:#0055cc;">source ↗</a> · Strong runway. Share buyback: $200M authorized from Jun 2024.</div>
+        </div>
+      </div>
+      <div class="fin-margin-row">
+        <span class="mpill">Cash: $1.3B Runway</span>
+        <span class="mpill-or">vs Grab: -2.4x revenue gap</span>
+      </div>
+      <div class="fin-access" style="background:#f4f4f8;border-color:rgba(0,20,80,0.1)">
+        <div class="fa-title" style="color:#4a5a78">Filing Sources</div>
+        <div class="fa-body" style="color:#4a5a78">
+          GoTo IDX filings: <a href="https://www.idx.co.id" target="_blank" style="color:#0055cc;">idx.co.id/GOTO ↗</a> · IDNFinancials: <a href="https://www.idnfinancials.com/news/53102/gotos-losses-shrink-down-by-94-29" target="_blank" style="color:#0055cc;">idnfinancials.com ↗</a><br>
+          GoTo FY2024 full release: <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">gotocompany.com/press ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fsb-wrap">
+    <div style="font-size:9px;font-weight:700;color:#8a9ab8;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Comparative IT Spend Estimation (FY2024, USD)</div>
+    <div class="fsb-row">
+      <div class="fsb-name" style="color:#00aa44;font-weight:700">GoTo Group</div>
+      <div class="fsb-track"><div class="fsb-fill" style="width:40%;background:linear-gradient(90deg,#00aa44,#00cc66)"></div></div>
+      <div class="fsb-val">~$55–70M (est.)</div>
+      <div class="fsb-note" style="color:#9aaabb">8% COGS proxy. Pre-migration rate. 50% reduction in 2025 post-Tencent/Alibaba migration expected.</div>
+    </div>
+    <div class="fsb-row">
+      <div class="fsb-name">Grab Holdings</div>
+      <div class="fsb-track"><div class="fsb-fill" style="width:65%;background:linear-gradient(90deg,#00cc44,#44ee66)"></div></div>
+      <div class="fsb-val">~$120–150M (est.)</div>
+      <div class="fsb-note" style="color:#9aaabb">Larger revenue base, AWS multi-region SEA architecture. 8% COGS proxy estimate.</div>
+    </div>
+    <div class="fsb-row">
+      <div class="fsb-name">Sea / Shopee (Global)</div>
+      <div class="fsb-track"><div class="fsb-fill" style="width:90%;background:linear-gradient(90deg,#ee5500,#ff7700)"></div></div>
+      <div class="fsb-val">~$800M+ (est. global)</div>
+      <div class="fsb-note" style="color:#9aaabb">Sea Group at $16.8B revenue operates massive global infra. Indonesia portion not separately disclosed.</div>
+    </div>
+    <div class="fsb-footer">Note: IT spend estimated using 8% of COGS (Gartner benchmark for tech/platform companies) where not disclosed in annual filings. GoTo's actual 2025 IT spend will be materially lower following 50% cloud cost reduction from Tencent+Alibaba migration. All USD figures at avg IDR 15,800/$ (FY2024). To find actual IT spend in GoTo's annual report PDF, search "Teknologi Informasi" or "Infrastruktur Digital" (IT/Digital Infrastructure costs). <a href="https://www.idx.co.id/en/listed-companies/company-information/" target="_blank" style="color:#0055cc;">IDX GOTO filings ↗</a></div>
+  </div>
+</div>
+
+<!-- ══════════ NEWS ══════════ -->
+<div class="news-section">
+  <div class="news-hdr">
+    <div class="news-icon">📡</div>
+    <div>
+      <div class="news-title">News Key Findings — Intelligence Brief</div>
+      <div class="news-sub">Ranked signals Sep 2023–Mar 2026 · Sources: GoTo IR, Bloomberg, Reuters, DealStreet Asia, Jakarta Globe, IDNFinancials, Computer Weekly, Data Center Dynamics, TechNode Global</div>
+    </div>
+    <div class="news-hdr-r">
+      <span class="npill-blue">10 Signals Extracted</span>
+      <span style="background:rgba(0,160,80,0.2);color:#66dd99;border:1px solid rgba(0,160,80,0.3);font-size:10px;font-weight:700;padding:3px 12px;border-radius:20px">ACTIVE · Profitability Inflection</span>
+    </div>
+  </div>
+
+  <div class="kw-strip">
+    <span class="kw-label">Keyword Clusters Scanned →</span>
+    <span class="kw-b">GoTo Group</span><span class="kw-b">GOTO IDX</span><span class="kw-b">Gojek</span><span class="kw-b">GoPay fintech</span><span class="kw-b">GoTo Financial lending</span><span class="kw-b">Patrick Walujo</span>
+    <span class="kw-o">TikTok Tokopedia deal</span><span class="kw-o">GoTo net loss</span><span class="kw-o">Grab competition Indonesia</span><span class="kw-o">GoTo cloud migration</span>
+    <span class="kw-g">Tencent Cloud GoTo</span><span class="kw-g">Alibaba Cloud Indonesia</span><span class="kw-g">EBITDA breakeven 2024</span><span class="kw-g">Indonesia digital economy 2030</span>
+  </div>
+
+  <div class="news-inner">
+    <div class="news-signals">
+      <div class="section-label">Ranked Intelligence Signals — Ordered by Strategic Impact</div>
+
+      <div class="sig-card" style="border-left:4px solid #cc2222">
+        <div class="rank-b" style="background:#cc2222">#1</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">Tencent + Alibaba Cloud 5-Year Deals — Largest SEA Cloud Migration Ever</span><span class="cat-tag cat-s">STRATEGY</span></div>
+          <div class="sig-body">In September 2024, <a href="https://www.datacenterdynamics.com/en/news/goto-group-signs-five-year-cloud-deals-with-tencent-and-alibaba-cloud/" target="_blank" style="color:#0055cc;">GoTo simultaneously signed 5-year cloud contracts with Tencent Cloud and Alibaba Cloud</a>, displacing AWS and Google Cloud — both of which had been invited to bid and lost. Tencent Cloud now hosts all Gojek On-Demand Services (1,000+ microservices); Alibaba Cloud hosts all GoTo Financial workloads (9,000 services, tens of petabytes, zero-downtime migration). The deal was witnessed at the Indonesia-China Business Forum by President Prabowo Subianto. Tencent committed ~$500M in Indonesia infrastructure by 2030. Migration completed Q2 2025 with 50% reduction in annual cloud spend.</div>
+          <div class="sig-impact" style="color:#cc2222">Impact: Defines Indonesia's cloud geopolitical landscape; validates Chinese cloud providers in SEA; GoTo achieves material cost savings directly amplifying EBITDA.</div>
+        </div>
+      </div>
+
+      <div class="sig-card" style="border-left:4px solid #cc2222">
+        <div class="rank-b" style="background:#cc2222">#2</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">First-Ever Positive Adj. EBITDA (Rp 386B / $24M) — FY2024 Profitability Inflection</span><span class="cat-tag cat-s">FINANCIAL</span></div>
+          <div class="sig-body"><a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">March 12, 2025: GoTo reported Rp 386B ($24M) adj. EBITDA</a> for FY2024 — the first positive EBITDA in company history, exceeding its own breakeven guidance. Gross revenue grew 30% to Rp 18.1T ($1.15B). Net loss narrowed 94% from Rp 90.4T to Rp 5.15T. Financial Technology turned EBITDA positive in Q4 2024 — a <strong>full year ahead of guidance</strong>. FY2025 guidance raised to Rp 1.4–1.6T ($89–101M). GoTo's annual transacting users reached 61.1 million (~30% of Indonesia's adult population).</div>
+          <div class="sig-impact" style="color:#cc2222">Impact: Structural inflection point — GoTo transitions from burn-funded growth to self-sustaining profitability; de-risks equity story; validates ecosystem strategy.</div>
+        </div>
+      </div>
+
+      <div class="sig-card" style="border-left:4px solid #dd6600">
+        <div class="rank-b" style="background:#dd6600">#3</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">TikTok Acquires 75% of Tokopedia — GoTo Cedes E-Commerce Crown</span><span class="cat-tag cat-c">COMPETITION</span></div>
+          <div class="sig-body"><a href="https://salaamgateway.com/story/indonesias-tech-soul-is-on-the-line" target="_blank" style="color:#0055cc;">January 2024: GoTo transferred 75.01% of Tokopedia to TikTok/ByteDance</a> for $1.5B+, retaining 24.99%. This followed Indonesia banning TikTok Shop in October 2023, forcing TikTok to partner locally. GoTo received ~$39M in service fees from Tokopedia in 2024. The deal created a paradoxical relationship: GoTo benefits from TikTok's e-commerce scale (GoPay Later on TikTok Shop, GoFood in TikTok app) while TikTok is simultaneously a competitor (local food delivery pilot) and a concentration risk if Tokopedia reduces GoTo's role.</div>
+          <div class="sig-impact" style="color:#dd6600">Impact: GoTo voluntarily gave up Indonesia's e-commerce crown. Long-term financial dependency on TikTok's goodwill for service fees and GoPay integration access.</div>
+        </div>
+      </div>
+
+      <div class="sig-card" style="border-left:4px solid #dd6600">
+        <div class="rank-b" style="background:#dd6600">#4</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">Lending Business: 172% YoY Growth — New Core Profit Driver</span><span class="cat-tag cat-c">FINANCIAL</span></div>
+          <div class="sig-body">GoTo's consumer lending book grew <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">172% YoY in Q4 2024 to Rp 5.1T ($323M outstanding principal)</a>. Lending revenue for FY2024 reached Rp 1.93T (+373% YoY) — the fastest-growing revenue line by far. Only a few percent of GoTo's 61M users currently have loans, implying massive penetration headroom. NPL rates remain stable — GoTo's proprietary ecosystem data (ride history, food orders, payment patterns) provides a unique credit scoring advantage over traditional banks. Target: Rp 8T loan book by end 2025.</div>
+          <div class="sig-impact" style="color:#dd6600">Impact: Lending is becoming GoTo's most valuable monetization layer — high-margin, low-acquisition-cost, defensible via ecosystem data moat.</div>
+        </div>
+      </div>
+
+      <div class="sig-card" style="border-left:4px solid #0066cc">
+        <div class="rank-b" style="background:#0066cc">#5</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">Sahabat AI: Indonesia's First Homegrown 70B+ Parameter LLM</span><span class="cat-tag cat-m">MARKET</span></div>
+          <div class="sig-body">GoTo launched <a href="https://www.investing.com/news/company-news/goto-q2-2025-presentation-achieves-profitability-milestone-with-23-revenue-growth-93CH-4187897" target="_blank" style="color:#0055cc;">Sahabat AI — a 70B+ parameter LLM</a> built with local partners for Bahasa Indonesia and regional dialects. Unlike OpenAI or Gemini, Sahabat AI is designed as an <em>open ecosystem</em> to serve Indonesian enterprise and consumer use cases. The Dira voice assistant (Google Cloud–powered) launched in Sep 2024 as the first Bahasa Indonesia AI voice tool in Indonesian fintech. GoTo's "pragmatic, problem-driven" AI philosophy mirrors proven SEA tech patterns: build what users actually need, not what's technically impressive globally.</div>
+          <div class="sig-impact" style="color:#0066cc">Impact: Positions GoTo as Indonesia's AI champion — creates moat vs hyperscalers who lack deep Bahasa language + local cultural tuning.</div>
+        </div>
+      </div>
+
+      <div class="sig-card" style="border-left:4px solid #0066cc">
+        <div class="rank-b" style="background:#0066cc">#6</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">GoPay App: 30M+ Downloads, 35% MTU Growth — Standalone Success</span><span class="cat-tag cat-m">MARKET</span></div>
+          <div class="sig-body">The standalone GoPay app (separate from Gojek) has been <a href="https://www.gotocompany.com/en/news/press/group-core-gtv-increases-54-as-goto-announces-2024-second-quarter-results" target="_blank" style="color:#0055cc;">downloaded 30M+ times</a> and drove 35% YoY growth in FinTech MTUs to 20.2M by Q4 2024. Average monthly transactions per user rose 18% YoY. This decouples GoTo Financial's growth from Gojek app dependency — creating a pure-play fintech that can acquire users directly, not just through ride-hailing and food delivery. Q2 2025: FinTech MTUs reached 22.4M (+29% YoY). Telkomsel co-branded digital wallet launched in 2025.</div>
+          <div class="sig-impact" style="color:#0066cc;">Impact: GoPay becoming an independent fintech brand — reduces ODS dependency and creates a standalone path to compete with OVO, DANA, and ShopeePay head-on.</div>
+        </div>
+      </div>
+
+      <div class="sig-card" style="border-left:4px solid #999999">
+        <div class="rank-b" style="background:#999999">#7</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">Share Buyback: $200M Program — Capital Returns Signal</span><span class="cat-tag" style="background:rgba(0,20,60,0.06);color:#5a6a88">WEAK SIGNAL</span></div>
+          <div class="sig-body">In June 2024, <a href="https://www.gotocompany.com/en/news/press/goto-group-achieves-record-profitability-and-strong-growth-as-it-reports-2025-first-quarter-earnings" target="_blank" style="color:#0055cc;">GoTo's shareholders approved a $200M 12-month share buyback program</a>. By June 2025, cumulative buybacks reached $130.8M (IDR 2.1T). This signals management confidence in the stock at current IDR ~65/share levels (well above 52-week low IDR 50). For a company still reporting net GAAP losses, buybacks represent a measured bet on own upside rather than paying down debt — unusual but indicative of balance sheet strength ($1.3B cash) and improving trajectory.</div>
+          <div class="sig-impact" style="color:#888888">Impact: Management credibility signal. Reduces share count, improves per-share metrics over time. But still a weak positive signal vs the core operational story.</div>
+        </div>
+      </div>
+
+      <div class="sig-card" style="border-left:4px solid #999999">
+        <div class="rank-b" style="background:#999999">#8</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">Indonesia Data Sovereignty — Cloud Onshoring as Regulatory Tailwind</span><span class="cat-tag" style="background:rgba(0,20,60,0.06);color:#5a6a88">WEAK SIGNAL</span></div>
+          <div class="sig-body">GoTo and its cloud partners emphasized that <a href="https://technode.global/2024/11/12/goto-tencent-cloud-and-alibaba-cloud-team-up-to-boost-cloud-infrastructure-in-indonesia/" target="_blank" style="color:#0055cc;">all GoTo data is now fully onshore in Indonesia</a> following the Tencent/Alibaba migration. Indonesia's government has been pushing data localization requirements under PP71/2019. GoTo's proactive onshoring: (1) reduces regulatory risk, (2) strengthens its political relationships (Prabowo witnessed the signing), and (3) positions GoTo as the model for how Indonesia digital companies should manage data. Tencent's $500M infrastructure commitment directly supports Indonesia's Golden Vision 2045 digital ambitions.</div>
+          <div class="sig-impact" style="color:#888888">Impact: Regulatory compliance de-risked; political capital accumulated; sets precedent for how Chinese cloud vendors operate in Indonesian market.</div>
+        </div>
+      </div>
+
+      <div class="sig-card" style="border-left:4px solid #999999">
+        <div class="rank-b" style="background:#999999">#9</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">ComfortDelGro + TikTok Partnerships — Geographic & Ecosystem Expansion</span><span class="cat-tag" style="background:rgba(0,20,60,0.06);color:#5a6a88">WEAK SIGNAL</span></div>
+          <div class="sig-body"><a href="https://www.gotocompany.com/en/news/press/goto-group-reports-strong-group-gtv-and-revenue-growth-as-company-announces-2024-first-quarter-results" target="_blank" style="color:#0055cc;">Q1 2024: Gojek Singapore partnered with ComfortDelGro</a> to strengthen driver supply — directly countering Grab's dominance in SG. Simultaneously, GoFood merchants are now discoverable inside TikTok's local services feature in Indonesia, extending GoTo's food delivery reach into TikTok's 100M+ Indonesia user base. These two seemingly separate deals both serve one strategic goal: grow GoTo's addressable GMV outside its owned app surface.</div>
+          <div class="sig-impact" style="color:#888888">Weak positive — Singapore market contribution small vs Indonesia. TikTok local services partnership could intensify rather than reduce competition if TikTok launches its own delivery fleet.</div>
+        </div>
+      </div>
+
+      <div class="sig-card" style="border-left:4px solid #44aa77">
+        <div class="rank-b" style="background:#44aa77">#10</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">Indonesia Digital Economy: $125B+ by 2030 — GoTo as Primary Beneficiary</span><span class="cat-tag cat-o">OPPORTUNITY</span></div>
+          <div class="sig-body">Indonesia's digital economy is projected to exceed <a href="https://www.aseanbriefing.com/news/tokopedia-and-gojek-merger-creates-indonesias-largest-digital-services-company/" target="_blank" style="color:#0055cc;">$125B GMV by 2030</a> (Bain/Temasek/Google e-Conomy SEA), making it the largest digital market in SEA. GoTo contributes ~2% of Indonesia's $1.37T GDP already (~$26B annual impact per World Bank). With 61.1M annual transacting users representing 30% of Indonesia's adult population, GoTo's penetration headroom is still enormous — 70% of adults remain outside the ecosystem. Lending, insurance, investment products (via Bank Jago) represent the highest-margin expansion paths into the remaining 70%.</div>
+          <div class="sig-impact" style="color:#44aa77">Strategic opportunity: Indonesia's demographic profile (median age ~30, 170M internet users, 270M population) creates a decade+ of compounding ecosystem expansion runway for GoTo.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SYNTHESIS -->
+    <div class="news-synth">
+      <div class="section-label">Intelligence Synthesis — Five Dimensions</div>
+
+      <div class="synth-cat">
+        <div class="synth-hdr"><div class="synth-dot" style="background:#cc2222"></div><div class="synth-ttl" style="color:#cc2222">Strategy & Direction</div></div>
+        <div class="synth-body" style="border:1px solid rgba(200,30,30,0.1)">GoTo's 2024 strategy was a deliberate de-complexity play: shed e-commerce (Tokopedia → TikTok), focus on On-Demand Services + FinTech where it has proprietary ecosystem data advantages. The Tencent+Alibaba cloud shift is the infrastructure execution of this focus — cheaper, onshore, aligned with the data sovereignty regulatory trend. <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">FY2025 EBITDA guidance of Rp 1.4–1.6T</a> ($89–101M) signals the board now believes profitability, not growth, is the story investors want to hear.</div>
+      </div>
+
+      <div class="synth-cat">
+        <div class="synth-hdr"><div class="synth-dot" style="background:#dd6600"></div><div class="synth-ttl" style="color:#dd6600">Financial & Operational Health</div></div>
+        <div class="synth-body" style="border:1px solid rgba(200,90,0,0.1)">The financial trajectory is unambiguously improving. <a href="https://www.idnfinancials.com/news/53102/gotos-losses-shrink-down-by-94-29" target="_blank" style="color:#0055cc;">Net loss fell 94% in one year</a>. Gross revenue up 30%. Lending revenue up 373%. Cloud costs set to halve. However, GAAP net loss of $326M remains — GoTo is not yet GAAP-profitable. The gap between adj. EBITDA ($24M) and net loss ($326M) includes interest, D&A, and one-off items. Watch Q4 2025 for first potential GAAP-positive quarter. Cash runway of $1.3B is comfortable.</div>
+      </div>
+
+      <div class="synth-cat">
+        <div class="synth-hdr"><div class="synth-dot" style="background:#9922bb"></div><div class="synth-ttl" style="color:#9922bb">Reputation & Risk</div></div>
+        <div class="synth-body" style="border:1px solid rgba(120,30,200,0.1)">GoTo's primary risk is concentration: <strong>Tencent + Alibaba</strong> are the cloud providers, equity investors, and effectively upstream partners simultaneously. Both are Chinese companies facing ongoing geopolitical scrutiny. If US-China tensions escalate to sanctions on Chinese tech in SEA, GoTo's cloud stack, investment relationships, and indirectly its Tokopedia partnership (ByteDance owns 75%) all face correlated risk. This is not currently a crisis — data is onshore, government relations are strong — but it is a structural vulnerability with no easy diversification path given the 5-year contract lock-in.</div>
+      </div>
+
+      <div class="synth-cat">
+        <div class="synth-hdr"><div class="synth-dot" style="background:#0066cc"></div><div class="synth-ttl" style="color:#0066cc">Product & User Experience</div></div>
+        <div class="synth-body" style="border:1px solid rgba(0,80,200,0.1)">GoTo's product strategy is ecosystem coherence: GoPay fuels Gojek fuels GoFood fuels GoTo Logistics fuels lending data fuels credit scoring. The standalone GoPay app breaks the dependency — 30M downloads, 20.2M FinTech MTUs — showing GoTo can acquire fintech users without ride-hailing as the entry point. <a href="https://www.computerweekly.com/news/366626981/How-GoTos-high-stakes-cloud-shift-is-powering-Its-AI-future" target="_blank" style="color:#0055cc;">Dira AI voice assistant</a> in Bahasa Indonesia and Sahabat AI LLM are genuine product differentiation — not cosmetic AI-washing.</div>
+      </div>
+
+      <div class="synth-cat">
+        <div class="synth-hdr"><div class="synth-dot" style="background:#44aa77"></div><div class="synth-ttl" style="color:#44aa77">Market Perception & Narrative</div></div>
+        <div class="synth-body" style="border:1px solid rgba(0,160,80,0.1)">The dominant investor narrative shifted in 2024 from <em>"GoTo is burning cash forever"</em> to <em>"GoTo has turned the corner."</em> Yet the stock (~IDR 65 as of mid-2025) trades at a <a href="https://pitchbook.com/profiles/company/537358-87" target="_blank" style="color:#0055cc;">~80% discount to its IDR 338 IPO price</a>. The market is partially pricing in structural execution risk and the Chinese partner concentration. A full GAAP profit in 2025/2026 would be the re-rating catalyst. GoTo's contribution to Indonesia's GDP (~2%) and its ~$26B annual economic impact gives it a unique "national champion" narrative that could translate into government support and regulatory favoritism over purely foreign competitors like Grab.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end main-body -->
+</div>
+
+<!-- ══ CHINESE SECTION ══ -->
+<div id="section-zh" style="display:none">
+<div class="main-body">
+
+<!-- ─── SIDEBAR ─── -->
+<div class="sidebar">
+  <div class="sb-logo-box">
+    <div class="sb-circle">G</div>
+    <div class="sb-co-name">GoTo集团</div>
+    <div class="sb-co-sub">印度尼西亚最大数字生态系统 · 2021年5月成立</div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="stat-val">61.1M</div>
+      <div class="stat-lbl">年度交易用户</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-val">$1.15B</div>
+      <div class="stat-lbl">2024财年总收入</div>
+    </div>
+  </div>
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="stat-val">$24M</div>
+      <div class="stat-lbl">调整后EBITDA（2024财年）</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-val">GOTO</div>
+      <div class="stat-lbl">印尼证交所代码</div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <div class="ib-title">公司概况</div>
+    <div class="info-row"><span class="info-key">成立时间</span><span class="info-val">2021年5月17日（合并）</span></div>
+    <div class="info-row"><span class="info-key">Gojek 成立时间</span><span class="info-val">2010年 · Tokopedia：2009年</span></div>
+    <div class="info-row"><span class="info-key">总部</span><span class="info-val">印度尼西亚 雅加达</span></div>
+    <div class="info-row"><span class="info-key">上市</span><span class="info-val"><a href="https://www.idx.co.id/" target="_blank">IDX: GOTO (Apr 2022)</a></span></div>
+    <div class="info-row"><span class="info-key">IPO Price</span><span class="info-val">印尼盾338/股（2022年4月）</span></div>
+    <div class="info-row"><span class="info-key">市值</span><span class="info-val">约36亿美元（PitchBook 2025）</span></div>
+    <div class="info-row"><span class="info-key">主要投资者</span><span class="info-val">阿里巴巴、腾讯、谷歌、新加坡政投</span></div>
+    <div class="info-row"><span class="info-key">首席执行官</span><span class="info-val">Patrick Walujo</span></div>
+    <div class="info-row"><span class="info-key">员工人数</span><span class="info-val">约7,000人以上（重组后）</span></div>
+    <div class="info-row"><span class="info-key">云服务商</span><span class="info-val">腾讯云+阿里云（五年合同）</span></div>
+    <div class="info-row"><span class="info-key">Tokopedia持股</span><span class="info-val">24.99%（TikTok交易后）</span></div>
+  </div>
+
+  <div class="info-block">
+    <div class="ib-title">主要投资者 & Ownership</div>
+    <div class="info-row"><span class="info-key">阿里巴巴集团</span><span class="info-val">战略股东+云服务商</span></div>
+    <div class="info-row"><span class="info-key">腾讯控股</span><span class="info-val">战略投资者（Gojek时代）</span></div>
+    <div class="info-row"><span class="info-key">Google</span><span class="info-val">Gojek时代起投资方</span></div>
+    <div class="info-row"><span class="info-key">新加坡政府投资公司</span><span class="info-val">主权基金投资者</span></div>
+    <div class="info-row"><span class="info-key">抖音/字节跳动</span><span class="info-val">持有Tokopedia 75.01%（合资）</span></div>
+    <div class="info-row"><span class="info-key">Jago银行</span><span class="info-val">金融科技银行合作伙伴</span></div>
+  </div>
+
+  <div style="background:rgba(0,160,60,0.05);border:1px solid rgba(0,160,60,0.18);border-radius:8px;padding:11px 13px;border-left:3px solid #00aa55">
+    <div style="font-size:9px;font-weight:700;text-transform:uppercase;color:#006633;letter-spacing:0.8px;margin-bottom:6px">💡 里程碑达成</div>
+    <div style="font-size:8.5px;color:#005522;line-height:1.5">• <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#006633;">首次录得正向调整后EBITDA</a>: 2024财年印尼盾386亿（2400万美元）——超越盈亏平衡指引</div>
+    <div style="font-size:8.5px;color:#005522;line-height:1.5;margin-top:3px">• 金融科技业务于2024年第四季度实现调整后EBITDA转正——<strong>提前整整一年</strong>完成既定目标</div>
+    <div style="font-size:8.5px;color:#005522;line-height:1.5;margin-top:3px">• 净亏损同比收窄94%：从印尼盾90.4万亿降至2024财年的5.15万亿</div>
+  </div>
+</div>
+
+<!-- ─── PANEL A: Products ─── -->
+<div class="panel" style="grid-column:2;grid-row:1">
+  <div class="panel-title">产品与服务</div>
+  <div class="product-grid">
+    <div class="prod-card" style="border-top:2px solid #00aa55">
+      <div class="prod-hdr"><div class="prod-icon" style="background:#00aa55">GJ</div><div class="prod-name">Gojek（按需服务）</div></div>
+      <div class="prod-type">网约车 / 配送</div>
+      <div class="prod-desc"><a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">2024财年ODS总交易额增长13%。</a> GoRide、GoCar、GoFood、GoSend、GoMart、GoBlueBird。司机200万+。覆盖印尼、新加坡、越南。高端与大众市场双层次服务。2024财年EBITDA：679亿卢比（4300万美元）。</div>
+    </div>
+    <div class="prod-card" style="border-top:2px solid #0066cc">
+      <div class="prod-hdr"><div class="prod-icon" style="background:#0066cc">GP</div><div class="prod-name">GoPay / GoTo金融</div></div>
+      <div class="prod-type">金融科技 / 支付 / 贷款</div>
+      <div class="prod-desc"><a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">金融科技月活交易用户2020万（同比+35%）。</a> GoPay app: 30M+ downloads. BNPL (GoPay Later), consumer loans (Rp 5.1T book), insurance via Jago银行 partnership. Lending revenue +373% YoY in 2024.</div>
+    </div>
+    <div class="prod-card" style="border-top:2px solid #ee5500">
+      <div class="prod-hdr"><div class="prod-icon" style="background:#ee5500">TK</div><div class="prod-name">Tokopedia（关联公司）</div></div>
+      <div class="prod-type">电子商务（已出表）</div>
+      <div class="prod-desc"><a href="https://thelowdown.momentum.asia/winners-and-losers-of-the-tiktok-goto-deal/" target="_blank" style="color:#0055cc;">抖音持股75.01%</a>（自2023年12月起）。GoTo保留24.99%。2024年服务费约3900万美元。商户1400万。TikTok Shop印尼业务并入Tokopedia实体，GoTo不再纳入合并报表。</div>
+    </div>
+    <div class="prod-card" style="border-top:2px solid #7722cc">
+      <div class="prod-hdr"><div class="prod-icon" style="background:#7722cc">GL</div><div class="prod-name">GoTo物流</div></div>
+      <div class="prod-type">最后一公里配送</div>
+      <div class="prod-desc">支持GoFood和商户订单的快递及即时配送服务。配送服务收入 <a href="https://www.idnfinancials.com/news/53102/gotos-losses-shrink-down-by-94-29" target="_blank" style="color:#0055cc;">同比增长150.77%</a>，达534亿卢比（3.38亿美元）。同日达配送基础设施服务于电商和餐饮业。</div>
+    </div>
+    <div class="prod-card" style="border-top:2px solid #cc0055">
+      <div class="prod-hdr"><div class="prod-icon" style="background:#cc0055">GF</div><div class="prod-name">GoFood</div></div>
+      <div class="prod-type">外卖配送</div>
+      <div class="prod-desc">按订单量计印尼领先外卖平台。 <a href="https://technode.global/2024/08/02/indonesian-gotos-q2-revenue-up-39-percent-on-year-to-265-58m/" target="_blank" style="color:#0055cc;">高端快递</a>专线上线。2024年商户自费推广增长190%。抖音本地服务试点：GoFood商户可在抖音应用内被发现。广告收入同比增长92%。</div>
+    </div>
+    <div class="prod-card" style="border-top:2px solid #0099aa">
+      <div class="prod-hdr"><div class="prod-icon" style="background:#0099aa">AI</div><div class="prod-name">Sahabat AI / Dira</div></div>
+      <div class="prod-type">AI · 大语言模型 · 语音助手</div>
+      <div class="prod-desc"><a href="https://www.investing.com/news/company-news/goto-q2-2025-presentation-achieves-profitability-milestone-with-23-revenue-growth-93CH-4187897" target="_blank" style="color:#0055cc;">Sahabat AI：700亿+参数大语言模型</a>（支持印度尼西亚语）。Dira：GoPay应用内AI语音助手（谷歌云驱动，2024年9月上线）。开放生态系统，多语言支持，与本地合作伙伴共同打造。</div>
+    </div>
+  </div>
+  <div style="background:rgba(0,60,180,0.04);border:1px solid rgba(0,60,180,0.12);border-radius:7px;padding:9px 12px;margin-top:4px">
+    <div style="font-size:9px;font-weight:700;color:#0044cc;margin-bottom:4px">2024年战略转型：生态系统 → 盈利能力</div>
+    <div style="font-size:9px;color:#4466aa;line-height:1.45">GoTo从不计成本追求GMV增长转向<strong>盈利性增长</strong>。成本管控推动经常性现金固定成本同比降低3%至5.3万亿卢比（3.35亿美元），而总收入同期增长30%。广告收入同比增长92%，体现出新的B2B变现层正在形成。 <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">2024财年新闻稿 ↗</a></div>
+  </div>
+</div>
+
+<!-- ─── PANEL B: Key Assets & IP ─── -->
+<div class="panel" style="grid-column:3;grid-row:1">
+  <div class="panel-title">核心资产与战略举措</div>
+  <div style="display:flex;flex-direction:column;gap:6px">
+
+    <div style="background:#f8faff;border:1px solid rgba(0,20,80,0.07);border-radius:7px;padding:8px 11px;display:flex;align-items:flex-start;gap:10px">
+      <div style="width:20px;height:20px;border-radius:5px;background:#0066cc;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#fff;margin-top:1px">TC</div>
+      <div style="flex:1">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:10.5px;font-weight:700;color:#1a2a44">腾讯云——五年合同（Gojek）</span><span class="s-active">运营中</span></div>
+        <div style="font-size:8.5px;color:#8a9ab8;margin-top:2px"><a href="https://www.datacenterdynamics.com/en/news/goto-group-signs-five-year-cloud-deals-with-tencent-and-alibaba-cloud/" target="_blank" style="color:#0055cc;">2024年9月20日签署。</a> 腾讯云 powers all On-Demand Services (Gojek). 1,000+ microservices migrated. Tencent servers hosted onshore in Indonesia. 3rd IDC planned, ~$500M investment by 2030.</div>
+      </div>
+    </div>
+
+    <div style="background:#f8faff;border:1px solid rgba(0,20,80,0.07);border-radius:7px;padding:8px 11px;display:flex;align-items:flex-start;gap:10px">
+      <div style="width:20px;height:20px;border-radius:5px;background:#ff6600;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#fff;margin-top:1px">AC</div>
+      <div style="flex:1">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:10.5px;font-weight:700;color:#1a2a44">阿里云——五年合同（GoTo金融）</span><span class="s-active">运营中</span></div>
+        <div style="font-size:8.5px;color:#8a9ab8;margin-top:2px"><a href="https://www.computerweekly.com/news/366626981/How-GoTos-high-stakes-cloud-shift-is-powering-Its-AI-future" target="_blank" style="color:#0055cc;">GoTo 50%的基础设施已迁移</a>至阿里云——9,000项服务，数十PB数据。阿里巴巴同时也是GoTo的长期股东。使用MaxCompute大数据平台及PolarDB数据库，整个迁移过程零停机。</div>
+      </div>
+    </div>
+
+    <div style="background:#f8faff;border:1px solid rgba(0,20,80,0.07);border-radius:7px;padding:8px 11px;display:flex;align-items:flex-start;gap:10px">
+      <div style="width:20px;height:20px;border-radius:5px;background:#ee5500;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#fff;margin-top:1px">TT</div>
+      <div style="flex:1">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:10.5px;font-weight:700;color:#1a2a44">TikTok–Tokopedia Strategic JV</span><span class="s-active">运营中</span></div>
+        <div style="font-size:8.5px;color:#8a9ab8;margin-top:2px"><a href="https://salaamgateway.com/story/indonesias-tech-soul-is-on-the-line" target="_blank" style="color:#0055cc;">2024年1月：抖音以15亿美元+</a>收购Tokopedia 75.01%股权。GoTo保留24.99%及服务费（约每年3900万美元）。GoPay Later先买后付已整合至TikTok Shop。GoFood商户现可在抖音应用内被发现。</div>
+      </div>
+    </div>
+
+    <div style="background:#f8faff;border:1px solid rgba(0,20,80,0.07);border-radius:7px;padding:8px 11px;display:flex;align-items:flex-start;gap:10px">
+      <div style="width:20px;height:20px;border-radius:5px;background:#0099cc;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#fff;margin-top:1px">BJ</div>
+      <div style="flex:1">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:10.5px;font-weight:700;color:#1a2a44">Jago银行 Partnership (Banking-as-a-Service)</span><span class="s-active">运营中</span></div>
+        <div style="font-size:8.5px;color:#8a9ab8;margin-top:2px">GoTo的 embedded banking layer. Savings, lending, insurance via Jago's banking license. GoTo holds strategic stake in Jago银行 (IDX: ARTO). Consumer loans outstanding principal <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">grew 172% YoY in Q4 2024</a> to Rp 5.1T.</div>
+      </div>
+    </div>
+
+    <div style="background:#f8faff;border:1px solid rgba(0,20,80,0.07);border-radius:7px;padding:8px 11px;display:flex;align-items:flex-start;gap:10px">
+      <div style="width:20px;height:20px;border-radius:5px;background:#009900;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#fff;margin-top:1px">GC</div>
+      <div style="flex:1">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:10.5px;font-weight:700;color:#1a2a44">谷歌云——AI合作（GoPay Dira）</span><span class="s-active">运营中</span></div>
+        <div style="font-size:8.5px;color:#8a9ab8;margin-top:2px"><a href="https://www.computerweekly.com/news/366626981/How-GoTos-high-stakes-cloud-shift-is-powering-Its-AI-future" target="_blank" style="color:#0055cc;">2024年9月：谷歌云生成式AI合作</a>驱动GoPay应用内的Dira语音助手——印尼金融科技行业首个支持印度尼西亚语的AI语音工具。此前GoTo亦在腾讯/阿里迁移前于谷歌云运行相关工作负载。</div>
+      </div>
+    </div>
+
+    <div style="background:#f8faff;border:1px solid rgba(0,20,80,0.07);border-radius:7px;padding:8px 11px;display:flex;align-items:flex-start;gap:10px">
+      <div style="width:20px;height:20px;border-radius:5px;background:#aa6600;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#fff;margin-top:1px">CD</div>
+      <div style="flex:1">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:10.5px;font-weight:700;color:#1a2a44">ComfortDelGro合作（新加坡）</span><span class="s-active">运营中</span></div>
+        <div style="font-size:8.5px;color:#8a9ab8;margin-top:2px"><a href="https://www.gotocompany.com/en/news/press/goto-group-reports-strong-group-gtv-and-revenue-growth-as-company-announces-2024-first-quarter-results" target="_blank" style="color:#0055cc;">Q1 2024:</a> Gojek Singapore partnered with ComfortDelGro taxi fleet to strengthen driver supply and boost growth in the Singapore market, directly competing with Grab's dominant position.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── PANEL C: Timeline (LATEST → OLDEST) ─── -->
+<div class="panel" style="grid-column:4;grid-row:1">
+  <div class="panel-title">公司发展历程</div>
+  <div class="tl-order-label">最新 → 最早</div>
+  <div class="tl-list">
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#00aa55"></div>
+      <div><div class="tl-year">2025</div>
+      <div class="tl-title">云迁移完成 · 盈利能力持续改善</div>
+      <div class="tl-detail"><a href="https://www.investing.com/news/company-news/goto-q2-2025-presentation-achieves-profitability-milestone-with-23-revenue-growth-93CH-4187897" target="_blank" style="color:#0055cc;">2025年6月：腾讯云+阿里云全面迁移完成</a>，年度云支出降低50%。2025年第一、二季度集团调整后EBITDA均为正值；全年指引上调至印尼盾1.8–1.9万亿。Sahabat AI（700亿参数大语言模型）公开发布。</div></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#0066cc"></div>
+      <div><div class="tl-year">2024</div>
+      <div class="tl-title">首次录得正向调整后EBITDA——创纪录年度</div>
+      <div class="tl-detail"><a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">调整后EBITDA：印尼盾386亿（2400万美元）</a>。总收入同比增长30%至181亿卢比。1月：Tokopedia转让给抖音（75.01%）。9月：与腾讯云及阿里云同步签署五年云服务合同。净亏损收窄94%至5.15万亿卢比。</div></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#dd6600"></div>
+      <div><div class="tl-year">2023</div>
+      <div class="tl-title">抖音交易宣布 · 巨额净亏损</div>
+      <div class="tl-detail"><a href="https://thelowdown.momentum.asia/winners-and-losers-of-the-tiktok-goto-deal/" target="_blank" style="color:#0055cc;">2023年12月11日：</a>抖音/字节跳动以15亿美元以上收购Tokopedia 75.01%股权。GoTo净亏损：90.4万亿卢比（57亿美元）——主要源于减值。收入147.8亿卢比。调整后EBITDA亏损23亿卢比——收窄路径可见。</div></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#cc2222"></div>
+      <div><div class="tl-year">2022</div>
+      <div class="tl-title">印尼证交所IPO——印尼最大科技上市</div>
+      <div class="tl-detail"><a href="https://en.wikipedia.org/wiki/GoTo_(Indonesian_company)" target="_blank" style="color:#0055cc;">2022年4月11日：GOTO在印尼证交所上市</a>，发行价印尼盾338/股，募资11亿美元。首日股价涨逾15%至388卢比。峰值估值约280亿美元。IPO后：随着科技估值全球性崩溃，公司启动大规模降本计划。</div></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#0066cc"></div>
+      <div><div class="tl-year">2021</div>
+      <div class="tl-title">Gojek + Tokopedia Merge → GoTo集团</div>
+      <div class="tl-detail"><a href="https://www.cnbc.com/2021/05/17/goto-indonesia-internet-start-ups-gojektokopedia-announce-merger.html" target="_blank" style="color:#0055cc;">2021年5月17日：180亿美元合并宣布</a>. Combined 100M+ MAU, 11M+ merchants, 2M+ drivers. GoTo Financial formed. Investors include 阿里巴巴、腾讯、谷歌、新加坡政投, KKR, Temasek.</div></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#44aa77"></div>
+      <div><div class="tl-year">2016</div>
+      <div class="tl-title">GoPay上线——支付体系奠基</div>
+      <div class="tl-detail">Gojek推出GoPay数字钱包，最初仅用于网约车，迅速扩展至商户支付、外卖和生活缴费。成为GoTo金融的基石，后者于2021–2024年间陆续推出BNPL和消费贷款业务。</div></div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#44aa77"></div>
+      <div><div class="tl-year">2010</div>
+      <div class="tl-title">Gojek 成立时间 · Tokopedia 成立时间 (2009)</div>
+      <div class="tl-detail">Gojek以短信预约摩托车出租服务起家，总部位于雅加达。 <a href="https://www.cnbc.com/2021/06/09/goto-how-gojek-and-tokopedia-teamed-up-in-indonesias-biggest-merger.html" target="_blank" style="color:#0055cc;">Tokopedia于2009年</a>作为印尼首家网络商城创立。两家公司从2015年起合作同日达配送，并于2021年正式合并。</div></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ─── PANEL D: Market Analysis ─── -->
+<div class="panel" style="grid-column:2;grid-row:2">
+  <div class="panel-title">印尼市场地位</div>
+
+  <div class="highlight-box">
+    <div class="hl-num">$32.9B</div>
+    <div class="hl-lbl">FY2024 GoTo集团 GTV (Full Year · Rp 519.8T · <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">2024财年业绩 ↗</a>)</div>
+  </div>
+
+  <div style="font-size:9px;font-weight:700;color:#8a9ab8;text-transform:uppercase;letter-spacing:1px;margin-top:4px;margin-bottom:6px">印尼网约车市场——估算份额</div>
+  <div class="bar-row">
+    <div class="bar-label" style="color:#00aa44;font-weight:700">GoTo（Gojek）</div>
+    <div class="bar-track"><div class="bar-fill" style="width:54%;background:linear-gradient(90deg,#00aa44,#00cc66)"></div></div>
+    <div class="bar-val" style="color:#00aa44">~54%</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Grab</div>
+    <div class="bar-track"><div class="bar-fill" style="width:38%;background:linear-gradient(90deg,#00cc44,#44ee66)"></div></div>
+    <div class="bar-val">~38%</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">InDriver / 其他</div>
+    <div class="bar-track"><div class="bar-fill" style="width:8%;background:linear-gradient(90deg,#9aaabb,#b0bcc8)"></div></div>
+    <div class="bar-val">~8%</div>
+  </div>
+  <div style="font-size:8px;color:#9aaabb;margin-top:-2px;margin-bottom:4px">自下而上估算，基于 <a href="https://pitchbook.com/profiles/company/537358-87" target="_blank" style="color:#0055cc;">PitchBook</a>数据及GTV披露。暂无公开IDC份额细分报告。以上均为估算值。</div>
+
+  <div style="font-size:9px;font-weight:700;color:#8a9ab8;text-transform:uppercase;letter-spacing:1px;margin-top:4px;margin-bottom:6px">印尼数字支付市场——估算份额</div>
+  <div class="bar-row">
+    <div class="bar-label">OVO（Grab关联）</div>
+    <div class="bar-track"><div class="bar-fill" style="width:30%;background:linear-gradient(90deg,#7722cc,#9944ee)"></div></div>
+    <div class="bar-val">~30%</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label" style="color:#0066cc;font-weight:700">GoPay（GoTo）</div>
+    <div class="bar-track"><div class="bar-fill" style="width:28%;background:linear-gradient(90deg,#0066cc,#2288ff)"></div></div>
+    <div class="bar-val" style="color:#0066cc">~28%</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">DANA</div>
+    <div class="bar-track"><div class="bar-fill" style="width:22%;background:linear-gradient(90deg,#0099aa,#00bbcc)"></div></div>
+    <div class="bar-val">~22%</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">ShopeePay</div>
+    <div class="bar-track"><div class="bar-fill" style="width:15%;background:linear-gradient(90deg,#ee5500,#ff7700)"></div></div>
+    <div class="bar-val">~15%</div>
+  </div>
+  <div style="font-size:8px;color:#9aaabb;margin-top:-2px;margin-bottom:4px">自下而上估算——印尼央行无公开细分数据。所有数字均为近似值。</div>
+
+  <div style="background:#f0f4ff;border:1px solid rgba(0,60,200,0.12);border-radius:7px;padding:9px 12px;margin-top:4px">
+    <div style="font-size:9px;font-weight:700;color:#0044cc;margin-bottom:4px">印尼数字经济背景</div>
+    <div style="font-size:9px;color:#4466aa;line-height:1.45">印尼是东南亚最大数字经济体。 <a href="https://www.aseanbriefing.com/news/tokopedia-and-gojek-merger-creates-indonesias-largest-digital-services-company/" target="_blank" style="color:#0055cc;">互联网用户逾1.7亿</a>，移动优先的用户群体。GoTo贡献约2%的GDP（世界银行数据：年度经济影响约260亿美元）。6110万年度交易用户≈印尼成年人口的30%。司机合作伙伴200万+；商户生态系统1400万。</div>
+  </div>
+</div>
+
+<!-- ─── PANEL E: Competitors ─── -->
+<div class="panel" style="grid-column:3;grid-row:2">
+  <div class="panel-title">竞争格局</div>
+
+  <div style="display:flex;flex-direction:column;gap:7px">
+    <div class="comp-card">
+      <div class="comp-icon" style="background:#00cc44">GB</div>
+      <div class="comp-right">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div><div class="comp-name">Grab Holdings（纳斯达克：GRAB）</div>
+          <div class="comp-desc">东南亚超级应用。网约车、外卖、金融科技，总部新加坡。2024财年收入约19亿美元。在菲律宾、马来西亚、泰国、越南市场强势。 <a href="https://www.cnbc.com/2021/05/17/goto-indonesia-internet-start-ups-gojektokopedia-announce-merger.html" target="_blank" style="color:#0055cc;">2021年以来最强劲竞争对手</a></div></div>
+          <span class="badge badge-high" style="flex-shrink:0;margin-left:8px">高威胁</span>
+        </div>
+        <div class="badge-row"><span class="badge badge-type">超级应用</span><span class="badge badge-cloud">云：AWS</span></div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-icon" style="background:#ee5500">SE</div>
+      <div class="comp-right">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div><div class="comp-name">Sea集团 / Shopee（纽交所：SE）</div>
+          <div class="comp-desc">电子商务（Shopee）+ ShopeePay + SeaMoney。印尼是Sea最大市场。在电商和数字支付领域与GoTo直接竞争。 <a href="https://agfundernews.com/gojek-tokopedia-confirm-18bn-merger-to-form-goto" target="_blank" style="color:#0055cc;">电商直接竞争对手</a></div></div>
+          <span class="badge badge-high" style="flex-shrink:0;margin-left:8px">高威胁</span>
+        </div>
+        <div class="badge-row"><span class="badge badge-type">电商+金融科技</span><span class="badge badge-cloud">云：AWS + GCP</span></div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-icon" style="background:#0044aa">TK</div>
+      <div class="comp-right">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div><div class="comp-name">TikTok Shop / Tokopedia合资</div>
+          <div class="comp-desc">字节跳动持有GoTo前核心资产75.01%股权。GoFood和GoTo金融已整合至抖音应用——合作与竞争并存。 <a href="https://thelowdown.momentum.asia/winners-and-losers-of-the-tiktok-goto-deal/" target="_blank" style="color:#0055cc;">关系复杂</a></div></div>
+          <span class="badge badge-med" style="flex-shrink:0;margin-left:8px">中等威胁</span>
+        </div>
+        <div class="badge-row"><span class="badge badge-type">电商+社交</span><span class="badge badge-cloud">云：阿里云</span></div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-icon" style="background:#7722cc">OV</div>
+      <div class="comp-right">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div><div class="comp-name">OVO（Grab / Lippo）</div>
+          <div class="comp-desc">据部分估算为印尼领先电子钱包。背靠Grab+力宝集团，商户网络强大。与GoPay直接竞争日常消费支付及BNPL业务。</div></div>
+          <span class="badge badge-med" style="flex-shrink:0;margin-left:8px">中等威胁</span>
+        </div>
+        <div class="badge-row"><span class="badge badge-type">金融科技/电子钱包</span><span class="badge badge-cloud">云：AWS</span></div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-icon" style="background:#0099aa">DN</div>
+      <div class="comp-right">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div><div class="comp-name">DANA（蚂蚁集团 / Emtek）</div>
+          <div class="comp-desc">阿里巴巴支持的电子钱包，二维码支付和商户生态优势突出。阿里巴巴同时是GoTo的股东和云服务商——间接竞争态势复杂。</div></div>
+          <span class="badge badge-med" style="flex-shrink:0;margin-left:8px">中等威胁</span>
+        </div>
+        <div class="badge-row"><span class="badge badge-type">金融科技/电子钱包</span><span class="badge badge-cloud">云：阿里云</span></div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <div class="comp-icon" style="background:#cc0055">IN</div>
+      <div class="comp-right">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div><div class="comp-name">InDriver / Maxim</div>
+          <div class="comp-desc">低价网约车挑战者，主攻价格敏感市场。InDriver"自主报价"模式在印尼二三线城市逐渐获得认可。与GoTo生态相比，金融科技和配送整合能力有限。</div></div>
+          <span class="badge badge-low" style="flex-shrink:0;margin-left:8px">低威胁</span>
+        </div>
+        <div class="badge-row"><span class="badge badge-type">网约车</span><span class="badge badge-cloud">云：AWS</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── PANEL F: Outlook ─── -->
+<div class="panel" style="grid-column:4;grid-row:2">
+  <div class="panel-title">2025–2026年战略展望</div>
+
+  <div class="outlook-card" style="border-left:3px solid #44aa77">
+    <div class="outlook-title" style="color:#006633">盈利拐点——EBITDA快速提升</div>
+    <div class="outlook-body"><a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">2025财年指引：调整后EBITDA 1.4–1.6万亿卢比</a>（8900万–1.01亿美元）——为2024财年的4倍。2025年第一、二季度已实现正值。金融科技单独贡献目标≥350亿卢比EBITDA。这标志着盈利能力的持久转变，而非一次性事件。</div>
+  </div>
+
+  <div class="outlook-card" style="border-left:3px solid #44aa77">
+    <div class="outlook-title" style="color:#006633">贷款业务：最快增长引擎</div>
+    <div class="outlook-body">消费贷款账本2024年第四季度同比增长172%。 <a href="https://www.gotocompany.com/en/news/press/goto-group-achieves-record-profitability-and-strong-growth-as-it-reports-2025-first-quarter-earnings" target="_blank" style="color:#0055cc;">目标：2025年底贷款账本超过80亿卢比</a>。GoTo生态系统中目前仅有少数百分比的用户持有贷款——上升空间巨大。生态数据（打车、外卖、支付记录）提供优于银行的专属信用评分优势。</div>
+  </div>
+
+  <div class="outlook-card" style="border-left:3px solid #44aa77">
+    <div class="outlook-title" style="color:#006633">云迁移→云成本降低50%</div>
+    <div class="outlook-body"><a href="https://www.investing.com/news/company-news/goto-q2-2025-presentation-achieves-profitability-milestone-with-23-revenue-growth-93CH-4187897" target="_blank" style="color:#0055cc;">迁移至腾讯云+阿里云于2025年中期完成</a>，年度云支出降低50%，同时可靠性提升。固定成本基础从结构上大幅下降，直接扩大了EBITDA利润率。</div>
+  </div>
+
+  <div class="outlook-card" style="border-left:3px solid #dd6600">
+    <div class="outlook-title" style="color:#995500">按需服务竞争日趋激烈</div>
+    <div class="outlook-body">Grab investing aggressively in Indonesia. TikTok piloting local services (food delivery) that could compete with GoFood on the same TikTok app where GoTo has its own GoFood integration. <a href="https://finance.yahoo.com/news/pt-goto-gojek-tokopedia-tbk-070302337.html" target="_blank" style="color:#0055cc;">Management acknowledges</a> "intense battle for the Indonesian consumer."</div>
+  </div>
+
+  <div class="outlook-card" style="border-left:3px solid #dd6600">
+    <div class="outlook-title" style="color:#995500">Tokopedia持股 Dilution Risk</div>
+    <div class="outlook-body">GoTo holds only 24.99% of Tokopedia — a business it built from scratch. The TikTok partnership provides e-commerce service fees but limits GoTo的 ability to control strategy. If TikTok increases its stake further, GoTo loses the fee stream entirely. Over-dependence on one partner's goodwill is structural risk.</div>
+  </div>
+
+  <div class="outlook-card" style="border-left:3px solid #cc2222">
+    <div class="outlook-title" style="color:#aa1111">中国云依赖——地缘政治风险</div>
+    <div class="outlook-body">Both primary cloud contracts (Tencent + Alibaba) are with Chinese companies. Alibaba and Tencent are also equity investors. In a scenario involving US/Western geopolitical pressure on Chinese tech in SEA, GoTo的 entire cloud stack — and its investor base — faces correlated risk. Data sovereignty (all data now onshore in Indonesia) partially mitigates this.</div>
+  </div>
+
+  <div class="outlook-card" style="border-left:3px solid #9aaabb">
+    <div class="outlook-title" style="color:#4a5a78">Sahabat AI——长期差异化优势</div>
+    <div class="outlook-body">GoTo的 <a href="https://www.investing.com/news/company-news/goto-q2-2025-presentation-achieves-profitability-milestone-with-23-revenue-growth-93CH-4187897" target="_blank" style="color:#0055cc;">70B-parameter Sahabat AI LLM</a> positions GoTo as Indonesia's homegrown AI company. Multilinguality in Bahasa Indonesia + regional languages is a real moat vs OpenAI/Google. Risk: building LLMs is expensive and the AI landscape moves fast.</div>
+  </div>
+</div>
+
+<!-- ══════════ CLOUD SECTION ══════════ -->
+<div class="fw-section">
+  <div class="fw-header">
+    <div class="fw-icon" style="background:linear-gradient(135deg,#0066ff,#0044cc)">☁</div>
+    <div>
+      <div class="fw-title">Cloud Infrastructure — GoTo的 Landmark Migration to Tencent & 阿里云</div>
+      <div class="fw-sub">Largest cloud migration in SEA history · 5-year contracts signed Sep 2024 · Onshore Indonesia data sovereignty · Completed Q2 2025</div>
+    </div>
+    <div class="fw-badges">
+      <span class="tag tag-blue">腾讯云 — Gojek ODS</span>
+      <span class="tag tag-orange">阿里云 — GoTo Financial</span>
+      <span class="tag tag-green">50% Cloud Cost Reduction Achieved</span>
+      <span class="tag tag-yellow">Bottoms-up Estimate — No IDC/Canalys Indonesia Breakdown</span>
+    </div>
+  </div>
+
+  <div class="cloud-inner">
+    <!-- COL 1 -->
+    <div class="cloud-col">
+      <div class="section-label">印尼科技平台云架构图</div>
+      <div class="pt-header"><div class="pt-hcell">平台</div><div class="pt-hcell">Primary / Secondary Cloud</div><div class="pt-hcell">TCloud %</div></div>
+
+      <div class="pt-row" style="background:rgba(0,170,80,0.04);border-color:rgba(0,170,80,0.15)">
+        <div class="pt-plat"><div class="pt-icon" style="background:#00aa55">GJ</div><div><div class="pt-name">GoTo——Gojek按需服务</div><div class="pt-type">Ride-hailing / Food / Logistics</div></div></div>
+        <div><div class="pt-prim">腾讯云（主要）</div><div class="pt-sec"><a href="https://www.datacenterdynamics.com/en/news/goto-group-signs-five-year-cloud-deals-with-tencent-and-alibaba-cloud/" target="_blank" style="color:#0055cc;">5-yr contract Sep 2024</a> · 1,000+ microservices migrated · Onshore Jakarta DCs</div></div>
+        <div class="pt-pct-hi">~100%</div>
+      </div>
+
+      <div class="pt-row" style="background:rgba(0,170,80,0.04);border-color:rgba(0,170,80,0.15)">
+        <div class="pt-plat"><div class="pt-icon" style="background:#0066cc">GP</div><div><div class="pt-name">GoTo金融 / GoPay</div><div class="pt-type">金融科技·支付·贷款</div></div></div>
+        <div><div class="pt-prim">阿里云（主要）</div><div class="pt-sec"><a href="https://www.computerweekly.com/news/366626981/How-GoTos-high-stakes-cloud-shift-is-powering-Its-AI-future" target="_blank" style="color:#0055cc;">9,000 services, tens of PB data</a> · MaxCompute + PolarDB · Zero downtime migration</div></div>
+        <div class="pt-na">—</div>
+      </div>
+
+      <div class="pt-row">
+        <div class="pt-plat"><div class="pt-icon" style="background:#00cc44">GB</div><div><div class="pt-name">Grab（印尼）</div><div class="pt-type">超级应用 · Ride + Fintech</div></div></div>
+        <div><div class="pt-prim">AWS（主要） · GCP（次要）</div><div class="pt-sec">无确认合同变更。AWS案例研究显示Grab在东南亚核心基础设施上使用AWS</div></div>
+        <div class="pt-na">N/A</div>
+      </div>
+
+      <div class="pt-row">
+        <div class="pt-plat"><div class="pt-icon" style="background:#ee5500">SE</div><div><div class="pt-name">Shopee / Sea集团</div><div class="pt-type">电商·ShopeePay</div></div></div>
+        <div><div class="pt-prim">AWS（主要） · 阿里云</div><div class="pt-sec">Sea集团全球使用AWS；部分亚太工作负载历史上使用阿里云</div></div>
+        <div class="pt-na">N/A</div>
+      </div>
+
+      <div class="pt-row">
+        <div class="pt-plat"><div class="pt-icon" style="background:#7722cc">OV</div><div><div class="pt-name">OVO（Grab / Lippo）</div><div class="pt-type">金融科技·电子钱包</div></div></div>
+        <div><div class="pt-prim">AWS（主要）</div><div class="pt-sec">无公开替代云服务声明</div></div>
+        <div class="pt-na">N/A</div>
+      </div>
+
+      <div class="pt-row">
+        <div class="pt-plat"><div class="pt-icon" style="background:#0099aa">DN</div><div><div class="pt-name">DANA（蚂蚁集团）</div><div class="pt-type">金融科技·电子钱包</div></div></div>
+        <div><div class="pt-prim">阿里云（主要）</div><div class="pt-sec">蚂蚁集团/阿里巴巴投资意味着倾向使用阿里云；无公开声明确认工作负载占比</div></div>
+        <div class="pt-na">N/A</div>
+      </div>
+    </div>
+
+    <!-- COL 2 -->
+    <div class="cloud-col">
+      <div class="section-label">印尼云市场——服务商份额估算</div>
+      <div class="method-box">
+        <div class="method-title">📐 方法论——区间如何推导</div>
+        <div class="method-body">
+          <strong>Step 1 — 平台→Cloud Mapping:</strong>通过新闻稿、Data Center Dynamics、Computer Weekly及GoTo官方公告（2024年9–11月）确认。GoTo Gojek=腾讯云；GoTo金融=阿里云；Grab/OVO=AWS；DANA=阿里云；Shopee=AWS已确认。<br><br>
+          <strong>第二步——工作负载权重：</strong>GoTo≈印尼超大规模云支出的40%；Grab约20%；Shopee/Sea约15%；DANA、OVO及其他约25%。<br><br>
+          <strong>第三步——交叉相乘：</strong>GoTo：权重40%×腾讯云50%+阿里云50%。Grab：20%×AWS 100%。Shopee：15%×AWS 70%+阿里云30%。<br><br>
+          ⚠ 以上均为内部自下而上估算。IDC、Canalys或Gartner均未发布覆盖印尼云支出的细分报告。所有数字均标注为估算值。
+        </div>
+      </div>
+
+      <div class="cbe cbe-focus">
+        <div class="cbe-hdr">
+          <div class="cbe-left"><div class="cbe-dot" style="background:#0044cc"></div><div><div class="cbe-name" style="color:#0044cc">腾讯云</div><div class="cbe-clients" style="color:#4466aa">GoTo Gojek（按需服务）——全部工作负载 · 雅加达2座+1座规划中数据中心</div></div></div>
+          <div class="cbe-range" style="color:#0044cc">~18–24%</div>
+        </div>
+        <div class="cbe-track"><div class="cbe-fill" style="width:21%;background:linear-gradient(90deg,#0044cc,#2266ff)"></div></div>
+        <div class="cbe-desc" style="color:#4466aa">东南亚云迁移史上最大单平台赢单。承载Gojek约100%的按需服务工作负载。符合数据主权要求，服务器部署于雅加达境内。 <a href="https://www.prnewswire.com/apac/news-releases/tencent-cloud-and-goto-complete-groundbreaking-migration-of-gotos-on-demand-services-302473962.html" target="_blank" style="color:#0055cc;">迁移于2025年6月完成 ↗</a></div>
+      </div>
+
+      <div class="cbe">
+        <div class="cbe-hdr">
+          <div class="cbe-left"><div class="cbe-dot" style="background:#ff6600"></div><div><div class="cbe-name">阿里云</div><div class="cbe-clients">GoTo金融（GoTo全部基础设施的50%）+ DANA + 部分Shopee东南亚业务</div></div></div>
+          <div class="cbe-range" style="color:#ff6600">~24–30%</div>
+        </div>
+        <div class="cbe-track"><div class="cbe-fill" style="width:27%;background:linear-gradient(90deg,#ff6600,#ff9944)"></div></div>
+        <div class="cbe-desc">GoTo金融是印尼最大的云金融工作负载。已迁移9,000项服务。阿里巴巴同时也是GoTo的股权投资者。</div>
+      </div>
+
+      <div class="cbe">
+        <div class="cbe-hdr">
+          <div class="cbe-left"><div class="cbe-dot" style="background:#ff9900"></div><div><div class="cbe-name">AWS</div><div class="cbe-clients">Grab、OVO、Shopee（部分）、印尼企业及中端市场</div></div></div>
+          <div class="cbe-range" style="color:#ff9900">~28–35%</div>
+        </div>
+        <div class="cbe-track"><div class="cbe-fill" style="width:31%;background:linear-gradient(90deg,#ff9900,#ffbb44)"></div></div>
+        <div class="cbe-desc">2024年9月GoTo选择腾讯+阿里后，AWS失去该客户。GoTo CEO确认AWS受邀参与竞标但落选。在Grab、OVO及众多企业客户中仍占主导地位。</div>
+      </div>
+
+      <div class="cbe">
+        <div class="cbe-hdr">
+          <div class="cbe-left"><div class="cbe-dot" style="background:#4285f4"></div><div><div class="cbe-name">谷歌云</div><div class="cbe-clients">GoTo AI合作（Dira）、初创公司、媒体、AI原生工作负载</div></div></div>
+          <div class="cbe-range" style="color:#4285f4">~8–14%</div>
+        </div>
+        <div class="cbe-track"><div class="cbe-fill" style="width:11%;background:linear-gradient(90deg,#4285f4,#66aaff)"></div></div>
+        <div class="cbe-desc">失去GoTo核心基础设施，但保留了Dira语音助手的AI合作关系。在AI原生初创企业中持续增长。 <a href="https://www.computerweekly.com/news/366626981/How-GoTos-high-stakes-cloud-shift-is-powering-Its-AI-future" target="_blank" style="color:#0055cc;">2024年9月生成式AI合作 ↗</a></div>
+      </div>
+
+      <div class="cbe">
+        <div class="cbe-hdr">
+          <div class="cbe-left"><div class="cbe-dot" style="background:#0066ff"></div><div><div class="cbe-name">微软Azure</div><div class="cbe-clients">企业客户、政府、金融机构</div></div></div>
+          <div class="cbe-range" style="color:#0066ff">~6–10%</div>
+        </div>
+        <div class="cbe-track"><div class="cbe-fill" style="width:8%;background:linear-gradient(90deg,#0066ff,#4488ff)"></div></div>
+        <div class="cbe-desc">印尼市场聚焦企业端。M365生态优势推动企业客户采用。在消费类科技平台中存在感有限。</div>
+      </div>
+
+      <div class="refs-box">
+        <div class="refs-title">参考资料与来源</div>
+        <div class="ref-item">¹ GoTo腾讯云+阿里云五年合同： <a href="https://www.datacenterdynamics.com/en/news/goto-group-signs-five-year-cloud-deals-with-tencent-and-alibaba-cloud/" target="_blank" style="color:#0055cc;">Data Center Dynamics 2024年9月 ↗</a></div>
+        <div class="ref-item">² 阿里云 migration details (9,000 services, zero downtime): <a href="https://www.computerweekly.com/news/366626981/How-GoTos-high-stakes-cloud-shift-is-powering-Its-AI-future" target="_blank" style="color:#0055cc;">Computer Weekly ↗</a></div>
+        <div class="ref-item">³ 腾讯云 migration completion Jun 2025: <a href="https://www.prnewswire.com/apac/news-releases/tencent-cloud-and-goto-complete-groundbreaking-migration-of-gotos-on-demand-services-302473962.html" target="_blank" style="color:#0055cc;">PR Newswire ↗</a></div>
+        <div class="ref-item">⁴ GoTo CEO关于竞标：AWS+谷歌受邀但落选： <a href="https://longportapp.com/en/news/244360129" target="_blank" style="color:#0055cc;">LongPort/华尔街见闻 ↗</a></div>
+        <div class="ref-item">⁵ GoTo + 腾讯云 + 阿里云 government ceremony (witnessed by President Prabowo): <a href="https://www.gotocompany.com/en/news/press/goto-group-tencent-cloud-and-alibaba-cloud-sign-agreement-to-boost-cloud-infrastructure-and-nurture-local-digital-talent-in-indonesia" target="_blank" style="color:#0055cc;">GoTo新闻稿 2024年11月 ↗</a></div>
+        <div class="ref-item">⁶ 云成本降低50%： <a href="https://www.investing.com/news/company-news/goto-q2-2025-presentation-achieves-profitability-milestone-with-23-revenue-growth-93CH-4187897" target="_blank" style="color:#0055cc;">GoTo 2025年第二季度业绩 ↗</a></div>
+      </div>
+    </div>
+
+    <!-- COL 3 -->
+    <div class="cloud-col">
+      <div class="section-label">腾讯云 — GoTo Opportunity Analysis</div>
+
+      <div style="font-size:9px;font-weight:700;color:#0044cc;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px">✓ 已有成果</div>
+      <div class="opp-card">
+        <div class="opp-title">Gojek按需服务——100%工作负载</div>
+        <div class="opp-body">腾讯云 now runs all of Gojek's ride-hailing, food delivery, logistics, and messenger services. 1,000+ microservices. Jakarta onshore DCs. This is the <a href="https://longportapp.com/en/news/244360129" target="_blank" style="color:#0055cc;">东南亚有史以来规模最大的单次云迁移</a>——腾讯和GoTo管理层均已公开确认。</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-title">印尼数字主权云——数据本地化</div>
+        <div class="opp-body"><a href="https://technode.global/2024/11/12/goto-tencent-cloud-and-alibaba-cloud-team-up-to-boost-cloud-infrastructure-in-indonesia/" target="_blank" style="color:#0055cc;">GoTo所有数据现已在印尼境内存储</a>，符合政府数据主权要求。腾讯承诺2030年前在印尼投入约5亿美元基础设施。雅加达第三座IDC规划中——普拉博沃总统亲历见证仪式。</div>
+      </div>
+
+      <div style="font-size:9px;font-weight:700;color:#aa6600;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;margin-top:10px">↗ 增长机遇</div>
+      <div class="opp-card opp-card-or">
+        <div class="opp-title opp-title-or">从按需服务扩展至GoTo金融工作负载</div>
+        <div class="opp-body opp-body" style="color:#775500">Currently 阿里云 handles GoTo Financial (50% of all GoTo infra). As GoTo的 lending book grows to Rp 8T+ by end 2025 and FinTech becomes the #1 profit driver, 腾讯云 has opportunity to propose integrated financial AI services and expand its footprint into GoTo的 banking/lending stack.</div>
+      </div>
+      <div class="opp-card opp-card-or">
+        <div class="opp-title opp-title-or">Sahabat AI——大语言模型训练基础设施</div>
+        <div class="opp-body" style="color:#775500"><a href="https://www.investing.com/news/company-news/goto-q2-2025-presentation-achieves-profitability-milestone-with-23-revenue-growth-93CH-4187897" target="_blank" style="color:#0055cc;">Sahabat AI（700亿+参数大语言模型）</a> requires massive training compute. As GoTo develops more AI products on its own model, 腾讯云's GPU infrastructure in Jakarta positions it to capture these training and inference workloads vs hyperscalers.</div>
+      </div>
+      <div class="opp-card opp-card-or">
+        <div class="opp-title opp-title-or">印尼标杆案例→东南亚复制</div>
+        <div class="opp-body" style="color:#775500">GoTo is the most publicly prominent cloud client in SEA. 腾讯云 SVP Jimmy Chen confirmed: <em>"GoTo migration is a milestone that will attract more attention to 腾讯云"</em>，辐射整个海外市场。此次成功将为与Grab竞争的网约车平台、区域超级应用开拓更多商机。</div>
+      </div>
+
+      <div style="background:rgba(0,60,200,0.05);border:1px solid rgba(0,60,200,0.15);border-radius:8px;padding:10px 12px;margin-top:10px">
+        <div style="font-size:9px;font-weight:700;color:#0044cc;margin-bottom:6px">🇮🇩 印尼云业务布局——腾讯</div>
+        <div class="fp-grid">
+          <div class="fp-cell"><div class="fp-val">2+1</div><div class="fp-lbl">现有+规划中雅加达数据中心</div></div>
+          <div class="fp-cell"><div class="fp-val">$500M</div><div class="fp-lbl">2030年前承诺印尼投资</div></div>
+          <div class="fp-cell"><div class="fp-val">5 yr</div><div class="fp-lbl">GoTo合同期限</div></div>
+          <div class="fp-cell"><div class="fp-val">1,000+</div><div class="fp-lbl">已迁移微服务数量（Gojek）</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 财务S ══════════ -->
+<div class="fw-section">
+  <div class="fw-header">
+    <div class="fw-icon" style="background:linear-gradient(135deg,#00aa55,#006633)">💰</div>
+    <div>
+      <div class="fw-title">平台 Financials & Estimated IT Spend</div>
+      <div class="fw-sub">数据来源：印尼证交所GOTO申报文件、GoTo 2024财年新闻稿（2025年3月12日）、IDNFinancials · 未披露IT支出处按销货成本8%估算 · 2024财年 · 所有数字以美元计 · 平均汇率IDR 15,800/$（2024财年）</div>
+    </div>
+    <div class="fw-badges"><span class="tag tag-blue">印尼证交所：GOTO上市</span><span class="tag tag-yellow">适用8%销货成本规则</span><span class="tag tag-green">所有数字以美元计</span></div>
+  </div>
+
+  <div class="fin-inner">
+    <!-- Card 1: GoTo GOTO -->
+    <div class="fin-card">
+      <div class="fin-hdr">
+        <div class="fin-ticker">IDX: GOTO</div>
+        <div class="fin-co-name">PT GoTo Gojek Tokopedia Tbk</div>
+        <div class="fin-co-sub">主要上市实体 · 印度尼西亚证券交易所 · 2024财年全年</div>
+      </div>
+      <div class="fin-metrics">
+        <div class="fm-box">
+          <div class="fm-lbl">总收入（2024财年）</div>
+          <div class="fm-val"><strong>$1.15B</strong></div>
+          <div class="fm-note" style="font-size:8px;color:#9aaabb">（印尼盾18.1万亿·IDR 15,800/$）（已确认，同比+30%）· <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">source ↗</a></div>
+        </div>
+        <div class="fm-box">
+          <div class="fm-lbl">净收入（2024财年）</div>
+          <div class="fm-val"><strong>$1.01B</strong></div>
+          <div class="fm-note">（印尼盾15.89万亿·IDR 15,800/$）（已确认，同比+7.5%）· <a href="https://www.idnfinancials.com/news/53102/gotos-losses-shrink-down-by-94-29" target="_blank" style="color:#0055cc;">source ↗</a></div>
+        </div>
+        <div class="fm-box">
+          <div class="fm-lbl">净亏损（2024财年）</div>
+          <div class="fm-val" style="color:#cc2222"><strong>-$326M</strong></div>
+          <div class="fm-note">（印尼盾5.15万亿·IDR 15,800/$）（已确认·较2023年-57亿美元收窄94%）· <a href="https://www.idnfinancials.com/news/53116/goto-estimates-ebitda-to-reach-idr-1-4-trillion-in-2025" target="_blank" style="color:#0055cc;">source ↗</a></div>
+        </div>
+        <div class="fm-box fm-box-blue">
+          <div class="fm-lbl">调整后EBITDA（2024财年）</div>
+          <div class="fm-val" style="color:#0044cc"><strong>+$24M</strong></div>
+          <div class="fm-note">（印尼盾386亿·IDR 15,800/$）（已确认——首次转正）· <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">source ↗</a></div>
+        </div>
+      </div>
+      <div class="fin-margin-row">
+        <span class="mpill">总收入↑30% YoY</span>
+        <span class="mpill">核心GTV↑58%</span>
+        <span class="mpill-or">净亏损：-3.26亿美元</span>
+        <span class="mpill-red">经营亏损：-1.52亿美元</span>
+      </div>
+      <div class="fin-access">
+        <div class="fa-title">年报获取渠道</div>
+        <div class="fa-body">
+          印尼证交所申报： <a href="https://www.idx.co.id/en/listed-companies/company-information/" target="_blank" style="color:#0055cc;">idx.co.id → 搜索GOTO ↗</a><br>
+          GoTo投资者关系页： <a href="https://www.gotocompany.com/en/investors" target="_blank" style="color:#0055cc;">gotocompany.com/investors ↗</a><br>
+          FY2024 press release (Mar 12 2025): <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">GoTo Q4+2024财年 ↗</a><br>
+          In PDF: Search "Pendapatan" (Revenue) · "Beban" (Costs) · "Teknologi Informasi" (IT)
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Segment breakdown -->
+    <div class="fin-card fin-card-or">
+      <div class="fin-hdr fin-hdr-or">
+        <div class="fin-ticker">SEGMENT DATA</div>
+        <div class="fin-co-name">Revenue Breakdown by Business Unit (FY2024)</div>
+        <div class="fin-co-sub">按需服务 · GoTo金融 · 电商（服务费） · <a href="https://www.idnfinancials.com/news/53102/gotos-losses-shrink-down-by-94-29" target="_blank" style="color:rgba(255,255,255,0.8)">IDNFinancials来源 ↗</a></div>
+      </div>
+      <div class="fin-metrics">
+        <div class="fm-box">
+          <div class="fm-lbl">Service Fee (ODS) Revenue</div>
+          <div class="fm-val"><strong>$367M</strong></div>
+          <div class="fm-note">(IDR 5.80T) (confirmed · ↓33% YoY from e-comm deconsolidation) · Ride, food, delivery fees</div>
+        </div>
+        <div class="fm-box">
+          <div class="fm-lbl">配送服务收入</div>
+          <div class="fm-val"><strong>$338M</strong></div>
+          <div class="fm-note">(IDR 5.34T) (confirmed · ↑151% YoY) · <a href="https://www.idnfinancials.com/news/53102/gotos-losses-shrink-down-by-94-29" target="_blank" style="color:#0055cc;">source ↗</a> · New major revenue line</div>
+        </div>
+        <div class="fm-box">
+          <div class="fm-lbl">贷款收入</div>
+          <div class="fm-val"><strong>$122M</strong></div>
+          <div class="fm-note">(IDR 1.93T) (confirmed · ↑373% YoY) · Fastest-growing segment. Loan book Rp 5.1T at year-end</div>
+        </div>
+        <div class="fm-box fm-box-or">
+          <div class="fm-lbl">Est. IT Spend (8% COGS proxy)</div>
+          <div class="fm-val" style="color:#cc5500"><strong>~$55–70M</strong></div>
+          <div class="fm-note">(estimated · 8% of COGS basis) 50% cloud cost reduction in 2025 means actual 2025 IT spend will be materially lower. FY2024 pre-migration rates.</div>
+        </div>
+      </div>
+      <div class="fin-margin-row">
+        <span class="mpill">Lending: ↑373% YoY</span>
+        <span class="mpill">Delivery: ↑151% YoY</span>
+        <span class="mpill-or">E-Comm Fee ~$39M</span>
+      </div>
+      <div class="fin-access" style="background:#fff7f0;border-color:rgba(200,90,0,0.15)">
+        <div class="fa-title" style="color:#995500">Segment Note</div>
+        <div class="fa-body" style="color:#995500">GoTo deconsolidated Tokopedia from Jan 2024. All 2024 segment comparisons are pro-forma. Advertising revenue ↑92% YoY; Merchant Promoted Spend ↑190% YoY. E-commerce Service Fee segment is new line in 2024 ($39M from Tokopedia service agreement). <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#cc5500;">Full details in 2024财年新闻稿 ↗</a></div>
+      </div>
+    </div>
+
+    <!-- Card 3: Competitors -->
+    <div class="fin-card fin-card-dk">
+      <div class="fin-hdr fin-hdr-dk">
+        <div class="fin-ticker">COMPARABLE / COMPETITOR</div>
+        <div class="fin-co-name">Key Competitor Financials (Global USD)</div>
+        <div class="fin-co-sub">Grab（纳斯达克：GRAB）· Sea集团（纽交所：SE）· GoTo背景数据</div>
+      </div>
+      <div class="fin-metrics">
+        <div class="fm-box">
+          <div class="fm-lbl">Grab 2024财年收入</div>
+          <div class="fm-val"><strong>~$2.8B</strong></div>
+          <div class="fm-note">(estimated from Q4+FY24 disclosures) Grab is ~2.4x GoTo的 gross revenue. Profitable on adj. EBITDA. Stronger SEA-wide presence. <a href="https://pitchbook.com/profiles/company/537358-87" target="_blank" style="color:#0055cc;">PitchBook ↗</a></div>
+        </div>
+        <div class="fm-box">
+          <div class="fm-lbl">Sea集团2024财年收入</div>
+          <div class="fm-val"><strong>$16.8B</strong></div>
+          <div class="fm-note">(confirmed) Net income $448M. Shopee dominant in Indonesia e-comm. <a href="https://pitchbook.com/profiles/company/537358-87" target="_blank" style="color:#0055cc;">规模远超GoTo ↗</a></div>
+        </div>
+        <div class="fm-box">
+          <div class="fm-lbl">GoTo 市值 (2025)</div>
+          <div class="fm-val"><strong>~$3.76B</strong></div>
+          <div class="fm-note">（经 <a href="https://pitchbook.com/profiles/company/537358-87" target="_blank" style="color:#0055cc;">PitchBook ↗</a>确认）vs Grab约170亿美元。尽管实现盈利里程碑，GoTo仍处于深度折价状态。近十二个月收入10.8亿美元。</div>
+        </div>
+        <div class="fm-box fm-box-blue" style="background:rgba(0,60,200,0.06)">
+          <div class="fm-lbl">GoTo现金（2024年12月31日）</div>
+          <div class="fm-val" style="color:#0044cc"><strong>$1.3B</strong></div>
+          <div class="fm-note">（印尼盾21万亿·IDR 15,800/$）（已确认）· <a href="https://finance.yahoo.com/news/pt-goto-gojek-tokopedia-tbk-070302337.html" target="_blank" style="color:#0055cc;">source ↗</a> · 充裕现金储备。股票回购：2024年6月起授权2亿美元额度。</div>
+        </div>
+      </div>
+      <div class="fin-margin-row">
+        <span class="mpill">现金：13亿美元储备</span>
+        <span class="mpill-or">vs Grab：收入差距-2.4倍</span>
+      </div>
+      <div class="fin-access" style="background:#f4f4f8;border-color:rgba(0,20,80,0.1)">
+        <div class="fa-title" style="color:#4a5a78">申报文件来源</div>
+        <div class="fa-body" style="color:#4a5a78">
+          GoTo印尼证交所申报： <a href="https://www.idx.co.id" target="_blank" style="color:#0055cc;">idx.co.id/GOTO ↗</a> · IDNFinancials： <a href="https://www.idnfinancials.com/news/53102/gotos-losses-shrink-down-by-94-29" target="_blank" style="color:#0055cc;">idnfinancials.com ↗</a><br>
+          GoTo 2024财年完整新闻稿： <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">gotocompany.com/press ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fsb-wrap">
+    <div style="font-size:9px;font-weight:700;color:#8a9ab8;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">IT支出对比估算（2024财年，美元）</div>
+    <div class="fsb-row">
+      <div class="fsb-name" style="color:#00aa44;font-weight:700">GoTo集团</div>
+      <div class="fsb-track"><div class="fsb-fill" style="width:40%;background:linear-gradient(90deg,#00aa44,#00cc66)"></div></div>
+      <div class="fsb-val">~5500–7000万美元（估算）</div>
+      <div class="fsb-note" style="color:#9aaabb">按销货成本8%估算。迁移前水平。迁移至腾讯+阿里云后，2025年预计降低50%。</div>
+    </div>
+    <div class="fsb-row">
+      <div class="fsb-name">Grab Holdings</div>
+      <div class="fsb-track"><div class="fsb-fill" style="width:65%;background:linear-gradient(90deg,#00cc44,#44ee66)"></div></div>
+      <div class="fsb-val">~1.2–1.5亿美元（估算）</div>
+      <div class="fsb-note" style="color:#9aaabb">更大收入基础，AWS东南亚多区域架构。按销货成本8%估算。</div>
+    </div>
+    <div class="fsb-row">
+      <div class="fsb-name">Sea / Shopee（全球）</div>
+      <div class="fsb-track"><div class="fsb-fill" style="width:90%;background:linear-gradient(90deg,#ee5500,#ff7700)"></div></div>
+      <div class="fsb-val">~8亿美元以上（全球估算）</div>
+      <div class="fsb-note" style="color:#9aaabb">Sea集团收入168亿美元，运营大规模全球基础设施。印尼部分未单独披露。</div>
+    </div>
+    <div class="fsb-footer">Note: IT spend estimated using 8% of COGS (Gartner benchmark for tech/platform companies) where not disclosed in annual filings. GoTo的 actual 2025 IT spend will be materially lower following 50% cloud cost reduction from Tencent+Alibaba migration. All USD figures at avg IDR 15,800/$ (FY2024). To find actual IT spend in GoTo的 annual report PDF, search "Teknologi Informasi" or "Infrastruktur Digital" (IT/Digital Infrastructure costs). <a href="https://www.idx.co.id/en/listed-companies/company-information/" target="_blank" style="color:#0055cc;">印尼证交所GOTO申报 ↗</a></div>
+  </div>
+</div>
+
+<!-- ══════════ NEWS ══════════ -->
+<div class="news-section">
+  <div class="news-hdr">
+    <div class="news-icon">📡</div>
+    <div>
+      <div class="news-title">新闻关键发现——情报简报</div>
+      <div class="news-sub">信号排名时段：2023年9月–2026年3月 · 来源：GoTo投资者关系、彭博社、路透社、DealStreet Asia、雅加达环球报、IDNFinancials、Computer Weekly、Data Center Dynamics、TechNode Global</div>
+    </div>
+    <div class="news-hdr-r">
+      <span class="npill-blue">10条信号提取</span>
+      <span style="background:rgba(0,160,80,0.2);color:#66dd99;border:1px solid rgba(0,160,80,0.3);font-size:10px;font-weight:700;padding:3px 12px;border-radius:20px">运营中 · 盈利拐点</span>
+    </div>
+  </div>
+
+  <div class="kw-strip">
+    <span class="kw-label">关键词聚类扫描 →</span>
+    <span class="kw-b">GoTo集团</span><span class="kw-b">GOTO印尼证交所</span><span class="kw-b">Gojek</span><span class="kw-b">GoPay金融科技</span><span class="kw-b">GoTo金融贷款</span><span class="kw-b">Patrick Walujo</span>
+    <span class="kw-o">抖音Tokopedia交易</span><span class="kw-o">GoTo净亏损</span><span class="kw-o">Grab竞争印尼</span><span class="kw-o">GoTo云迁移</span>
+    <span class="kw-g">腾讯云 GoTo</span><span class="kw-g">阿里云 Indonesia</span><span class="kw-g">EBITDA盈亏平衡2024</span><span class="kw-g">印尼数字经济2030</span>
+  </div>
+
+  <div class="news-inner">
+    <div class="news-signals">
+      <div class="section-label">战略影响力排序情报信号</div>
+
+      <div class="sig-card" style="border-left:4px solid #cc2222">
+        <div class="rank-b" style="background:#cc2222">#1</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">Tencent + 阿里云 5-Year Deals — Largest SEA Cloud Migration Ever</span><span class="cat-tag cat-s">战略</span></div>
+          <div class="sig-body">In September 2024, <a href="https://www.datacenterdynamics.com/en/news/goto-group-signs-five-year-cloud-deals-with-tencent-and-alibaba-cloud/" target="_blank" style="color:#0055cc;">GoTo simultaneously signed 5-year cloud contracts with 腾讯云 and 阿里云</a>, displacing AWS and 谷歌云 — both of which had been invited to bid and lost. 腾讯云 now hosts all Gojek On-Demand Services (1,000+ microservices); 阿里云 hosts all GoTo Financial workloads (9,000项服务、数十PB数据, zero-downtime migration). The deal was witnessed at the Indonesia-China Business Forum by President Prabowo Subianto. Tencent committed ~$500M in Indonesia infrastructure by 2030. Migration completed Q2 2025 with 50% reduction in annual cloud spend.</div>
+          <div class="sig-impact" style="color:#cc2222">影响：重新定义印尼云地缘政治格局；验证中国云服务商在东南亚的竞争力；GoTo实现实质性成本节约，直接放大EBITDA。</div>
+        </div>
+      </div>
+
+      <div class="sig-card" style="border-left:4px solid #cc2222">
+        <div class="rank-b" style="background:#cc2222">#2</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">首次录得正向调整后EBITDA（386亿卢比/2400万美元）——2024财年盈利拐点</span><span class="cat-tag cat-s">财务</span></div>
+          <div class="sig-body"><a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">2025年3月12日：GoTo发布2024财年调整后EBITDA 386亿卢比（2400万美元）</a> for FY2024 — the first positive EBITDA in company history, exceeding its own breakeven guidance. Gross revenue grew 30% to Rp 18.1T ($1.15B). Net loss narrowed 94% from Rp 90.4T to Rp 5.15T. Financial Technology turned EBITDA positive in Q4 2024 — a <strong>full year ahead of guidance</strong>. FY2025 guidance raised to Rp 1.4–1.6T ($89–101M). GoTo的 annual transacting users reached 61.1 million (~30% of Indonesia's adult population).</div>
+          <div class="sig-impact" style="color:#cc2222">影响：结构性拐点——GoTo从亏损驱动增长转向自我造血盈利；降低股权故事风险；验证生态系统战略。</div>
+        </div>
+      </div>
+
+      <div class="sig-card" style="border-left:4px solid #dd6600">
+        <div class="rank-b" style="background:#dd6600">#3</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">TikTok Acquires 75% of Tokopedia — GoTo Cedes E-Commerce Crown</span><span class="cat-tag cat-c">COMPETITION</span></div>
+          <div class="sig-body"><a href="https://salaamgateway.com/story/indonesias-tech-soul-is-on-the-line" target="_blank" style="color:#0055cc;">2024年1月：GoTo将Tokopedia 75.01%股权转让给抖音/字节跳动</a> for $1.5B+, retaining 24.99%. This followed Indonesia banning TikTok Shop in October 2023, forcing TikTok to partner locally. GoTo received ~$39M in service fees from Tokopedia in 2024. The deal created a paradoxical relationship: GoTo benefits from TikTok's e-commerce scale (GoPay Later on TikTok Shop, GoFood in TikTok app) while TikTok is simultaneously a competitor (local food delivery pilot) and a concentration risk if Tokopedia reduces GoTo的 role.</div>
+          <div class="sig-impact" style="color:#dd6600">Impact: GoTo voluntarily gave up Indonesia's e-commerce crown. Long-term financial dependency on TikTok's goodwill for service fees and GoPay integration access.</div>
+        </div>
+      </div>
+
+      <div class="sig-card" style="border-left:4px solid #dd6600">
+        <div class="rank-b" style="background:#dd6600">#4</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">Lending Business: 172% YoY Growth — New Core Profit Driver</span><span class="cat-tag cat-c">财务</span></div>
+          <div class="sig-body">GoTo的 consumer lending book grew <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">172% YoY in Q4 2024 to Rp 5.1T ($323M outstanding principal)</a>. Lending revenue for FY2024 reached Rp 1.93T (+373% YoY) — the fastest-growing revenue line by far. Only a few percent of GoTo的 61M users currently have loans, implying massive penetration headroom. NPL rates remain stable — GoTo的 proprietary ecosystem data (ride history, food orders, payment patterns) provides a unique credit scoring advantage over traditional banks. Target: Rp 8T loan book by end 2025.</div>
+          <div class="sig-impact" style="color:#dd6600">Impact: Lending is becoming GoTo的 most valuable monetization layer — high-margin, low-acquisition-cost, defensible via ecosystem data moat.</div>
+        </div>
+      </div>
+
+      <div class="sig-card" style="border-left:4px solid #0066cc">
+        <div class="rank-b" style="background:#0066cc">#5</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">Sahabat AI: Indonesia's First Homegrown 70B+ Parameter LLM</span><span class="cat-tag cat-m">市场</span></div>
+          <div class="sig-body">GoTo推出 <a href="https://www.investing.com/news/company-news/goto-q2-2025-presentation-achieves-profitability-milestone-with-23-revenue-growth-93CH-4187897" target="_blank" style="color:#0055cc;">Sahabat AI — a 70B+ parameter LLM</a> built with local partners for Bahasa Indonesia and regional dialects. Unlike OpenAI or Gemini, Sahabat AI is designed as an <em>open ecosystem</em> to serve Indonesian enterprise and consumer use cases. The Dira voice assistant (谷歌云–powered) launched in Sep 2024 as the first Bahasa Indonesia AI voice tool in Indonesian fintech. GoTo的 "pragmatic, problem-driven" AI philosophy mirrors proven SEA tech patterns: build what users actually need, not what's technically impressive globally.</div>
+          <div class="sig-impact" style="color:#0066cc">Impact: Positions GoTo as Indonesia's AI champion — creates moat vs hyperscalers who lack deep Bahasa language + local cultural tuning.</div>
+        </div>
+      </div>
+
+      <div class="sig-card" style="border-left:4px solid #0066cc">
+        <div class="rank-b" style="background:#0066cc">#6</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">GoPay App: 30M+ Downloads, 35% MTU Growth — Standalone Success</span><span class="cat-tag cat-m">市场</span></div>
+          <div class="sig-body">独立版GoPay应用 has been <a href="https://www.gotocompany.com/en/news/press/group-core-gtv-increases-54-as-goto-announces-2024-second-quarter-results" target="_blank" style="color:#0055cc;">downloaded 30M+ times</a> and drove 35% YoY growth in FinTech MTUs to 20.2M by Q4 2024. Average monthly transactions per user rose 18% YoY. This decouples GoTo Financial's growth from Gojek app dependency — creating a pure-play fintech that can acquire users directly, not just through ride-hailing and food delivery. Q2 2025: FinTech MTUs reached 22.4M (+29% YoY). Telkomsel co-branded digital wallet launched in 2025.</div>
+          <div class="sig-impact" style="color:#0066cc;">GoPay正成为独立金融科技品牌——降低对按需服务的依赖，创造直接与OVO、DANA和ShopeePay正面竞争的独立路径。</div>
+        </div>
+      </div>
+
+      <div class="sig-card" style="border-left:4px solid #999999">
+        <div class="rank-b" style="background:#999999">#7</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">股票回购：2亿美元计划——资本回报信号</span><span class="cat-tag" style="background:rgba(0,20,60,0.06);color:#5a6a88">弱信号</span></div>
+          <div class="sig-body">In June 2024, <a href="https://www.gotocompany.com/en/news/press/goto-group-achieves-record-profitability-and-strong-growth-as-it-reports-2025-first-quarter-earnings" target="_blank" style="color:#0055cc;">GoTo的 shareholders approved a $200M 12-month share buyback program</a>。截至2025年6月，累计回购金额达1.308亿美元（21亿卢比）。这表明管理层对当前约印尼盾65/股的股价水平充满信心。对于一家仍在报告GAAP净亏损的公司而言，回购是对自身上升空间的审慎押注，折射出资产负债表的健康程度（13亿美元现金）以及持续改善的经营轨迹。</div>
+          <div class="sig-impact" style="color:#888888">影响：管理层信心信号。减少股份数量，长期改善每股指标。但相对于核心经营层面的进展，仍属弱正面信号。</div>
+        </div>
+      </div>
+
+      <div class="sig-card" style="border-left:4px solid #999999">
+        <div class="rank-b" style="background:#999999">#8</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">印尼数据主权——云本地化作为监管顺风</span><span class="cat-tag" style="background:rgba(0,20,60,0.06);color:#5a6a88">弱信号</span></div>
+          <div class="sig-body">GoTo及其云合作伙伴强调，腾讯/阿里迁移完成后， <a href="https://technode.global/2024/11/12/goto-tencent-cloud-and-alibaba-cloud-team-up-to-boost-cloud-infrastructure-in-indonesia/" target="_blank" style="color:#0055cc;">GoTo所有数据现已完全在印尼境内存储</a> following the Tencent/Alibaba migration. Indonesia's government has been pushing data localization requirements under PP71/2019. GoTo的 proactive onshoring: (1) reduces regulatory risk, (2) strengthens its political relationships (Prabowo witnessed the signing), and (3) positions GoTo as the model for how Indonesia digital companies should manage data. Tencent's $500M infrastructure commitment directly supports Indonesia's Golden Vision 2045 digital ambitions.</div>
+          <div class="sig-impact" style="color:#888888">影响：监管合规风险降低；积累政治资本；为中国云服务商在印尼市场的运营模式树立先例。</div>
+        </div>
+      </div>
+
+      <div class="sig-card" style="border-left:4px solid #999999">
+        <div class="rank-b" style="background:#999999">#9</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">ComfortDelGro+抖音合作——地理扩张与生态延伸</span><span class="cat-tag" style="background:rgba(0,20,60,0.06);color:#5a6a88">弱信号</span></div>
+          <div class="sig-body"><a href="https://www.gotocompany.com/en/news/press/goto-group-reports-strong-group-gtv-and-revenue-growth-as-company-announces-2024-first-quarter-results" target="_blank" style="color:#0055cc;">2024年第一季度：Gojek新加坡与ComfortDelGro合作</a> to strengthen driver supply — directly countering Grab's dominance in SG. Simultaneously, GoFood merchants are now discoverable inside TikTok's local services feature in Indonesia, extending GoTo的 food delivery reach into TikTok's 100M+ Indonesia user base. These two seemingly separate deals both serve one strategic goal: grow GoTo的 addressable GMV outside its owned app surface.</div>
+          <div class="sig-impact" style="color:#888888">弱正面——新加坡市场贡献相对有限。若抖音推出自营配送车队，本地服务合作可能加剧而非缓解竞争态势。</div>
+        </div>
+      </div>
+
+      <div class="sig-card" style="border-left:4px solid #44aa77">
+        <div class="rank-b" style="background:#44aa77">#10</div>
+        <div class="sig-content">
+          <div class="sig-hdr"><span class="sig-title">印尼数字经济：2030年GMV超1250亿美元——GoTo作为主要受益方</span><span class="cat-tag cat-o">机遇</span></div>
+          <div class="sig-body">印尼数字经济预计 <a href="https://www.aseanbriefing.com/news/tokopedia-and-gojek-merger-creates-indonesias-largest-digital-services-company/" target="_blank" style="color:#0055cc;">2030年GMV超过1250亿美元</a> (Bain/Temasek/Google e-Conomy SEA), making it the largest digital market in SEA. GoTo contributes ~2% of Indonesia's $1.37T GDP already (~$26B annual impact per World Bank). With 61.1M annual transacting users representing 30% of Indonesia's adult population, GoTo的 penetration headroom is still enormous — 70% of adults remain outside the ecosystem. Lending, insurance, investment products (via Jago银行) represent the highest-margin expansion paths into the remaining 70%.</div>
+          <div class="sig-impact" style="color:#44aa77">战略机遇：印尼的人口结构（中位年龄约30岁、1.7亿互联网用户、2.7亿总人口）为GoTo的生态系统创造了十年以上的持续复利扩张空间。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SYNTHESIS -->
+    <div class="news-synth">
+      <div class="section-label">情报综合分析——五个维度</div>
+
+      <div class="synth-cat">
+        <div class="synth-hdr"><div class="synth-dot" style="background:#cc2222"></div><div class="synth-ttl" style="color:#cc2222">战略方向</div></div>
+        <div class="synth-body" style="border:1px solid rgba(200,30,30,0.1)">GoTo的 2024 strategy was a deliberate de-complexity play: shed e-commerce (Tokopedia → TikTok), focus on On-Demand Services + FinTech where it has proprietary ecosystem data advantages. The Tencent+Alibaba cloud shift is the infrastructure execution of this focus — cheaper, onshore, aligned with the data sovereignty regulatory trend. <a href="https://www.gotocompany.com/en/news/press/goto-group-beats-guidance-with-record-results-as-it-reports-2024-fourth-quarter-and-full-year-earnings" target="_blank" style="color:#0055cc;">2025财年EBITDA指引1.4–1.6万亿卢比</a>（8900万–1.01亿美元）表明，董事会认为盈利能力、而非增长规模，才是投资者当前最希望听到的故事。</div>
+      </div>
+
+      <div class="synth-cat">
+        <div class="synth-hdr"><div class="synth-dot" style="background:#dd6600"></div><div class="synth-ttl" style="color:#dd6600">财务与运营健康</div></div>
+        <div class="synth-body" style="border:1px solid rgba(200,90,0,0.1)">财务改善轨迹毋庸置疑。 <a href="https://www.idnfinancials.com/news/53102/gotos-losses-shrink-down-by-94-29" target="_blank" style="color:#0055cc;">净亏损一年内收窄94%</a>。总收入增长30%，贷款收入增长373%，云成本即将减半。然而GAAP口径净亏损3.26亿美元依然存在——GoTo尚未实现GAAP盈利。调整后EBITDA（2400万美元）与净亏损（3.26亿美元）之间的差距包含利息、折旧摊销及一次性项目。关注2025年第四季度能否实现首个GAAP盈利季度。13亿美元现金储备提供充足安全垫。</div>
+      </div>
+
+      <div class="synth-cat">
+        <div class="synth-hdr"><div class="synth-dot" style="background:#9922bb"></div><div class="synth-ttl" style="color:#9922bb">声誉与风险</div></div>
+        <div class="synth-body" style="border:1px solid rgba(120,30,200,0.1)">GoTo的 primary risk is concentration: <strong>Tencent + Alibaba</strong> are the cloud providers, equity investors, and effectively upstream partners simultaneously. Both are Chinese companies facing ongoing geopolitical scrutiny. If US-China tensions escalate to sanctions on Chinese tech in SEA, GoTo的 cloud stack, investment relationships, and indirectly its Tokopedia partnership (ByteDance owns 75%) all face correlated risk. This is not currently a crisis — data is onshore, government relations are strong — but it is a structural vulnerability with no easy diversification path given the 5-year contract lock-in.</div>
+      </div>
+
+      <div class="synth-cat">
+        <div class="synth-hdr"><div class="synth-dot" style="background:#0066cc"></div><div class="synth-ttl" style="color:#0066cc">产品与用户体验</div></div>
+        <div class="synth-body" style="border:1px solid rgba(0,80,200,0.1)">GoTo的 product strategy is ecosystem coherence: GoPay fuels Gojek fuels GoFood fuels GoTo物流 fuels lending data fuels credit scoring. The standalone GoPay app breaks the dependency — 30M downloads, 20.2M FinTech MTUs — showing GoTo can acquire fintech users without ride-hailing as the entry point. <a href="https://www.computerweekly.com/news/366626981/How-GoTos-high-stakes-cloud-shift-is-powering-Its-AI-future" target="_blank" style="color:#0055cc;">Dira AI语音助手</a>（支持印度尼西亚语）及Sahabat AI大语言模型是真实的产品差异化——而非流于表面的AI营销。</div>
+      </div>
+
+      <div class="synth-cat">
+        <div class="synth-hdr"><div class="synth-dot" style="background:#44aa77"></div><div class="synth-ttl" style="color:#44aa77">市场认知与叙事</div></div>
+        <div class="synth-body" style="border:1px solid rgba(0,160,80,0.1)">2024年，投资者主流叙事已从<em>"GoTo将永远烧钱"</em>转向<em>"GoTo已完成转折。"</em>然而股价（2025年中约为印尼盾65/股）仍较 <a href="https://pitchbook.com/profiles/company/537358-87" target="_blank" style="color:#0055cc;">IPO发行价338卢比折价约80%</a>. The market is partially pricing in structural execution risk and the Chinese partner concentration. A full GAAP profit in 2025/2026 would be the re-rating catalyst. GoTo的 contribution to Indonesia's GDP (~2%) and its ~$26B annual economic impact gives it a unique "national champion" narrative that could translate into government support and regulatory favoritism over purely foreign competitors like Grab.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end main-body -->
+</div>
+
+</div><!-- end page-wrap -->
+</div><!-- end viewport -->
+
+<script>
+var currentZoom = 1.0;
+var vp = document.getElementById('viewport');
+
+function applyZoom() {
+  var pw = document.getElementById('page-wrap');
+  var ti = document.getElementById('topbar-inner');
+  var s = 'scale(' + currentZoom + ')';
+  pw.style.transform = s;
+  pw.style.transformOrigin = 'top left';
+  ti.style.transform = s;
+  ti.style.transformOrigin = 'top left';
+  document.getElementById('topbar-shell').style.height = Math.round(66 * currentZoom) + 'px';
+  vp.style.top = Math.round(66 * currentZoom) + 'px';
+  document.getElementById('vscroll').style.top = (Math.round(66 * currentZoom) + 8) + 'px';
+  document.getElementById('zoom-label').textContent = Math.round(currentZoom * 100) + '%';
+  setTimeout(updateScrollbars, 50);
+}
+function adjustZoom(d) {
+  currentZoom = Math.min(2.5, Math.max(0.3, +(currentZoom + d).toFixed(2)));
+  applyZoom();
+}
+function resetZoom() { currentZoom = 1.0; applyZoom(); }
+
+function updateScrollbars() {
+  var pw = document.getElementById('page-wrap');
+  var vpH = vp.clientHeight, vpW = vp.clientWidth;
+  var contentH = pw.scrollHeight * currentZoom;
+  var contentW = pw.scrollWidth * currentZoom;
+  var vEl = document.getElementById('vscroll');
+  var vThumb = document.getElementById('vscroll-thumb');
+  var trkH = vEl.clientHeight;
+  var tH = Math.max(28, trkH * Math.min(1, vpH / Math.max(contentH, 1)));
+  vThumb.style.height = tH + 'px';
+  var rV = vp.scrollTop / Math.max(1, contentH - vpH);
+  vThumb.style.top = Math.min(trkH - tH, rV * (trkH - tH)) + 'px';
+  vEl.style.display = contentH > vpH ? 'block' : 'none';
+  var hEl = document.getElementById('hscroll');
+  var hThumb = document.getElementById('hscroll-thumb');
+  var trkW = hEl.clientWidth;
+  var tW = Math.max(28, trkW * Math.min(1, vpW / Math.max(contentW, 1)));
+  hThumb.style.width = tW + 'px';
+  var rH = vp.scrollLeft / Math.max(1, contentW - vpW);
+  hThumb.style.left = Math.min(trkW - tW, rH * (trkW - tW)) + 'px';
+  hEl.style.display = contentW > vpW ? 'block' : 'none';
+}
+vp.addEventListener('scroll', updateScrollbars);
+window.addEventListener('resize', updateScrollbars);
+
+(function(){
+  var thumb=document.getElementById('vscroll-thumb'),track=document.getElementById('vscroll-track'),drag=false,sy,ss;
+  thumb.addEventListener('mousedown',function(e){drag=true;sy=e.clientY;ss=vp.scrollTop;thumb.classList.add('dragging');e.preventDefault();e.stopPropagation();});
+  document.addEventListener('mousemove',function(e){if(!drag)return;var pw=document.getElementById('page-wrap');var tH=parseFloat(thumb.style.height)||28;var trkH=document.getElementById('vscroll').clientHeight;var ratio=(e.clientY-sy)/(trkH-tH);vp.scrollTop=ss+ratio*(pw.scrollHeight*currentZoom-vp.clientHeight);});
+  document.addEventListener('mouseup',function(){drag=false;thumb.classList.remove('dragging');});
+  track.addEventListener('click',function(e){var r=document.getElementById('vscroll').getBoundingClientRect();var pw=document.getElementById('page-wrap');vp.scrollTop=(e.clientY-r.top)/r.height*(pw.scrollHeight*currentZoom-vp.clientHeight);});
+})();
+
+(function(){
+  var thumb=document.getElementById('hscroll-thumb'),track=document.getElementById('hscroll-track'),drag=false,sx,ss;
+  thumb.addEventListener('mousedown',function(e){drag=true;sx=e.clientX;ss=vp.scrollLeft;thumb.classList.add('dragging');e.preventDefault();e.stopPropagation();});
+  document.addEventListener('mousemove',function(e){if(!drag)return;var pw=document.getElementById('page-wrap');var tW=parseFloat(thumb.style.width)||28;var trkW=document.getElementById('hscroll').clientWidth;var ratio=(e.clientX-sx)/(trkW-tW);vp.scrollLeft=ss+ratio*(pw.scrollWidth*currentZoom-vp.clientWidth);});
+  document.addEventListener('mouseup',function(){drag=false;thumb.classList.remove('dragging');});
+  track.addEventListener('click',function(e){var r=document.getElementById('hscroll').getBoundingClientRect();var pw=document.getElementById('page-wrap');vp.scrollLeft=(e.clientX-r.left)/r.width*(pw.scrollWidth*currentZoom-vp.clientWidth);});
+})();
+
+vp.addEventListener('wheel',function(e){
+  e.preventDefault();
+  if(e.deltaX!==0) vp.scrollLeft+=e.deltaX;
+  if(e.deltaY!==0){ if(e.shiftKey){vp.scrollLeft+=e.deltaY;}else{vp.scrollTop+=e.deltaY;} }
+  updateScrollbars();
+},{passive:false});
+
+function setLang(lang) {
+  var isZH = (lang === 'zh');
+  document.getElementById('section-en').style.display = isZH ? 'none' : 'block';
+  document.getElementById('section-zh').style.display = isZH ? 'block' : 'none';
+  document.getElementById('topbar-en').style.display = isZH ? 'none' : 'block';
+  document.getElementById('topbar-zh').style.display = isZH ? 'block' : 'none';
+  document.getElementById('footer-en').style.display = isZH ? 'none' : 'flex';
+  document.getElementById('footer-zh').style.display = isZH ? 'flex' : 'none';
+  document.getElementById('btn-en').style.background = isZH ? 'transparent' : 'rgba(0,80,220,0.12)';
+  document.getElementById('btn-en').style.color = isZH ? '#8a9ab8' : '#0044cc';
+  document.getElementById('btn-zh').style.background = isZH ? 'rgba(0,80,220,0.12)' : 'transparent';
+  document.getElementById('btn-zh').style.color = isZH ? '#0044cc' : '#8a9ab8';
+  vp.scrollTop = 0;
+  vp.scrollLeft = 0;
+  applyZoom();
+}
+
+window.addEventListener('load', function(){ setTimeout(updateScrollbars, 200); });
+setTimeout(updateScrollbars, 400);
+</script>
+</body>
+</html>
