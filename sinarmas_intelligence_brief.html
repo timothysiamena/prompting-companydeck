@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>Sinar Mas Group — Conglomerate Intelligence Brief 2024</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{overflow:hidden;height:100%;width:100%}
+body{width:100%;height:100%;overflow:hidden;background:#ffffff;color:#1a2035;font-family:'Inter',sans-serif;font-size:13px;margin:0}
+a{color:#0055cc;text-decoration:none}a:hover{text-decoration:underline}
+/* TOPBAR */
+#topbar-shell{position:fixed;top:0;left:0;right:0;height:66px;z-index:500;background:#fff;border-bottom:1.5px solid rgba(0,20,80,0.1)}
+#topbar-inner{width:1920px;height:66px;transform-origin:top left}
+.topbar{height:66px;padding:0 36px;display:flex;align-items:center;gap:12px;width:1920px}
+/* VIEWPORT */
+#viewport{position:fixed;top:66px;bottom:72px;left:0;right:0;overflow:hidden}
+#page-wrap{width:1920px;transform-origin:top left}
+/* BOTTOMBAR */
+.bottombar{position:fixed;bottom:0;left:0;width:100vw;height:64px;background:#fff;border-top:1.5px solid rgba(0,20,80,0.09);display:flex;align-items:center;padding:0 36px;z-index:9000;box-shadow:0 -2px 12px rgba(0,20,80,0.05)}
+.key-metrics{display:flex;gap:0;flex:1}
+.metric-item{flex:1;text-align:center;padding:8px 12px;border-right:1px solid rgba(0,20,80,0.07)}
+.metric-item:last-child{border-right:none}
+.metric-val{font-size:18px;font-weight:900;color:#0a1020}
+.metric-lbl{font-size:9px;color:#9aaabb;font-weight:600;letter-spacing:0.3px;margin-top:2px}
+/* SCROLLBARS */
+#vscroll{position:fixed;right:4px;top:74px;bottom:80px;width:7px;z-index:8000}
+#vscroll-track{position:absolute;inset:0;background:rgba(0,20,80,0.06);border-radius:6px}
+#vscroll-thumb{position:absolute;left:0;right:0;background:rgba(0,60,180,0.22);border-radius:6px;min-height:28px;cursor:grab;transition:background 0.15s}
+#vscroll-thumb:hover,#vscroll-thumb.dragging{background:rgba(0,60,180,0.42);cursor:grabbing}
+#hscroll{position:fixed;left:0;right:14px;bottom:72px;height:7px;z-index:8000}
+#hscroll-track{position:absolute;inset:0;background:rgba(0,20,80,0.06);border-radius:6px}
+#hscroll-thumb{position:absolute;top:0;bottom:0;background:rgba(0,60,180,0.22);border-radius:6px;min-width:28px;cursor:grab;transition:background 0.15s}
+#hscroll-thumb:hover,#hscroll-thumb.dragging{background:rgba(0,60,180,0.42);cursor:grabbing}
+/* TAGS */
+.tag{padding:3px 11px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:0.4px;text-transform:uppercase;white-space:nowrap}
+.tag-blue{background:rgba(0,100,220,0.09);color:#0055bb;border:1px solid rgba(0,100,220,0.18)}
+.tag-orange{background:rgba(210,90,0,0.09);color:#aa4400;border:1px solid rgba(210,90,0,0.18)}
+.tag-green{background:rgba(0,160,80,0.09);color:#006633;border:1px solid rgba(0,160,80,0.18)}
+.tag-red{background:rgba(200,30,30,0.09);color:#aa1111;border:1px solid rgba(200,30,30,0.18)}
+.tag-purple{background:rgba(110,50,200,0.09);color:#6622aa;border:1px solid rgba(110,50,200,0.18)}
+.tag-yellow{background:rgba(180,130,0,0.09);color:#7a5500;border:1px solid rgba(180,130,0,0.18)}
+.tag-gray{background:rgba(0,20,60,0.06);color:#5a6a88;border:1px solid rgba(0,20,60,0.11)}
+/* MAIN GRID */
+.main-body{display:grid;grid-template-columns:320px 1fr 1fr 1fr;grid-template-rows:auto auto;padding-bottom:20px;min-height:calc(100vh - 66px)}
+.panel{padding:20px 22px;border-right:1px solid rgba(0,20,80,0.07);border-bottom:1px solid rgba(0,20,80,0.07);display:flex;flex-direction:column;gap:10px;overflow:visible}
+.panel-title{font-size:9px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:#8a9ab8;display:flex;align-items:center;gap:6px;margin-bottom:2px}
+.panel-title::after{content:'';flex:1;height:1px;background:rgba(0,20,80,0.08)}
+/* SIDEBAR */
+.sidebar{grid-column:1;grid-row:1/3;background:#fafbfe;padding:24px 20px;border-right:1.5px solid rgba(0,20,80,0.08);display:flex;flex-direction:column;gap:14px}
+.logo-box{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#dd6600,#cc2222);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:#fff;flex-shrink:0}
+.stat-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(0,20,80,0.05)}
+.stat-row:last-child{border-bottom:none}
+.stat-label{font-size:9px;color:#8a9ab8;font-weight:600;letter-spacing:0.3px;text-transform:uppercase}
+.stat-value{font-size:10.5px;font-weight:700;color:#1a2a44}
+.info-block{background:#fff;border:1px solid rgba(0,20,80,0.07);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.info-block-title{font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#9aaabb;margin-bottom:2px}
+.sidebar-section-label{font-size:8px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#c0cce0;margin-top:4px}
+/* TIMELINE */
+.tl-list{display:flex;flex-direction:column;gap:0}
+.tl-item{display:flex;gap:10px;padding-bottom:10px;border-left:1.5px solid rgba(0,20,80,0.1);padding-left:14px;position:relative}
+.tl-item:last-child{border-left-color:transparent}
+.tl-dot{position:absolute;left:-5px;top:3px;width:9px;height:9px;border-radius:50%;border:1.5px solid #fff}
+.tl-year{font-size:10px;font-weight:800;color:#0a1020;white-space:nowrap}
+.tl-title{font-size:10.5px;font-weight:700;color:#1a2a44;line-height:1.3}
+.tl-detail{font-size:9px;color:#9aaabb;line-height:1.45;margin-top:2px}
+.tl-order-label{font-size:8px;color:#c0cce0;margin-bottom:6px;font-weight:500}
+/* PRODUCT CARDS */
+.products-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.product-card{border:1px solid rgba(0,20,80,0.07);border-radius:8px;padding:12px 14px;border-top:3px solid}
+.product-card-name{font-size:11px;font-weight:800;color:#0a1020;margin-bottom:3px}
+.product-card-desc{font-size:9px;color:#5a6a88;line-height:1.45}
+/* BAR CHARTS */
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.bar-label{font-size:9px;color:#5a6a88;width:100px;flex-shrink:0;font-weight:600}
+.bar-track{flex:1;height:6px;background:rgba(0,20,80,0.06);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px}
+.bar-pct{font-size:9px;color:#8a9ab8;width:36px;text-align:right;font-weight:700}
+/* COMPETITOR CARDS */
+.comp-card{border:1px solid rgba(0,20,80,0.07);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:5px}
+.comp-name{font-size:11px;font-weight:800;color:#0a1020}
+.comp-desc{font-size:9px;color:#5a6a88;line-height:1.4}
+/* OUTLOOK CARDS */
+.outlook-card{border-left:3px solid;padding:10px 14px;border-radius:0 6px 6px 0;background:rgba(0,20,80,0.02);margin-bottom:8px}
+.outlook-title{font-size:10px;font-weight:800;color:#0a1020;margin-bottom:3px}
+.outlook-body{font-size:9px;color:#5a6a88;line-height:1.45}
+/* CLOUD SECTION */
+.cloud-section{grid-column:1/-1;border-bottom:1px solid rgba(0,20,80,0.07)}
+.cloud-inner{display:grid;grid-template-columns:400px 1fr 520px;gap:0}
+.cloud-col{padding:20px 22px;border-right:1px solid rgba(0,20,80,0.07)}
+.cloud-col:last-child{border-right:none}
+.cloud-table{width:100%;border-collapse:collapse;font-size:9px}
+.cloud-table th{font-weight:700;color:#8a9ab8;text-transform:uppercase;letter-spacing:0.5px;padding:6px 8px;border-bottom:1px solid rgba(0,20,80,0.07);text-align:left}
+.cloud-table td{padding:7px 8px;border-bottom:1px solid rgba(0,20,80,0.04);color:#1a2a44;vertical-align:top}
+.cloud-table tr:last-child td{border-bottom:none}
+.meth-box{background:rgba(0,20,80,0.03);border:1px solid rgba(0,20,80,0.07);border-radius:6px;padding:10px 12px;font-size:8.5px;color:#5a6a88;line-height:1.5;margin-bottom:12px}
+.ref-box{background:rgba(255,200,0,0.04);border:1px solid rgba(180,130,0,0.1);border-radius:6px;padding:10px 12px;font-size:8px;color:#7a5500;line-height:1.5;margin-top:12px}
+/* FINANCIALS SECTION */
+.fin-section{grid-column:1/-1;border-bottom:1px solid rgba(0,20,80,0.07)}
+.fin-inner{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+.fin-card{padding:20px 22px;border-right:1px solid rgba(0,20,80,0.07)}
+.fin-card:last-child{border-right:none}
+.fin-metric{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:1px solid rgba(0,20,80,0.04)}
+.fin-metric:last-child{border-bottom:none}
+.fin-key{font-size:9px;color:#8a9ab8;font-weight:600}
+.fin-val{font-size:11px;font-weight:800;color:#0a1020;text-align:right}
+.fin-sub{font-size:7.5px;color:#b0c0d0;display:block;text-align:right;margin-top:1px}
+.fin-label{font-size:7px;color:#b0c0d0;font-weight:500}
+.fin-header{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#8a9ab8;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.fin-header::after{content:'';flex:1;height:1px;background:rgba(0,20,80,0.08)}
+.it-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.it-bar-label{font-size:8.5px;color:#5a6a88;width:120px;flex-shrink:0}
+.it-bar-track{flex:1;height:8px;background:rgba(0,20,80,0.05);border-radius:4px;overflow:hidden}
+.it-bar-fill{height:100%;border-radius:4px}
+.it-bar-val{font-size:8.5px;font-weight:700;color:#0a1020;width:60px;text-align:right}
+/* NEWS SECTION */
+.news-section{grid-column:1/-1}
+.news-header{background:linear-gradient(135deg,#0a1020,#0f1a30);padding:14px 22px;display:flex;align-items:center;gap:10px}
+.news-header-title{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.9)}
+.news-kw-strip{background:rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.07);padding:8px 22px;display:flex;gap:8px;flex-wrap:wrap}
+.news-kw{font-size:9px;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:0.5px;text-transform:uppercase}
+.news-body{display:grid;grid-template-columns:1fr 420px;background:linear-gradient(135deg,#0a1020,#0f1a30)}
+.news-signals{padding:20px 22px;display:flex;flex-direction:column;gap:10px;border-right:1px solid rgba(255,255,255,0.07)}
+.signal-card{border-radius:6px;padding:12px 14px;border-left:3px solid}
+.signal-num{font-size:8px;font-weight:900;color:rgba(255,255,255,0.4);margin-bottom:4px}
+.signal-title{font-size:11px;font-weight:800;color:rgba(255,255,255,0.9);margin-bottom:5px;line-height:1.3}
+.signal-body{font-size:9px;color:rgba(255,255,255,0.55);line-height:1.5}
+.signal-impact{font-size:8px;font-weight:700;color:rgba(255,255,255,0.35);margin-top:5px;text-transform:uppercase;letter-spacing:0.5px}
+.synthesis-panel{padding:20px 22px}
+.synth-title{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:14px}
+.synth-cat{margin-bottom:12px}
+.synth-cat-name{font-size:9px;font-weight:800;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:0.7px;margin-bottom:4px}
+.synth-cat-body{font-size:9px;color:rgba(255,255,255,0.45);line-height:1.55}
+/* STATUS BADGE */
+.status-active{background:rgba(0,160,80,0.08);border:1px solid rgba(0,160,80,0.2);color:#006633;padding:3px 12px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:0.5px}
+.status-badge-large{padding:4px 14px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:0.5px}
+/* ASSET CARDS */
+.asset-card{border:1px solid rgba(0,20,80,0.07);border-radius:8px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start}
+.asset-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.asset-name{font-size:10.5px;font-weight:800;color:#0a1020;margin-bottom:2px}
+.asset-desc{font-size:9px;color:#5a6a88;line-height:1.4}
+/* HIGHLIGHT BOX */
+.highlight-box{background:linear-gradient(135deg,rgba(0,68,204,0.05),rgba(0,68,204,0.02));border:1px solid rgba(0,68,204,0.12);border-radius:8px;padding:14px 16px;text-align:center}
+.highlight-num{font-size:28px;font-weight:900;color:#0044cc}
+.highlight-sub{font-size:9px;color:#8a9ab8;margin-top:2px}
+/* SECONDARY TEXT */
+.sec{font-size:8px;color:#9aaabb;display:block;margin-top:1px}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     STATIC CHROME
+═══════════════════════════════════════════════════════════════ -->
+
+<div id="topbar-shell">
+  <div id="topbar-inner">
+
+    <div id="topbar-en">
+      <div class="topbar">
+        <div class="logo-box">S</div>
+        <div style="display:flex;flex-direction:column;gap:1px">
+          <span style="font-size:18px;font-weight:800;color:#0a1020">Sinar Mas Group</span>
+          <span style="font-size:11px;color:#8a9ab8">Founded 1938 · Widjaja Family Conglomerate · Jakarta, Indonesia</span>
+        </div>
+        <div style="width:1px;height:32px;background:rgba(0,20,80,0.1);margin:0 4px"></div>
+        <span class="tag tag-orange">Pulp &amp; Paper</span>
+        <span class="tag tag-green">Agribusiness</span>
+        <span class="tag tag-blue">Real Estate</span>
+        <span class="tag tag-purple">Financial Services</span>
+        <span class="tag tag-yellow">Energy &amp; Mining</span>
+        <span class="tag tag-gray">Telecom &amp; Tech</span>
+        <div style="margin-left:auto;display:flex;align-items:center;gap:12px;padding-right:280px">
+          <span style="font-size:10px;color:#8a9ab8;font-weight:500">IDX: DSSA · SGX: A26 · IDX: INKP · IDX: BSDE</span>
+          <span class="status-active">ACTIVE</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="topbar-zh" style="display:none">
+      <div class="topbar">
+        <div class="logo-box">S</div>
+        <div style="display:flex;flex-direction:column;gap:1px">
+          <span style="font-size:18px;font-weight:800;color:#0a1020">金光集团 (Sinar Mas Group)</span>
+          <span style="font-size:11px;color:#8a9ab8">成立于1938年 · 维查雅家族综合集团 · 印度尼西亚雅加达</span>
+        </div>
+        <div style="width:1px;height:32px;background:rgba(0,20,80,0.1);margin:0 4px"></div>
+        <span class="tag tag-orange">纸浆与造纸</span>
+        <span class="tag tag-green">农业综合</span>
+        <span class="tag tag-blue">房地产</span>
+        <span class="tag tag-purple">金融服务</span>
+        <span class="tag tag-yellow">能源与矿业</span>
+        <span class="tag tag-gray">电信与科技</span>
+        <div style="margin-left:auto;display:flex;align-items:center;gap:12px;padding-right:280px">
+          <span style="font-size:10px;color:#8a9ab8;font-weight:500">IDX: DSSA · SGX: A26 · IDX: INKP · IDX: BSDE</span>
+          <span class="status-active">运营中</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SCROLLBARS -->
+<div id="vscroll"><div id="vscroll-track"></div><div id="vscroll-thumb"></div></div>
+<div id="hscroll"><div id="hscroll-track"></div><div id="hscroll-thumb"></div></div>
+
+<!-- UI OVERLAY -->
+<div id="ui-overlay" style="position:fixed;top:14px;right:20px;z-index:9999;display:flex;align-items:center;gap:8px;">
+  <div style="display:flex;align-items:center;gap:3px;background:#fff;border:1px solid rgba(0,20,80,0.15);border-radius:22px;padding:4px 10px;box-shadow:0 2px 8px rgba(0,20,80,0.1)">
+    <span style="font-size:10px;margin-right:3px">🌐</span>
+    <button id="btn-en" onclick="setLang('en')" style="font-size:10px;font-weight:700;padding:3px 9px;border-radius:14px;border:none;cursor:pointer;background:rgba(0,80,220,0.12);color:#0044cc">EN</button>
+    <button id="btn-zh" onclick="setLang('zh')" style="font-size:10px;font-weight:700;padding:3px 9px;border-radius:14px;border:none;cursor:pointer;background:transparent;color:#8a9ab8">中文</button>
+  </div>
+  <div style="width:1px;height:22px;background:rgba(0,20,80,0.1)"></div>
+  <div style="display:flex;align-items:center;gap:4px;background:#fff;border:1px solid rgba(0,20,80,0.15);border-radius:22px;padding:4px 8px;box-shadow:0 2px 8px rgba(0,20,80,0.1)">
+    <button onclick="adjustZoom(-0.1)" style="font-size:14px;font-weight:900;padding:2px 7px;border-radius:12px;border:none;cursor:pointer;background:transparent;color:#4a5a78;line-height:1">−</button>
+    <span id="zoom-label" style="font-size:9px;font-weight:700;color:#4a5a78;min-width:34px;text-align:center">100%</span>
+    <button onclick="adjustZoom(+0.1)" style="font-size:14px;font-weight:900;padding:2px 7px;border-radius:12px;border:none;cursor:pointer;background:transparent;color:#4a5a78;line-height:1">+</button>
+    <button onclick="resetZoom()" style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:12px;border:none;cursor:pointer;background:rgba(0,20,80,0.06);color:#8a9ab8">↺</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="bottombar">
+  <div id="footer-en" class="key-metrics">
+    <div class="metric-item"><div class="metric-val">~$25B+</div><div class="metric-lbl">Est. Group Revenue (FY2024)</div></div>
+    <div class="metric-item"><div class="metric-val">$10.9B</div><div class="metric-lbl">GAR Revenue (SGX: A26)</div></div>
+    <div class="metric-item"><div class="metric-val">$3.0B</div><div class="metric-lbl">DSSA Revenue (IDX: DSSA)</div></div>
+    <div class="metric-item"><div class="metric-val">$1.5B</div><div class="metric-lbl">Sinarmas Land Revenue (SGX)</div></div>
+    <div class="metric-item"><div class="metric-val">300K+</div><div class="metric-lbl">Direct Employees</div></div>
+    <div class="metric-item"><div class="metric-val">$6.5B</div><div class="metric-lbl">XLSmart Merger Value</div></div>
+    <div class="metric-item"><div class="metric-val">7</div><div class="metric-lbl">Business Pillars</div></div>
+  </div>
+  <div id="footer-zh" class="key-metrics" style="display:none">
+    <div class="metric-item"><div class="metric-val">~$250亿+</div><div class="metric-lbl">集团估计总营收 (2024财年)</div></div>
+    <div class="metric-item"><div class="metric-val">$109亿</div><div class="metric-lbl">金农资源营收 (SGX: A26)</div></div>
+    <div class="metric-item"><div class="metric-val">$30亿</div><div class="metric-lbl">DSSA营收 (IDX: DSSA)</div></div>
+    <div class="metric-item"><div class="metric-val">$15亿</div><div class="metric-lbl">金光置地营收 (SGX)</div></div>
+    <div class="metric-item"><div class="metric-val">30万+</div><div class="metric-lbl">直接雇员</div></div>
+    <div class="metric-item"><div class="metric-val">$65亿</div><div class="metric-lbl">XLSmart合并估值</div></div>
+    <div class="metric-item"><div class="metric-val">7</div><div class="metric-lbl">业务支柱</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     VIEWPORT + PAGE WRAP
+═══════════════════════════════════════════════════════════════ -->
+<div id="viewport">
+<div id="page-wrap">
+
+<!-- ═══════════ ENGLISH SECTION ═══════════ -->
+<div id="section-en">
+<div class="main-body">
+
+<!-- [2a] SIDEBAR -->
+<div class="sidebar">
+  <div style="display:flex;align-items:center;gap:12px">
+    <div class="logo-box">S</div>
+    <div>
+      <div style="font-size:15px;font-weight:900;color:#0a1020">Sinar Mas</div>
+      <div style="font-size:9px;color:#8a9ab8;font-weight:600;margin-top:1px">Group Intelligence Brief</div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <div class="info-block-title">Quick Facts</div>
+    <div class="stat-row"><span class="stat-label">Founded</span><span class="stat-value">1938</span></div>
+    <div class="stat-row"><span class="stat-label">HQ</span><span class="stat-value">Jakarta, Indonesia</span></div>
+    <div class="stat-row"><span class="stat-label">Founder</span><span class="stat-value">Eka Tjipta Widjaja</span></div>
+    <div class="stat-row"><span class="stat-label">Current Leadership</span><span class="stat-value">Widjaja Family</span></div>
+    <div class="stat-row"><span class="stat-label">Business Pillars</span><span class="stat-value">7 Sectors</span></div>
+    <div class="stat-row"><span class="stat-label">Direct Jobs</span><span class="stat-value">300,000+</span></div>
+    <div class="stat-row"><span class="stat-label">Indirect Jobs</span><span class="stat-value">500,000+</span></div>
+    <div class="stat-row"><span class="stat-label">Status</span><span class="status-active" style="font-size:9px;padding:2px 8px">ACTIVE</span></div>
+  </div>
+
+  <div class="info-block">
+    <div class="info-block-title">Listed Entities</div>
+    <div class="stat-row"><span class="stat-label">IDX: DSSA</span><span class="stat-value">Dian Swastatika</span></div>
+    <div class="stat-row"><span class="stat-label">IDX: INKP</span><span class="stat-value">Indah Kiat (APP)</span></div>
+    <div class="stat-row"><span class="stat-label">IDX: TKIM</span><span class="stat-value">Tjiwi Kimia (APP)</span></div>
+    <div class="stat-row"><span class="stat-label">IDX: BSDE</span><span class="stat-value">BSD City / Land</span></div>
+    <div class="stat-row"><span class="stat-label">IDX: SMRA</span><span class="stat-value">Smartfren Telecom</span></div>
+    <div class="stat-row"><span class="stat-label">SGX: A26</span><span class="stat-value">Sinarmas Land Ltd</span></div>
+    <div class="stat-row"><span class="stat-label">SGX: E5H</span><span class="stat-value">Golden Agri-Resources</span></div>
+  </div>
+
+  <div class="info-block">
+    <div class="info-block-title">Key Subsidiaries / Brands</div>
+    <div class="stat-row"><span class="stat-label">Pulp &amp; Paper</span><span class="stat-value">APP / Asia Pulp &amp; Paper</span></div>
+    <div class="stat-row"><span class="stat-label">Agri</span><span class="stat-value">Golden Agri-Resources</span></div>
+    <div class="stat-row"><span class="stat-label">Real Estate</span><span class="stat-value">BSD City, Sinarmas Land</span></div>
+    <div class="stat-row"><span class="stat-label">Bank</span><span class="stat-value">Bank Sinarmas</span></div>
+    <div class="stat-row"><span class="stat-label">Insurance</span><span class="stat-value">Sinarmas MSIG</span></div>
+    <div class="stat-row"><span class="stat-label">Telecom</span><span class="stat-value">Smartfren → XLSmart</span></div>
+    <div class="stat-row"><span class="stat-label">Internet</span><span class="stat-value">MyRepublic Indonesia</span></div>
+    <div class="stat-row"><span class="stat-label">Coal</span><span class="stat-value">Berau Coal, DSS</span></div>
+  </div>
+
+  <div style="background:rgba(221,102,0,0.06);border:1px solid rgba(221,102,0,0.15);border-radius:8px;padding:12px 14px">
+    <div style="font-size:8px;font-weight:700;color:#aa4400;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:6px">⚠ ESG Alert</div>
+    <div style="font-size:9px;color:#5a6a88;line-height:1.5">Ongoing <a href="https://www.eyesontheforest.or.id/news/collecting-raw-materials-from-natural-forests-app-continues-to-violate-its-sustainability-commitments" target="_blank">deforestation allegations</a> against APP/SMG. Greenpeace ended engagement 2018. FSC disassociated. 376 ha of natural forest clearing documented in Feb 2024 (Riau). <strong style="color:#aa4400">EUDR compliance risk rising.</strong></div>
+  </div>
+
+  <div class="info-block">
+    <div class="info-block-title">Analysis Parameters</div>
+    <div class="stat-row"><span class="stat-label">Analysis Year</span><span class="stat-value">FY 2024</span></div>
+    <div class="stat-row"><span class="stat-label">Primary Market</span><span class="stat-value">Indonesia</span></div>
+    <div class="stat-row"><span class="stat-label">Secondary Market</span><span class="stat-value">SEA / Global</span></div>
+    <div class="stat-row"><span class="stat-label">FX Rate Used</span><span class="stat-value">IDR 15,800/$</span></div>
+    <div class="stat-row"><span class="stat-label">Report Date</span><span class="stat-value">March 2026</span></div>
+  </div>
+</div>
+
+<!-- [2b] PANEL A: Products & Services -->
+<div class="panel" style="grid-column:2;grid-row:1">
+  <div class="panel-title">🏭 Business Pillars &amp; Products</div>
+  <div class="products-grid">
+    <div class="product-card" style="border-top-color:#dd6600">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px">
+        <div class="product-card-name">Asia Pulp &amp; Paper (APP)</div>
+        <span class="tag tag-orange" style="font-size:8px;padding:2px 7px">Pulp &amp; Paper</span>
+      </div>
+      <div class="product-card-desc">Indonesia's largest paper manufacturer. Brands: Livi, Paseo, Bindex. <a href="https://www.idnfinancials.com/news/53561/sinarmas-groups-paper-companies-inkp-or-tkim-in-the-lead" target="_blank">INKP net sales $3.2B in 2024 ↗</a>. Accounts for ~70% of Indonesia's paper exports. FSC-disassociated due to deforestation controversies.</div>
+    </div>
+    <div class="product-card" style="border-top-color:#006633">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px">
+        <div class="product-card-name">Golden Agri-Resources (GAR)</div>
+        <span class="tag tag-green" style="font-size:8px;padding:2px 7px">Agribusiness</span>
+      </div>
+      <div class="product-card-desc">2nd largest global palm oil producer. Palm oil, oleochemicals, sugar, branded food products. <a href="https://www.goldenagri.com.sg/second-half-recovery-spurs-robust-full-year-2024-performance-for-golden-agri-resources/" target="_blank">$10.9B revenue FY2024 (+12% YoY) ↗</a>. Record 11.9M tonne sales volume. Net zero target by 2050.</div>
+    </div>
+    <div class="product-card" style="border-top-color:#0044cc">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px">
+        <div class="product-card-name">Sinarmas Land / BSD City</div>
+        <span class="tag tag-blue" style="font-size:8px;padding:2px 7px">Real Estate</span>
+      </div>
+      <div class="product-card-desc">Indonesia's largest real estate developer. BSD City (Tangerang), Grand Wisata, Kota Wisata, Meikarta. <a href="https://www.minichart.com.sg/2025/04/15/sinarmas-land-limited-reports-full-year-2024-financial-results/" target="_blank">SGX revenue $1.49B FY2024 (+10.9%) ↗</a>. Net profit $465.3M (+20.9%).</div>
+    </div>
+    <div class="product-card" style="border-top-color:#6622aa">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px">
+        <div class="product-card-name">Sinarmas Financial Services</div>
+        <span class="tag tag-purple" style="font-size:8px;padding:2px 7px">Fintech / Banking</span>
+      </div>
+      <div class="product-card-desc">Bank Sinarmas (346 offices, 120 cities), Sinarmas MSIG Life/General Insurance, Sinarmas Sekuritas, Sinarmas Multiartha. #1 general insurance in Indonesia. Growing digital banking / AI partnerships incl. <a href="https://www.zoominfo.com/c/sinar-mas-group/187384094" target="_blank">XtalPi AI robotics JV ↗</a>.</div>
+    </div>
+    <div class="product-card" style="border-top-color:#cc7700">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px">
+        <div class="product-card-name">Dian Swastatika Sentosa (DSSA)</div>
+        <span class="tag tag-yellow" style="font-size:8px;padding:2px 7px">Energy &amp; Mining</span>
+      </div>
+      <div class="product-card-desc">Coal mining (Berau Coal, 56.7Mt/yr), captive power (300MW), fertilizers &amp; chemicals. <a href="https://erecruitment.dssa.co.id/en/press-release/dssa-laporkan-kinerja-keuangan-perluas-investasi-di-sektor-berkelanjutan-1742549457940" target="_blank">$3B revenue FY2024 ↗</a>, EBITDA $734M. Mining = 92% of revenue. Expanding into AI data centers.</div>
+    </div>
+    <div class="product-card" style="border-top-color:#5a6a88">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px">
+        <div class="product-card-name">Smartfren / XLSmart (Telecom)</div>
+        <span class="tag tag-gray" style="font-size:8px;padding:2px 7px">Telecom</span>
+      </div>
+      <div class="product-card-desc">Smartfren Telecom (4G/5G Indonesia) merging with XL Axiata → <strong>XLSmart</strong>. <a href="https://www.thestar.com.my/business/business-news/2024/12/12/axiata-sinar-mas-to-merge-indonesian-units" target="_blank">$6.5B combined enterprise value ↗</a>. 94.5M subscribers, 27% market share. Shareholders approved March 2025.</div>
+    </div>
+  </div>
+  <div style="background:rgba(0,68,204,0.03);border:1px solid rgba(0,68,204,0.08);border-radius:6px;padding:10px 12px;margin-top:4px">
+    <span style="font-size:8.5px;color:#5a6a88;line-height:1.5"><strong style="color:#0a1020">Healthcare (7th Pillar):</strong> Sinarmas added Healthcare as its newest pillar, including hospital operations and health services. DSSA also developing AI-powered data center (Kuningan, South Jakarta) via subsidiary.</span>
+  </div>
+</div>
+
+<!-- [2c] PANEL B: Key Assets & Strategic Moves -->
+<div class="panel" style="grid-column:3;grid-row:1">
+  <div class="panel-title">⚡ Key Assets &amp; Strategic Moves</div>
+
+  <div class="asset-card">
+    <div class="asset-icon" style="background:rgba(0,100,220,0.1)">📡</div>
+    <div>
+      <div class="asset-name">XLSmart Telecom Merger <span class="tag tag-blue" style="font-size:8px;padding:1px 6px;margin-left:4px">LANDMARK</span></div>
+      <div class="asset-desc"><a href="https://www.axiata.com/media/news/2025/shareholders-approve-xlsmart-merger-axiata-and-sinar-mas-set-advance-regional" target="_blank">Shareholders approved March 25, 2025 ↗</a>. Sinar Mas + Axiata each hold 34.8% of XLSmart. Annual pre-tax cost savings of $300–400M expected. IDR 104T (~$6.5B) combined EV. Will serve 94.5M subscribers, ~27% market share.</div>
+    </div>
+  </div>
+
+  <div class="asset-card">
+    <div class="asset-icon" style="background:rgba(0,160,80,0.1)">🌿</div>
+    <div>
+      <div class="asset-name">GAR Record Performance 2024 <span class="tag tag-green" style="font-size:8px;padding:1px 6px;margin-left:4px">FINANCIAL WIN</span></div>
+      <div class="asset-desc"><a href="https://www.goldenagri.com.sg/second-half-recovery-spurs-robust-full-year-2024-performance-for-golden-agri-resources/" target="_blank">Revenue +12% to $10.9B ↗</a>. Record 11.9M tonne sales. EBITDA $1.02B. Underlying profit $416M. Upstream recovery drove H2 outperformance. Vertical integration strategy validated amid CPO price recovery.</div>
+    </div>
+  </div>
+
+  <div class="asset-card">
+    <div class="asset-icon" style="background:rgba(110,50,200,0.1)">🤖</div>
+    <div>
+      <div class="asset-name">AI &amp; Data Center Expansion <span class="tag tag-purple" style="font-size:8px;padding:1px 6px;margin-left:4px">STRATEGIC PIVOT</span></div>
+      <div class="asset-desc"><a href="https://erecruitment.dssa.co.id/en/press-release/dssa-laporkan-kinerja-keuangan-perluas-investasi-di-sektor-berkelanjutan-1742549457940" target="_blank">DSSA developing AI data center (Kuningan, Jakarta) ↗</a>. MyRepublic Indonesia reached 6M households, 1M customers in 140+ cities. XtalPi AI &amp; robotics JV with Sinarmas Multiartha signed 2024.</div>
+    </div>
+  </div>
+
+  <div class="asset-card">
+    <div class="asset-icon" style="background:rgba(221,102,0,0.1)">🏙️</div>
+    <div>
+      <div class="asset-name">BSD City &amp; Real Estate Growth <span class="tag tag-orange" style="font-size:8px;padding:1px 6px;margin-left:4px">RESILIENT</span></div>
+      <div class="asset-desc"><a href="https://www.minichart.com.sg/2025/04/15/sinarmas-land-limited-reports-full-year-2024-financial-results/" target="_blank">Sinarmas Land FY2024: revenue $1.49B, net profit $465M ↗</a>. BSDE net profit IDR 3.4T (+76% YoY). Serpong-Balaraja toll road connecting BSD City Phase 3. New malls and amenities opening.</div>
+    </div>
+  </div>
+
+  <div class="asset-card">
+    <div class="asset-icon" style="background:rgba(0,160,80,0.08)">🤝</div>
+    <div>
+      <div class="asset-name">Axiata SEA Partnership <span class="tag tag-green" style="font-size:8px;padding:1px 6px;margin-left:4px">REGIONAL</span></div>
+      <div class="asset-desc"><a href="https://marketech-apac.com/axiata-sinar-mas-form-strategic-collaboration-to-support-digital-transformation-initiatives-across-sea/" target="_blank">2 LOIs signed Jan 2025 ↗</a> covering 5G enterprise, digital infrastructure, fintech innovations across SEA. Witnessed by Indonesian President Prabowo and Malaysian PM Anwar Ibrahim.</div>
+    </div>
+  </div>
+
+  <div class="asset-card">
+    <div class="asset-icon" style="background:rgba(200,30,30,0.08)">⚠️</div>
+    <div>
+      <div class="asset-name">EUDR &amp; ESG Compliance Risk <span class="tag tag-red" style="font-size:8px;padding:1px 6px;margin-left:4px">RISK</span></div>
+      <div class="asset-desc"><a href="https://www.eyesontheforest.or.id/news/collecting-raw-materials-from-natural-forests-app-continues-to-violate-its-sustainability-commitments" target="_blank">376 ha natural forest clearing documented Feb 2024 ↗</a>. EU Deforestation Regulation (EUDR) could restrict APP/GAR exports to Europe. FSC still disassociated from APP. Reputational risk for global buyers.</div>
+    </div>
+  </div>
+</div>
+
+<!-- [2d] PANEL C: Corporate Timeline -->
+<div class="panel" style="grid-column:4;grid-row:1">
+  <div class="panel-title">📅 Corporate Timeline</div>
+  <div class="tl-order-label">Latest → Oldest</div>
+  <div class="tl-list">
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#0044cc"></div>
+      <div>
+        <div class="tl-year">2025</div>
+        <div class="tl-title">XLSmart Merger Approved by Shareholders</div>
+        <div class="tl-detail"><a href="https://technode.global/2025/03/26/axiata-and-sinar-mas-secure-shareholders-approval-for-xlsmart-merger/" target="_blank">March 25, 2025: XL Axiata, Smartfren &amp; SmartTel shareholders voted yes ↗</a>. Sinar Mas &amp; Axiata become joint controlling shareholders at 34.8% each.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#0044cc"></div>
+      <div>
+        <div class="tl-year">Jan 2025</div>
+        <div class="tl-title">Axiata–Sinarmas LOIs Signed</div>
+        <div class="tl-detail"><a href="https://www.axiata.com/media/news/2025/axiata-and-sinarmas-sign-two-letters-intent-advance-strategic-collaboration-presence" target="_blank">Two LOIs for broader SEA collaboration ↗</a> covering 5G, enterprise services, fintech, digital infrastructure. Ceremony with Prabowo &amp; PM Anwar.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#dd6600"></div>
+      <div>
+        <div class="tl-year">Dec 2024</div>
+        <div class="tl-title">Smartfren + XL Axiata Merger Announced</div>
+        <div class="tl-detail"><a href="https://www.freshfields.com/en/our-thinking/news/news-search/2024/12/freshfields-advises-sinar-mas-on-the-us$6.5-billion-proposed-merger-of-smartfren-telecom-with-xl-axiata-in-indonesia" target="_blank">Definitive agreement signed; $6.5B combined EV ↗</a>. XLSmart Telecom Sejahtera to remain IDX-listed.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#006633"></div>
+      <div>
+        <div class="tl-year">2024</div>
+        <div class="tl-title">GAR Record Revenue; DSSA Data Center Push</div>
+        <div class="tl-detail"><a href="https://www.goldenagri.com.sg/second-half-recovery-spurs-robust-full-year-2024-performance-for-golden-agri-resources/" target="_blank">GAR hits $10.9B revenue record ↗</a>. <a href="https://erecruitment.dssa.co.id/en/press-release/dssa-laporkan-kinerja-keuangan-perluas-investasi-di-sektor-berkelanjutan-1742549457940" target="_blank">DSSA launches AI data center in Kuningan Jakarta ↗</a>. XtalPi AI robotics JV with Sinarmas Multiartha.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#cc7700"></div>
+      <div>
+        <div class="tl-year">2022</div>
+        <div class="tl-title">Healthcare Added as 7th Business Pillar</div>
+        <div class="tl-detail">Sinar Mas officially expands to 7 pillars including Healthcare. Group deepens digital transformation strategy across all subsidiaries.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#9922bb"></div>
+      <div>
+        <div class="tl-year">2013</div>
+        <div class="tl-title">APP Zero-Deforestation Commitment (Later Disputed)</div>
+        <div class="tl-detail">APP issues Forest Conservation Policy under NGO pressure. Greenpeace &amp; WWF engage. Policy later found inadequate — <a href="https://news.mongabay.com/2023/10/report-alleges-app-continues-deforestation-10-years-after-pledge-to-stop/" target="_blank">deforestation continues per 2023 Mongabay report ↗</a>.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#5a6a88"></div>
+      <div>
+        <div class="tl-year">2006</div>
+        <div class="tl-title">Bank Shinta Acquired → Bank Sinarmas</div>
+        <div class="tl-detail">Financial services pillar formally consolidated. Bank Sinarmas now operates 346 offices in 120 cities with life &amp; general insurance under one umbrella.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#8a9ab8"></div>
+      <div>
+        <div class="tl-year">1999</div>
+        <div class="tl-title">GAR Listed on Singapore Exchange</div>
+        <div class="tl-detail"><a href="https://www.goldenagri.com.sg/investors/financial-highlights-reports-presentations/annual-reports/" target="_blank">Golden Agri-Resources lists on SGX (E5H) ↗</a>. Becomes one of Asia's largest listed agri-companies.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#c0cce0"></div>
+      <div>
+        <div class="tl-year">1938</div>
+        <div class="tl-title">Founded by Eka Tjipta Widjaja</div>
+        <div class="tl-detail">Entrepreneur begins in Makassar. Grew from copra/cooking oil into Indonesia's largest diversified conglomerate over 85+ years.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- [2e] PANEL D: Market Position -->
+<div class="panel" style="grid-column:2;grid-row:2">
+  <div class="panel-title">📊 Market Position &amp; Scale</div>
+
+  <div class="highlight-box" style="margin-bottom:8px">
+    <div class="highlight-num">~$25B+</div>
+    <div style="font-size:11px;font-weight:700;color:#1a2a44;margin-top:2px">Estimated Combined Group Revenue</div>
+    <div class="highlight-sub">FY2024 · Across all listed + private entities · Est.</div>
+  </div>
+
+  <div style="font-size:9px;font-weight:700;color:#8a9ab8;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px">Palm Oil — Global Market Share</div>
+  <div class="bar-row"><span class="bar-label">Wilmar Intl</span><div class="bar-track"><div class="bar-fill" style="width:38%;background:#0044cc"></div></div><span class="bar-pct">~38%</span></div>
+  <div class="bar-row"><span class="bar-label">GAR / Sinarmas</span><div class="bar-track"><div class="bar-fill" style="width:18%;background:#dd6600"></div></div><span class="bar-pct">~18%</span></div>
+  <div class="bar-row"><span class="bar-label">Musim Mas</span><div class="bar-track"><div class="bar-fill" style="width:12%;background:#8a9ab8"></div></div><span class="bar-pct">~12%</span></div>
+  <div class="bar-row"><span class="bar-label">IOI Group</span><div class="bar-track"><div class="bar-fill" style="width:9%;background:#8a9ab8"></div></div><span class="bar-pct">~9%</span></div>
+  <div style="font-size:7.5px;color:#c0cce0;margin-bottom:10px">Note: Indicative market share by processing capacity. Source: industry estimates.</div>
+
+  <div style="font-size:9px;font-weight:700;color:#8a9ab8;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px">Indonesia Telecom — Post-XLSmart (Projected)</div>
+  <div class="bar-row"><span class="bar-label">Telkomsel</span><div class="bar-track"><div class="bar-fill" style="width:46%;background:#cc2222"></div></div><span class="bar-pct">~46%</span></div>
+  <div class="bar-row"><span class="bar-label">XLSmart (new)</span><div class="bar-track"><div class="bar-fill" style="width:27%;background:#0044cc"></div></div><span class="bar-pct">~27%</span></div>
+  <div class="bar-row"><span class="bar-label">Indosat IM3</span><div class="bar-track"><div class="bar-fill" style="width:22%;background:#006633"></div></div><span class="bar-pct">~22%</span></div>
+  <div style="font-size:7.5px;color:#c0cce0;margin-bottom:10px">Source: <a href="https://www.thestar.com.my/business/business-news/2024/12/12/axiata-sinar-mas-to-merge-indonesian-units" target="_blank">The Star, Dec 2024 ↗</a> · Post-merger projected subscriber share</div>
+
+  <div style="font-size:9px;font-weight:700;color:#8a9ab8;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px">Indonesia Real Estate — Revenue Scale</div>
+  <div class="bar-row"><span class="bar-label">Sinarmas Land</span><div class="bar-track"><div class="bar-fill" style="width:52%;background:#0044cc"></div></div><span class="bar-pct">Largest</span></div>
+  <div class="bar-row"><span class="bar-label">Lippo Group</span><div class="bar-track"><div class="bar-fill" style="width:28%;background:#8a9ab8"></div></div><span class="bar-pct">~2nd</span></div>
+  <div class="bar-row"><span class="bar-label">Ciputra Group</span><div class="bar-track"><div class="bar-fill" style="width:22%;background:#8a9ab8"></div></div><span class="bar-pct">~3rd</span></div>
+
+  <div style="background:rgba(0,68,204,0.03);border:1px solid rgba(0,68,204,0.08);border-radius:6px;padding:10px 12px;margin-top:6px">
+    <div style="font-size:8.5px;color:#5a6a88;line-height:1.5"><strong style="color:#0a1020">Key Differentiator:</strong> Sinar Mas is the only Indonesian conglomerate with simultaneous top-3 positions across palm oil, paper, real estate, and telecom. The XLSmart deal elevates its digital footprint to national scale.</div>
+  </div>
+</div>
+
+<!-- [2f] PANEL E: Competitor Landscape -->
+<div class="panel" style="grid-column:3;grid-row:2">
+  <div class="panel-title">🥊 Competitor Landscape</div>
+
+  <div class="comp-card">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div class="comp-name">Wilmar International</div>
+      <div style="display:flex;gap:5px">
+        <span class="tag tag-red" style="font-size:8px;padding:1px 7px">High Threat</span>
+        <span class="tag tag-green" style="font-size:8px;padding:1px 7px">Agri</span>
+      </div>
+    </div>
+    <div class="comp-desc">SGX-listed, world's largest palm oil refiner. Direct competitor to GAR across Southeast Asia. Larger scale (~$65B revenue), more diversified downstream. Cloud: AWS primary.</div>
+  </div>
+
+  <div class="comp-card">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div class="comp-name">Telkomsel (Telkom Indonesia)</div>
+      <div style="display:flex;gap:5px">
+        <span class="tag tag-red" style="font-size:8px;padding:1px 7px">High Threat</span>
+        <span class="tag tag-gray" style="font-size:8px;padding:1px 7px">Telecom</span>
+      </div>
+    </div>
+    <div class="comp-desc">State-owned dominant telco. ~46% subscriber share. Strong 5G rollout, aggressive pricing. XLSmart will narrow the gap but Telkomsel's state backing is a structural advantage. Cloud: Telkom/AWS.</div>
+  </div>
+
+  <div class="comp-card">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div class="comp-name">Indosat Ooredoo Hutchison</div>
+      <div style="display:flex;gap:5px">
+        <span class="tag tag-orange" style="font-size:8px;padding:1px 7px">Med Threat</span>
+        <span class="tag tag-gray" style="font-size:8px;padding:1px 7px">Telecom</span>
+      </div>
+    </div>
+    <div class="comp-desc">~22% telecom market share post-merger. Backed by Ooredoo (Qatar) + CK Hutchison. Competing directly with XLSmart for #2 position. AI-powered network claims. Cloud: GCP/Azure.</div>
+  </div>
+
+  <div class="comp-card">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div class="comp-name">Ciputra Group</div>
+      <div style="display:flex;gap:5px">
+        <span class="tag tag-orange" style="font-size:8px;padding:1px 7px">Med Threat</span>
+        <span class="tag tag-blue" style="font-size:8px;padding:1px 7px">Real Estate</span>
+      </div>
+    </div>
+    <div class="comp-desc">Major Indonesian real estate developer. Competing in residential townships, commercial malls, and integrated developments. Less scale than Sinarmas Land but strong in select cities.</div>
+  </div>
+
+  <div class="comp-card">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div class="comp-name">APP Competitors (APRIL Group)</div>
+      <div style="display:flex;gap:5px">
+        <span class="tag tag-orange" style="font-size:8px;padding:1px 7px">Med Threat</span>
+        <span class="tag tag-orange" style="font-size:8px;padding:1px 7px">Pulp &amp; Paper</span>
+      </div>
+    </div>
+    <div class="comp-desc">APRIL (Riau Andalan Pulp &amp; Paper) is APP's nearest rival in Indonesia. Owned by Royal Golden Eagle. Has FSC certification — competitive advantage vs. APP which lacks it. Cloud: AWS.</div>
+  </div>
+
+  <div class="comp-card">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div class="comp-name">Bank BCA / BRI / Mandiri</div>
+      <div style="display:flex;gap:5px">
+        <span class="tag tag-blue" style="font-size:8px;padding:1px 7px">Low Threat</span>
+        <span class="tag tag-purple" style="font-size:8px;padding:1px 7px">Banking</span>
+      </div>
+    </div>
+    <div class="comp-desc">State-owned and private banks dominate Indonesia's banking landscape. Bank Sinarmas competes in niche segments; its size (~$1.5B assets per older data) limits competitive reach vs. giants.</div>
+  </div>
+</div>
+
+<!-- [2g] PANEL F: Strategic Outlook -->
+<div class="panel" style="grid-column:4;grid-row:2">
+  <div class="panel-title">🔭 Strategic Outlook</div>
+
+  <div class="outlook-card" style="border-left-color:#006633">
+    <div class="outlook-title">✅ XLSmart — Digital Transformation Catalyst</div>
+    <div class="outlook-body">The merger creates Indonesia's #2 telco with 94.5M subscribers. <a href="https://www.axiata.com/media/news/2024/axiata-announces-signing-definitive-agreement-sinar-mas-proposed-merger-xl-axiata-and" target="_blank">$300–400M annual pre-tax cost savings expected ↗</a>. 5G expansion, AI services, and cloud integration position XLSmart as a major B2B and B2C platform through 2030.</div>
+  </div>
+
+  <div class="outlook-card" style="border-left-color:#006633">
+    <div class="outlook-title">✅ GAR Vertical Integration Paying Off</div>
+    <div class="outlook-body">Record 2024 results ($10.9B revenue, $416M profit) validate the upstream+downstream model. <a href="https://www.goldenagri.com.sg/investors/financial-highlights-reports-presentations/annual-reports/" target="_blank">Net zero 2050 target with near-term Scope 1/2 reductions ↗</a>. Higher-value oleochemical products expanding margin profile.</div>
+  </div>
+
+  <div class="outlook-card" style="border-left-color:#0044cc">
+    <div class="outlook-title">📈 DSSA Digital Pivot: Mining Cash → Tech Investment</div>
+    <div class="outlook-body">DSSA using coal EBITDA ($734M) to fund AI data center infrastructure, MyRepublic broadband expansion (6M households), and renewable energy investments. Classic conglomerate resource recycling strategy.</div>
+  </div>
+
+  <div class="outlook-card" style="border-left-color:#dd6600">
+    <div class="outlook-title">⚠️ EUDR &amp; Deforestation Risk — APP/GAR Exposure</div>
+    <div class="outlook-body"><a href="https://news.mongabay.com/2023/10/report-alleges-app-continues-deforestation-10-years-after-pledge-to-stop/" target="_blank">10-year deforestation commitments continue to be contested ↗</a>. EU Deforestation Regulation could block key export channels for APP/GAR. FSC disassociation still in effect. Buyer boycotts from Unilever, Nestlé precedents remain warning signs.</div>
+  </div>
+
+  <div class="outlook-card" style="border-left-color:#cc2222">
+    <div class="outlook-title">🔴 Coal Dependency: ESG Transition Timeline</div>
+    <div class="outlook-body">DSSA's mining segment = 92% of $3B revenue. Global decarbonization pressures, coal financing restrictions, and Indonesia's own energy transition roadmap present long-term structural risk to a core revenue stream.</div>
+  </div>
+
+  <div class="outlook-card" style="border-left-color:#8a9ab8">
+    <div class="outlook-title">⚡ Prabowo Administration = Tailwind</div>
+    <div class="outlook-body">New Indonesian government (Prabowo, from Oct 2024) is pro-infrastructure and pro-investment. Real estate, telecom, and energy sectors all benefit. XLSmart deal was publicly endorsed at presidential level, signaling regulatory alignment.</div>
+  </div>
+
+</div>
+
+<!-- [2h] CLOUD INFRASTRUCTURE -->
+<div class="cloud-section">
+  <div style="padding:14px 22px;border-bottom:1px solid rgba(0,20,80,0.07)">
+    <span style="font-size:9px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:#8a9ab8">☁️ CLOUD &amp; TECHNOLOGY INFRASTRUCTURE</span>
+  </div>
+  <div class="cloud-inner">
+    <div class="cloud-col">
+      <div class="panel-title">Platform Cloud Map</div>
+      <table class="cloud-table">
+        <thead>
+          <tr><th>Entity</th><th>Primary Cloud</th><th>Secondary</th><th>TC Est.%</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>GAR (Golden Agri)</strong></td><td>AWS / GCP</td><td>Azure</td><td>~2–5%</td></tr>
+          <tr><td><strong>APP / Indah Kiat</strong></td><td>AWS</td><td>Alibaba Cloud</td><td>~3–6%</td></tr>
+          <tr><td><strong>Sinarmas Land</strong></td><td>AWS / Azure</td><td>GCP</td><td>~2–4%</td></tr>
+          <tr><td><strong>Bank Sinarmas</strong></td><td>On-prem / OJK Data</td><td>Azure</td><td>~1–3%</td></tr>
+          <tr><td><strong>DSSA / MyRepublic</strong></td><td>AWS</td><td>Local DC</td><td>~3–7%</td></tr>
+          <tr><td><strong>Smartfren → XLSmart</strong></td><td>AWS / local</td><td>Huawei Cloud</td><td>~2–5%</td></tr>
+          <tr><td><strong>Sinarmas Multiartha</strong></td><td>Azure</td><td>AWS</td><td>~1–3%</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:8px;color:#c0cce0;margin-top:8px;line-height:1.4">No public IDC/Canalys report covers Sinar Mas Group cloud spend breakdown. All figures are bottoms-up estimates.</div>
+    </div>
+    <div class="cloud-col">
+      <div class="panel-title">Est. Cloud Market Share — Sinar Mas Entities</div>
+      <div class="meth-box">
+        <strong>Methodology:</strong> Bottoms-up estimation only — no public IDC/Canalys report covers this breakdown. Estimates derived from: (1) known public cloud partnerships, (2) sector-level cloud spend benchmarks (Gartner), (3) hyperscaler press releases in Indonesia. All figures shown as ranges. Point estimates are not used.
+      </div>
+      <div class="bar-row"><span class="bar-label" style="width:130px">AWS (Amazon)</span><div class="bar-track"><div class="bar-fill" style="width:62%;background:#ff9900"></div></div><span class="bar-pct">45–62%</span></div>
+      <div class="bar-row"><span class="bar-label" style="width:130px">Microsoft Azure</span><div class="bar-track"><div class="bar-fill" style="width:25%;background:#0078d4"></div></div><span class="bar-pct">15–26%</span></div>
+      <div class="bar-row"><span class="bar-label" style="width:130px">Google Cloud</span><div class="bar-track"><div class="bar-fill" style="width:12%;background:#4285f4"></div></div><span class="bar-pct">8–14%</span></div>
+      <div class="bar-row"><span class="bar-label" style="width:130px">Alibaba Cloud</span><div class="bar-track"><div class="bar-fill" style="width:8%;background:#ff6a00"></div></div><span class="bar-pct">4–9%</span></div>
+      <div class="bar-row"><span class="bar-label" style="width:130px">Tencent Cloud</span><div class="bar-track"><div class="bar-fill" style="width:4%;background:#0056b8"></div></div><span class="bar-pct">2–6%</span></div>
+      <div class="bar-row"><span class="bar-label" style="width:130px">On-Prem / Local</span><div class="bar-track"><div class="bar-fill" style="width:9%;background:#8a9ab8"></div></div><span class="bar-pct">5–12%</span></div>
+      <div class="ref-box">
+        <strong>Reference footnotes:</strong><br>
+        • AWS dominant across APP, GAR, DSSA; confirmed by general sector patterns<br>
+        • Azure used in banking/fintech entities (OJK compliance considerations)<br>
+        • Huawei Cloud present in Smartfren network infrastructure<br>
+        • Bottoms-up estimate — no public IDC/Canalys report covers this breakdown<br>
+        • XLSmart post-merger cloud strategy TBD; potential consolidation opportunity
+      </div>
+    </div>
+    <div class="cloud-col">
+      <div class="panel-title">☁️ Tencent Cloud Opportunity Analysis</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="background:rgba(0,86,184,0.05);border:1px solid rgba(0,86,184,0.12);border-radius:8px;padding:12px">
+          <div style="font-size:9px;font-weight:800;color:#0044cc;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px">Current Tencent Cloud Presence</div>
+          <div style="font-size:9px;color:#5a6a88;line-height:1.55">Estimated 2–6% of Sinar Mas Group cloud workloads based on bottoms-up analysis. No confirmed public announcement of strategic Tencent Cloud engagement at group level. FOAK opportunity exists given Tencent's expanding Indonesia footprint.</div>
+        </div>
+        <div style="background:rgba(0,160,80,0.04);border:1px solid rgba(0,160,80,0.12);border-radius:8px;padding:12px">
+          <div style="font-size:9px;font-weight:800;color:#006633;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px">Growth Opportunities for TC</div>
+          <ul style="font-size:9px;color:#5a6a88;line-height:1.6;padding-left:14px">
+            <li><strong>XLSmart 5G core:</strong> Post-merger cloud infrastructure consolidation — significant workload migration opportunity</li>
+            <li><strong>GAR traceability:</strong> Tencent Cloud IoT + satellite tracking for EUDR compliance</li>
+            <li><strong>DSSA AI data center:</strong> Tencent Cloud AI platform / GPU cloud offering</li>
+            <li><strong>Bank Sinarmas:</strong> FinTech cloud, risk management, digital banking</li>
+            <li><strong>Sinarmas Land:</strong> Smart city platform for BSD City digital infrastructure</li>
+          </ul>
+        </div>
+        <div style="background:rgba(0,20,80,0.03);border:1px solid rgba(0,20,80,0.07);border-radius:8px;padding:12px">
+          <div style="font-size:9px;font-weight:800;color:#1a2a44;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px">Indonesia Cloud Market Context</div>
+          <div style="font-size:9px;color:#5a6a88;line-height:1.55">Indonesia is one of SEA's fastest growing cloud markets. AWS, GCP, Azure all operate local regions in Jakarta. Tencent Cloud has an Indonesia presence but market share trails the top 3. The XLSmart merger creates a new, large B2B cloud buyer — a key target account.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- [2i] FINANCIAL SECTION -->
+<div class="fin-section">
+  <div style="padding:14px 22px;border-bottom:1px solid rgba(0,20,80,0.07)">
+    <span style="font-size:9px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:#8a9ab8">💰 PLATFORM FINANCIALS &amp; IT SPEND — FY2024</span>
+  </div>
+  <div class="fin-inner">
+    <div class="fin-card">
+      <div class="fin-header">Golden Agri-Resources (GAR) — SGX: E5H</div>
+      <div class="fin-metric"><span class="fin-key">Total Revenue</span><div><span class="fin-val">$10.9B <span class="fin-label">(confirmed)</span></span><span class="fin-sub"><a href="https://www.goldenagri.com.sg/second-half-recovery-spurs-robust-full-year-2024-performance-for-golden-agri-resources/" target="_blank">Source: GAR FY2024 Release ↗</a></span></div></div>
+      <div class="fin-metric"><span class="fin-key">Revenue Growth</span><div><span class="fin-val">+12% YoY</span></div></div>
+      <div class="fin-metric"><span class="fin-key">EBITDA</span><div><span class="fin-val">~$1.0B <span class="fin-label">(confirmed)</span></span></div></div>
+      <div class="fin-metric"><span class="fin-key">EBITDA Margin</span><div><span class="fin-val">~9.2%</span></div></div>
+      <div class="fin-metric"><span class="fin-key">Underlying Profit</span><div><span class="fin-val">$416M</span></div></div>
+      <div class="fin-metric"><span class="fin-key">Sales Volume</span><div><span class="fin-val">11.9M tonnes</span></div></div>
+      <div class="fin-metric"><span class="fin-key">IT Spend (est.)</span><div><span class="fin-val">~$58M <span class="fin-label">(est. · 8% COGS)</span></span></div></div>
+      <div style="margin-top:10px;background:rgba(0,20,80,0.03);border-radius:6px;padding:8px 10px;font-size:8px;color:#8a9ab8">Access: <a href="https://www.goldenagri.com.sg/investors/financial-highlights-reports-presentations/annual-reports/" target="_blank">GAR Annual Reports ↗</a> | SGX: E5H | Search PDF for "IT" or "Technology"</div>
+    </div>
+    <div class="fin-card">
+      <div class="fin-header">DSSA (Energy/Mining) — IDX: DSSA</div>
+      <div class="fin-metric"><span class="fin-key">Total Revenue</span><div><span class="fin-val">$3.0B <span class="fin-label">(confirmed)</span></span><span class="fin-sub"><a href="https://erecruitment.dssa.co.id/en/press-release/dssa-laporkan-kinerja-keuangan-perluas-investasi-di-sektor-berkelanjutan-1742549457940" target="_blank">Source: DSSA FY2024 Release ↗</a></span></div></div>
+      <div class="fin-metric"><span class="fin-key">Revenue vs Prior Year</span><div><span class="fin-val">-40% YoY <span class="fin-label">(coal price)</span></span></div></div>
+      <div class="fin-metric"><span class="fin-key">EBITDA</span><div><span class="fin-val">$734M <span class="fin-label">(confirmed)</span></span></div></div>
+      <div class="fin-metric"><span class="fin-key">Net Profit</span><div><span class="fin-val">$542M</span></div></div>
+      <div class="fin-metric"><span class="fin-key">Mining Revenue Share</span><div><span class="fin-val">92% of total</span></div></div>
+      <div class="fin-metric"><span class="fin-key">MyRepublic Households</span><div><span class="fin-val">6M+ / 140 cities</span></div></div>
+      <div class="fin-metric"><span class="fin-key">IT Spend (est.)</span><div><span class="fin-val">~$22M <span class="fin-label">(est. · 8% COGS)</span></span></div></div>
+      <div style="margin-top:10px;background:rgba(0,20,80,0.03);border-radius:6px;padding:8px 10px;font-size:8px;color:#8a9ab8">Access: <a href="https://www.idx.co.id/en/listed-companies/financial-statements-and-annual-report/" target="_blank">IDX Portal → DSSA ↗</a> | Search PDF: "Teknologi Informasi" or "Infrastruktur"</div>
+    </div>
+    <div class="fin-card">
+      <div class="fin-header">Sinarmas Land — SGX: A26 / IDX: BSDE</div>
+      <div class="fin-metric"><span class="fin-key">SGX Revenue</span><div><span class="fin-val">$1.49B <span class="fin-label">(confirmed)</span></span><span class="fin-sub"><a href="https://www.minichart.com.sg/2025/04/15/sinarmas-land-limited-reports-full-year-2024-financial-results/" target="_blank">Source: Sinarmas Land FY2024 ↗</a></span></div></div>
+      <div class="fin-metric"><span class="fin-key">Revenue Growth</span><div><span class="fin-val">+10.9% YoY</span></div></div>
+      <div class="fin-metric"><span class="fin-key">Gross Profit</span><div><span class="fin-val">$944.9M</span></div></div>
+      <div class="fin-metric"><span class="fin-key">Net Profit (SGX)</span><div><span class="fin-val">$465.3M (+20.9%)</span></div></div>
+      <div class="fin-metric"><span class="fin-key">Total Assets</span><div><span class="fin-val">$8.66B</span></div></div>
+      <div class="fin-metric"><span class="fin-key">INKP (APP) Revenue</span><div><span class="fin-val">$3.2B <span class="fin-label">(INKP confirmed)</span></span><span class="fin-sub"><a href="https://www.idnfinancials.com/news/53561/sinarmas-groups-paper-companies-inkp-or-tkim-in-the-lead" target="_blank">Source: IDNFinancials ↗</a></span></div></div>
+      <div class="fin-metric"><span class="fin-key">IT Spend (est.)</span><div><span class="fin-val">~$12M <span class="fin-label">(est. · 8% COGS)</span></span></div></div>
+      <div style="margin-top:10px;background:rgba(0,20,80,0.03);border-radius:6px;padding:8px 10px;font-size:8px;color:#8a9ab8">Access: <a href="https://www.idx.co.id/en/listed-companies/financial-statements-and-annual-report/" target="_blank">IDX → BSDE / INKP ↗</a> | <a href="https://www.sgx.com/securities/company-announcements" target="_blank">SGX: A26 ↗</a></div>
+    </div>
+  </div>
+  <div style="padding:16px 22px;border-top:1px solid rgba(0,20,80,0.06)">
+    <div style="font-size:8.5px;font-weight:700;color:#8a9ab8;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px">IT Spend Comparison (Estimated FY2024)</div>
+    <div class="it-bar-row"><span class="it-bar-label">GAR (Agri)</span><div class="it-bar-track"><div class="it-bar-fill" style="width:52%;background:#006633"></div></div><span class="it-bar-val">~$58M (est.)</span></div>
+    <div class="it-bar-row"><span class="it-bar-label">APP / INKP (Paper)</span><div class="it-bar-track"><div class="it-bar-fill" style="width:28%;background:#dd6600"></div></div><span class="it-bar-val">~$32M (est.)</span></div>
+    <div class="it-bar-row"><span class="it-bar-label">DSSA (Energy)</span><div class="it-bar-track"><div class="it-bar-fill" style="width:20%;background:#cc7700"></div></div><span class="it-bar-val">~$22M (est.)</span></div>
+    <div class="it-bar-row"><span class="it-bar-label">Sinarmas Land</span><div class="it-bar-track"><div class="it-bar-fill" style="width:11%;background:#0044cc"></div></div><span class="it-bar-val">~$12M (est.)</span></div>
+    <div style="font-size:7.5px;color:#c0cce0;margin-top:6px">All IT spend figures are estimates using 8% of COGS (Gartner benchmark for diversified industrials). No IT line item found in public filings. Actual figures may differ.</div>
+  </div>
+</div>
+
+<!-- [2j] NEWS KEY FINDINGS -->
+<div class="news-section">
+  <div class="news-header">
+    <span style="font-size:14px">📰</span>
+    <span class="news-header-title">News Intelligence — Key Findings (2024–2025)</span>
+    <span style="margin-left:auto;font-size:8.5px;color:rgba(255,255,255,0.35)">Ranked by Strategic Impact · Highest to Lowest</span>
+  </div>
+  <div class="news-kw-strip">
+    <span class="news-kw">XLSmart</span>
+    <span class="news-kw">·</span>
+    <span class="news-kw">Telecom Merger</span>
+    <span class="news-kw">·</span>
+    <span class="news-kw">Palm Oil</span>
+    <span class="news-kw">·</span>
+    <span class="news-kw">Deforestation</span>
+    <span class="news-kw">·</span>
+    <span class="news-kw">EUDR</span>
+    <span class="news-kw">·</span>
+    <span class="news-kw">5G</span>
+    <span class="news-kw">·</span>
+    <span class="news-kw">AI Data Center</span>
+    <span class="news-kw">·</span>
+    <span class="news-kw">BSD City</span>
+    <span class="news-kw">·</span>
+    <span class="news-kw">GAR FY2024</span>
+  </div>
+  <div class="news-body">
+    <div class="news-signals">
+
+      <div class="signal-card" style="background:rgba(200,30,30,0.08);border-left-color:#cc2222">
+        <div class="signal-num">#1 — HIGHEST IMPACT</div>
+        <div class="signal-title">XLSmart Shareholder Approval Marks Indonesia Telecom Inflection Point</div>
+        <div class="signal-body"><a href="https://technode.global/2025/03/26/axiata-and-sinar-mas-secure-shareholders-approval-for-xlsmart-merger/" target="_blank" style="color:rgba(100,180,255,0.8)">Formal approval secured March 25, 2025 ↗</a>. Merger creates Indonesia's #2 telecom with 94.5M subscribers, 27% market share. Sinar Mas and Axiata each hold 34.8%. XL Axiata survives as legal entity while Smartfren dissolves. Regulatory completion pending.</div>
+        <div class="signal-impact">Strategic Impact: Reshape Indonesia's digital economy · $6.5B combined enterprise value</div>
+      </div>
+
+      <div class="signal-card" style="background:rgba(200,30,30,0.08);border-left-color:#cc2222">
+        <div class="signal-num">#2 — HIGH IMPACT</div>
+        <div class="signal-title">GAR Record 2024 Performance: $10.9B Revenue, Upstream Recovery Drives Profit</div>
+        <div class="signal-body"><a href="https://www.goldenagri.com.sg/second-half-recovery-spurs-robust-full-year-2024-performance-for-golden-agri-resources/" target="_blank" style="color:rgba(100,180,255,0.8)">FY2024 results confirm +12% revenue growth to $10.9B ↗</a>. Record 11.9M tonne sales. Second-half upstream recovery on CPO price strengthening drove underlying profit of $416M. Vertical integration strategy validated.</div>
+        <div class="signal-impact">Financial Signal: Best-in-class agri performance · Supports group dividend &amp; capex capacity</div>
+      </div>
+
+      <div class="signal-card" style="background:rgba(210,90,0,0.08);border-left-color:#dd6600">
+        <div class="signal-num">#3 — HIGH IMPACT</div>
+        <div class="signal-title">Axiata–Sinarmas SEA Digital Collaboration LOIs Signed at Presidential Level</div>
+        <div class="signal-body"><a href="https://marketech-apac.com/axiata-sinar-mas-form-strategic-collaboration-to-support-digital-transformation-initiatives-across-sea/" target="_blank" style="color:rgba(100,180,255,0.8)">Two LOIs signed Jan 29, 2025 ↗</a> covering 5G enterprise, digital infrastructure, fintech innovation across SEA. Witnessed by Indonesia's President Prabowo and Malaysia's PM Anwar Ibrahim — signaling government-level strategic endorsement for both groups.</div>
+        <div class="signal-impact">Strategic Signal: Sinar Mas elevated to national digital transformation partner status</div>
+      </div>
+
+      <div class="signal-card" style="background:rgba(210,90,0,0.08);border-left-color:#dd6600">
+        <div class="signal-num">#4 — HIGH IMPACT</div>
+        <div class="signal-title">DSSA AI Data Center Launch in Jakarta — Group Digital Pivot</div>
+        <div class="signal-body"><a href="https://erecruitment.dssa.co.id/en/press-release/dssa-laporkan-kinerja-keuangan-perluas-investasi-di-sektor-berkelanjutan-1742549457940" target="_blank" style="color:rgba(100,180,255,0.8)">DSSA develops AI-powered data center in Kuningan, South Jakarta ↗</a>. MyRepublic Indonesia hits 6M households, 1M customers across 140+ cities. Revenue $3B despite 40% coal price decline. Demonstrates conglomerate's pivot from extraction to digital infrastructure.</div>
+        <div class="signal-impact">Strategic Signal: Coal cash recycled into tech infrastructure — long-term growth positioning</div>
+      </div>
+
+      <div class="signal-card" style="background:rgba(0,68,204,0.08);border-left-color:#0044cc">
+        <div class="signal-num">#5 — MODERATE IMPACT</div>
+        <div class="signal-title">APP/Sinarmas Forest Clearing Documented in Riau — EUDR Cloud Grows</div>
+        <div class="signal-body"><a href="https://www.eyesontheforest.or.id/news/collecting-raw-materials-from-natural-forests-app-continues-to-violate-its-sustainability-commitments" target="_blank" style="color:rgba(100,180,255,0.8)">Jikalahari documents 376.8 ha of natural forest clearing (Feb 2024) ↗</a> in Indragiri Hilir, Riau by APP subsidiaries. EU Deforestation Regulation (EUDR) enforcement — when enacted — could directly impact APP/GAR European exports. Reputational risk for global buyers and financiers.</div>
+        <div class="signal-impact">Reputational Risk: Ongoing NGO pressure · Potential trade barrier from EUDR</div>
+      </div>
+
+      <div class="signal-card" style="background:rgba(0,68,204,0.08);border-left-color:#0044cc">
+        <div class="signal-num">#6 — MODERATE IMPACT</div>
+        <div class="signal-title">Sinarmas Land FY2024: Revenue +10.9%, Net Profit +20.9% — Real Estate Resurgence</div>
+        <div class="signal-body"><a href="https://www.minichart.com.sg/2025/04/15/sinarmas-land-limited-reports-full-year-2024-financial-results/" target="_blank" style="color:rgba(100,180,255,0.8)">SGX entity delivers $1.49B revenue, $465M net profit in FY2024 ↗</a>. BSDE (IDX) net profit IDR 3.4T — second-highest in company history. Toll road completion and new amenity openings (Eastvara mall, Living World) drive ongoing demand at BSD City.</div>
+        <div class="signal-impact">Financial Signal: Real estate cycle recovery benefits Indonesia's largest property developer</div>
+      </div>
+
+      <div class="signal-card" style="background:rgba(100,100,120,0.08);border-left-color:#5a6a88">
+        <div class="signal-num">#7</div>
+        <div class="signal-title">NEC Indonesia + Sinarmas Land IT MOU for Climate Finance (Oct 2024)</div>
+        <div class="signal-body"><a href="https://www.zoominfo.com/c/sinar-mas-group/187384094" target="_blank" style="color:rgba(100,180,255,0.8)">NEC Indonesia and Sinarmas Land's PT Samakta Mitra sign MOU ↗</a> to develop disaster risk assessment tools and climate-resilient finance products under UN Environment Programme (UNEP) Adaptation Finance framework.</div>
+        <div class="signal-impact">Operational Signal: Technology partnerships advancing sustainability positioning</div>
+      </div>
+
+    </div>
+
+    <div class="synthesis-panel">
+      <div class="synth-title">Five-Dimension Intelligence Synthesis</div>
+
+      <div class="synth-cat">
+        <div class="synth-cat-name">🎯 Strategy &amp; Direction</div>
+        <div class="synth-cat-body">Sinar Mas is executing a deliberate shift from its legacy resource extraction model toward digital infrastructure and technology services. The XLSmart merger is the most significant strategic move in a decade — it transforms the group from a passive telecom participant into a national digital backbone operator. Simultaneously, DSSA's AI data center investment and MyRepublic's broadband expansion signal a systematic recycling of coal EBITDA into higher-multiple tech assets.</div>
+      </div>
+
+      <div class="synth-cat">
+        <div class="synth-cat-name">💹 Financial &amp; Operational Health</div>
+        <div class="synth-cat-body">Group-level financials are strong. GAR's $10.9B revenue (record) anchors the group, while Sinarmas Land's profit jumped 21%. DSSA showed EBITDA resilience ($734M) despite a 40% revenue drop from coal price normalization. Combined listed entity revenue exceeds $18B. The key risk is coal dependency — DSSA's 92% mining revenue concentration makes it vulnerable to further commodity price cycles or regulatory energy transition pressure.</div>
+      </div>
+
+      <div class="synth-cat">
+        <div class="synth-cat-name">⚠️ Reputation &amp; Risk</div>
+        <div class="synth-cat-body">Deforestation remains the group's most persistent reputational liability. APP's FSC disassociation (since 2007, never resolved) and ongoing NGO documentation of forest clearing — including 376 ha in Riau in February 2024 — undermine its sustainability narrative. EUDR enforcement (when implemented) poses a direct export risk for APP and GAR. These issues are structural, not cyclical — no resolution in sight.</div>
+      </div>
+
+      <div class="synth-cat">
+        <div class="synth-cat-name">📱 Digital &amp; Technology</div>
+        <div class="synth-cat-body">The group's technology ambition has accelerated significantly. XLSmart brings 5G scale. DSSA's AI data center, MyRepublic's broadband coverage, and the XtalPi robotics JV all indicate a coordinated push into Indonesia's digital economy. The Prabowo government's digital infrastructure mandate creates a favorable policy tailwind. The question is execution — Sinar Mas has historically been a capital-intensive industrial company, not a technology operator.</div>
+      </div>
+
+      <div class="synth-cat">
+        <div class="synth-cat-name">🌏 Market Perception &amp; Narrative</div>
+        <div class="synth-cat-body">Internationally, Sinar Mas is viewed with ambivalence: admired for scale and diversification, scrutinized for environmental conduct. Domestically, it is a revered national conglomerate with deep government relationships — as evidenced by the presidential-level endorsement of the XLSmart deal. The group's narrative is shifting from "resource conglomerate" to "digital infrastructure builder" — a transition that will take years to fully establish in global perception.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main-body -->
+</div><!-- /section-en -->
+
+<!-- ═══════════ CHINESE SECTION ═══════════ -->
+<div id="section-zh" style="display:none">
+<div class="main-body">
+
+<!-- SIDEBAR ZH -->
+<div class="sidebar">
+  <div style="display:flex;align-items:center;gap:12px">
+    <div class="logo-box">S</div>
+    <div>
+      <div style="font-size:15px;font-weight:900;color:#0a1020">金光集团</div>
+      <div style="font-size:9px;color:#8a9ab8;font-weight:600;margin-top:1px">集团情报简报</div>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <div class="info-block-title">基本信息</div>
+    <div class="stat-row"><span class="stat-label">成立年份</span><span class="stat-value">1938年</span></div>
+    <div class="stat-row"><span class="stat-label">总部</span><span class="stat-value">印度尼西亚雅加达</span></div>
+    <div class="stat-row"><span class="stat-label">创始人</span><span class="stat-value">黄奕聪 (Eka Tjipta Widjaja)</span></div>
+    <div class="stat-row"><span class="stat-label">当前领导层</span><span class="stat-value">维查雅家族</span></div>
+    <div class="stat-row"><span class="stat-label">业务支柱</span><span class="stat-value">七大板块</span></div>
+    <div class="stat-row"><span class="stat-label">直接雇员</span><span class="stat-value">30万人以上</span></div>
+    <div class="stat-row"><span class="stat-label">间接雇员</span><span class="stat-value">50万人以上</span></div>
+    <div class="stat-row"><span class="stat-label">运营状态</span><span class="status-active" style="font-size:9px;padding:2px 8px">运营中</span></div>
+  </div>
+
+  <div class="info-block">
+    <div class="info-block-title">上市实体</div>
+    <div class="stat-row"><span class="stat-label">IDX: DSSA</span><span class="stat-value">嘉华斯瓦斯塔萨</span></div>
+    <div class="stat-row"><span class="stat-label">IDX: INKP</span><span class="stat-value">印达纸浆造纸 (APP)</span></div>
+    <div class="stat-row"><span class="stat-label">IDX: TKIM</span><span class="stat-value">帝威纸业 (APP)</span></div>
+    <div class="stat-row"><span class="stat-label">IDX: BSDE</span><span class="stat-value">BSD城市/金光置地</span></div>
+    <div class="stat-row"><span class="stat-label">IDX: SMRA</span><span class="stat-value">Smartfren电信</span></div>
+    <div class="stat-row"><span class="stat-label">SGX: A26</span><span class="stat-value">金光置地有限公司</span></div>
+    <div class="stat-row"><span class="stat-label">SGX: E5H</span><span class="stat-value">金农资源 (GAR)</span></div>
+  </div>
+
+  <div class="info-block">
+    <div class="info-block-title">主要子公司/品牌</div>
+    <div class="stat-row"><span class="stat-label">纸浆造纸</span><span class="stat-value">APP/亚洲纸浆造纸</span></div>
+    <div class="stat-row"><span class="stat-label">农业</span><span class="stat-value">金农资源 (GAR)</span></div>
+    <div class="stat-row"><span class="stat-label">房地产</span><span class="stat-value">BSD城市、金光置地</span></div>
+    <div class="stat-row"><span class="stat-label">银行</span><span class="stat-value">星马银行</span></div>
+    <div class="stat-row"><span class="stat-label">保险</span><span class="stat-value">星马明治安田保险</span></div>
+    <div class="stat-row"><span class="stat-label">电信</span><span class="stat-value">Smartfren → XLSmart</span></div>
+    <div class="stat-row"><span class="stat-label">互联网</span><span class="stat-value">MyRepublic Indonesia</span></div>
+    <div class="stat-row"><span class="stat-label">煤矿</span><span class="stat-value">Berau煤业、DSSA</span></div>
+  </div>
+
+  <div style="background:rgba(221,102,0,0.06);border:1px solid rgba(221,102,0,0.15);border-radius:8px;padding:12px 14px">
+    <div style="font-size:8px;font-weight:700;color:#aa4400;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:6px">⚠ ESG警示</div>
+    <div style="font-size:9px;color:#5a6a88;line-height:1.5">APP/金光集团持续面临<a href="https://www.eyesontheforest.or.id/news/collecting-raw-materials-from-natural-forests-app-continues-to-violate-its-sustainability-commitments" target="_blank">森林砍伐指控</a>。绿色和平2018年终止合作，FSC仍未恢复认证。2024年2月记录到廖内省376公顷天然林被清除。<strong style="color:#aa4400">欧盟森林砍伐法规合规风险不断上升。</strong></div>
+  </div>
+
+  <div class="info-block">
+    <div class="info-block-title">分析参数</div>
+    <div class="stat-row"><span class="stat-label">分析年度</span><span class="stat-value">2024财年</span></div>
+    <div class="stat-row"><span class="stat-label">主要市场</span><span class="stat-value">印度尼西亚</span></div>
+    <div class="stat-row"><span class="stat-label">次要市场</span><span class="stat-value">东南亚/全球</span></div>
+    <div class="stat-row"><span class="stat-label">汇率</span><span class="stat-value">IDR 15,800/$</span></div>
+    <div class="stat-row"><span class="stat-label">报告日期</span><span class="stat-value">2026年3月</span></div>
+  </div>
+</div>
+
+<!-- PANEL A ZH -->
+<div class="panel" style="grid-column:2;grid-row:1">
+  <div class="panel-title">🏭 业务支柱与产品</div>
+  <div class="products-grid">
+    <div class="product-card" style="border-top-color:#dd6600">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px">
+        <div class="product-card-name">亚洲纸浆造纸 (APP)</div>
+        <span class="tag tag-orange" style="font-size:8px;padding:2px 7px">纸浆造纸</span>
+      </div>
+      <div class="product-card-desc">印度尼西亚最大造纸厂。品牌：Livi、Paseo、Bindex。<a href="https://www.idnfinancials.com/news/53561/sinarmas-groups-paper-companies-inkp-or-tkim-in-the-lead" target="_blank">INKP 2024年净销售额32亿美元 ↗</a>。约占印尼纸张出口量的70%。因森林砍伐争议被FSC取消认证。</div>
+    </div>
+    <div class="product-card" style="border-top-color:#006633">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px">
+        <div class="product-card-name">金农资源 (GAR)</div>
+        <span class="tag tag-green" style="font-size:8px;padding:2px 7px">农业综合</span>
+      </div>
+      <div class="product-card-desc">全球第二大棕榈油生产商。产品涵盖棕榈油、油脂化学品、糖类及品牌食品。<a href="https://www.goldenagri.com.sg/second-half-recovery-spurs-robust-full-year-2024-performance-for-golden-agri-resources/" target="_blank">2024财年营收109亿美元（同比+12%）↗</a>。创纪录销售量1190万吨。2050年净零排放目标。</div>
+    </div>
+    <div class="product-card" style="border-top-color:#0044cc">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px">
+        <div class="product-card-name">金光置地 / BSD城市</div>
+        <span class="tag tag-blue" style="font-size:8px;padding:2px 7px">房地产</span>
+      </div>
+      <div class="product-card-desc">印度尼西亚最大房地产开发商。BSD城市（唐格朗）、Grand Wisata、美嘉达。<a href="https://www.minichart.com.sg/2025/04/15/sinarmas-land-limited-reports-full-year-2024-financial-results/" target="_blank">SGX 2024财年营收14.9亿美元（+10.9%）↗</a>。净利润4.65亿美元（+20.9%）。</div>
+    </div>
+    <div class="product-card" style="border-top-color:#6622aa">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px">
+        <div class="product-card-name">星马金融服务</div>
+        <span class="tag tag-purple" style="font-size:8px;padding:2px 7px">金融科技/银行</span>
+      </div>
+      <div class="product-card-desc">星马银行（346家网点、120个城市）、星马明治安田寿险/财险、星马证券、星马综合金融。印尼最大财险公司。与<a href="https://www.zoominfo.com/c/sinar-mas-group/187384094" target="_blank">晶泰AI机器人合资企业 ↗</a>。</div>
+    </div>
+    <div class="product-card" style="border-top-color:#cc7700">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px">
+        <div class="product-card-name">嘉华斯瓦斯塔萨 (DSSA)</div>
+        <span class="tag tag-yellow" style="font-size:8px;padding:2px 7px">能源与矿业</span>
+      </div>
+      <div class="product-card-desc">煤矿开采（Berau Coal，年产量5670万吨）、自备电厂（300MW）、化肥及化学品。<a href="https://erecruitment.dssa.co.id/en/press-release/dssa-laporkan-kinerja-keuangan-perluas-investasi-di-sektor-berkelanjutan-1742549457940" target="_blank">2024财年营收30亿美元 ↗</a>，EBITDA 7.34亿美元。矿业占营收92%。正向AI数据中心扩张。</div>
+    </div>
+    <div class="product-card" style="border-top-color:#5a6a88">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px">
+        <div class="product-card-name">Smartfren / XLSmart（电信）</div>
+        <span class="tag tag-gray" style="font-size:8px;padding:2px 7px">电信</span>
+      </div>
+      <div class="product-card-desc">Smartfren（印尼4G/5G运营商）与XL Axiata合并为<strong>XLSmart</strong>。<a href="https://www.thestar.com.my/business/business-news/2024/12/12/axiata-sinar-mas-to-merge-indonesian-units" target="_blank">合并企业价值65亿美元 ↗</a>。9450万用户，27%市场份额。2025年3月股东批准。</div>
+    </div>
+  </div>
+  <div style="background:rgba(0,68,204,0.03);border:1px solid rgba(0,68,204,0.08);border-radius:6px;padding:10px 12px;margin-top:4px">
+    <span style="font-size:8.5px;color:#5a6a88;line-height:1.5"><strong style="color:#0a1020">医疗健康（第七支柱）：</strong>金光集团已将医疗健康正式列为第七大业务支柱，涵盖医院运营及健康服务。DSSA旗下子公司亦在雅加达古宁根开发AI数据中心。</span>
+  </div>
+</div>
+
+<!-- PANEL B ZH -->
+<div class="panel" style="grid-column:3;grid-row:1">
+  <div class="panel-title">⚡ 核心资产与战略布局</div>
+
+  <div class="asset-card">
+    <div class="asset-icon" style="background:rgba(0,100,220,0.1)">📡</div>
+    <div>
+      <div class="asset-name">XLSmart电信合并 <span class="tag tag-blue" style="font-size:8px;padding:1px 6px;margin-left:4px">里程碑</span></div>
+      <div class="asset-desc"><a href="https://technode.global/2025/03/26/axiata-and-sinar-mas-secure-shareholders-approval-for-xlsmart-merger/" target="_blank">2025年3月25日股东正式批准 ↗</a>。金光集团与亚天各持34.8%股权。预计年税前节省成本3–4亿美元。合并企业价值约104万亿印尼盾（约65亿美元）。将服务9450万用户，市场份额约27%。</div>
+    </div>
+  </div>
+
+  <div class="asset-card">
+    <div class="asset-icon" style="background:rgba(0,160,80,0.1)">🌿</div>
+    <div>
+      <div class="asset-name">GAR 2024年创纪录业绩 <span class="tag tag-green" style="font-size:8px;padding:1px 6px;margin-left:4px">财务亮点</span></div>
+      <div class="asset-desc"><a href="https://www.goldenagri.com.sg/second-half-recovery-spurs-robust-full-year-2024-performance-for-golden-agri-resources/" target="_blank">营收同比增长12%至109亿美元 ↗</a>。创纪录销售量1190万吨。EBITDA 10.2亿美元。潜在利润4.16亿美元。上游业务复苏带动下半年超预期表现。垂直整合战略得到验证。</div>
+    </div>
+  </div>
+
+  <div class="asset-card">
+    <div class="asset-icon" style="background:rgba(110,50,200,0.1)">🤖</div>
+    <div>
+      <div class="asset-name">AI与数据中心扩张 <span class="tag tag-purple" style="font-size:8px;padding:1px 6px;margin-left:4px">战略转型</span></div>
+      <div class="asset-desc"><a href="https://erecruitment.dssa.co.id/en/press-release/dssa-laporkan-kinerja-keuangan-perluas-investasi-di-sektor-berkelanjutan-1742549457940" target="_blank">DSSA在雅加达古宁根开发AI数据中心 ↗</a>。MyRepublic Indonesia已覆盖超过140个城市600万户家庭，拥有100万客户。2024年与星马综合金融签署晶泰AI机器人合资协议。</div>
+    </div>
+  </div>
+
+  <div class="asset-card">
+    <div class="asset-icon" style="background:rgba(221,102,0,0.1)">🏙️</div>
+    <div>
+      <div class="asset-name">BSD城市与房地产增长 <span class="tag tag-orange" style="font-size:8px;padding:1px 6px;margin-left:4px">稳健</span></div>
+      <div class="asset-desc"><a href="https://www.minichart.com.sg/2025/04/15/sinarmas-land-limited-reports-full-year-2024-financial-results/" target="_blank">金光置地2024财年：营收14.9亿美元，净利润4.65亿美元 ↗</a>。BSDE净利润3.4万亿印尼盾（同比+76%）。塞庞-巴拉拉加收费公路连接BSD城市三期开通，带动持续需求。</div>
+    </div>
+  </div>
+
+  <div class="asset-card">
+    <div class="asset-icon" style="background:rgba(0,160,80,0.08)">🤝</div>
+    <div>
+      <div class="asset-name">亚天东南亚战略合作 <span class="tag tag-green" style="font-size:8px;padding:1px 6px;margin-left:4px">区域布局</span></div>
+      <div class="asset-desc"><a href="https://marketech-apac.com/axiata-sinar-mas-form-strategic-collaboration-to-support-digital-transformation-initiatives-across-sea/" target="_blank">2025年1月签署两份意向书 ↗</a>，涵盖5G企业服务、数字基础设施、东南亚金融科技创新。仪式由印尼总统普拉博沃和马来西亚首相安华见证。</div>
+    </div>
+  </div>
+
+  <div class="asset-card">
+    <div class="asset-icon" style="background:rgba(200,30,30,0.08)">⚠️</div>
+    <div>
+      <div class="asset-name">欧盟森林砍伐法规与ESG合规风险 <span class="tag tag-red" style="font-size:8px;padding:1px 6px;margin-left:4px">风险</span></div>
+      <div class="asset-desc"><a href="https://www.eyesontheforest.or.id/news/collecting-raw-materials-from-natural-forests-app-continues-to-violate-its-sustainability-commitments" target="_blank">2024年2月记录376公顷天然林被清除 ↗</a>。欧盟森林砍伐法规（EUDR）或将限制APP/GAR对欧出口。FSC仍未恢复APP认证。全球买家声誉风险持续。</div>
+    </div>
+  </div>
+</div>
+
+<!-- PANEL C ZH -->
+<div class="panel" style="grid-column:4;grid-row:1">
+  <div class="panel-title">📅 企业发展时间线</div>
+  <div class="tl-order-label">最新 → 最早</div>
+  <div class="tl-list">
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#0044cc"></div>
+      <div>
+        <div class="tl-year">2025年</div>
+        <div class="tl-title">XLSmart合并获股东批准</div>
+        <div class="tl-detail"><a href="https://technode.global/2025/03/26/axiata-and-sinar-mas-secure-shareholders-approval-for-xlsmart-merger/" target="_blank">2025年3月25日：三家公司股东大会正式通过合并决议 ↗</a>。金光集团与亚天各持34.8%股权，对战略方向拥有平等话语权。</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#0044cc"></div>
+      <div>
+        <div class="tl-year">2025年1月</div>
+        <div class="tl-title">亚天–金光集团签署意向书</div>
+        <div class="tl-detail"><a href="https://www.axiata.com/media/news/2025/axiata-and-sinarmas-sign-two-letters-intent-advance-strategic-collaboration-presence" target="_blank">两份意向书涵盖东南亚5G、企业服务及金融科技合作 ↗</a>。由普拉博沃总统和安华首相见证。</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#dd6600"></div>
+      <div>
+        <div class="tl-year">2024年12月</div>
+        <div class="tl-title">Smartfren与XL Axiata合并宣布</div>
+        <div class="tl-detail"><a href="https://www.freshfields.com/en/our-thinking/news/news-search/2024/12/freshfields-advises-sinar-mas-on-the-us$6.5-billion-proposed-merger-of-smartfren-telecom-with-xl-axiata-in-indonesia" target="_blank">签署确定性协议，合并企业价值65亿美元 ↗</a>。XLSmart将继续在印尼证交所上市。</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#006633"></div>
+      <div>
+        <div class="tl-year">2024年</div>
+        <div class="tl-title">GAR创纪录营收；DSSA押注数字基础设施</div>
+        <div class="tl-detail"><a href="https://www.goldenagri.com.sg/second-half-recovery-spurs-robust-full-year-2024-performance-for-golden-agri-resources/" target="_blank">GAR营收达109亿美元历史新高 ↗</a>。<a href="https://erecruitment.dssa.co.id/en/press-release/dssa-laporkan-kinerja-keuangan-perluas-investasi-di-sektor-berkelanjutan-1742549457940" target="_blank">DSSA在雅加达古宁根启动AI数据中心项目 ↗</a>。</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#cc7700"></div>
+      <div>
+        <div class="tl-year">2022年</div>
+        <div class="tl-title">医疗健康成为第七大业务支柱</div>
+        <div class="tl-detail">金光集团正式扩展至七大支柱，将医疗健康纳入业务版图。集团在所有子公司全面推进数字化转型战略。</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#9922bb"></div>
+      <div>
+        <div class="tl-year">2013年</div>
+        <div class="tl-title">APP零砍伐承诺（后遭质疑）</div>
+        <div class="tl-detail">APP在NGO压力下发布《森林保护政策》。绿色和平与世界自然基金会积极参与监督。政策后被证明执行不力——<a href="https://news.mongabay.com/2023/10/report-alleges-app-continues-deforestation-10-years-after-pledge-to-stop/" target="_blank">据2023年Mongabay报告，砍伐行为仍在继续 ↗</a>。</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#5a6a88"></div>
+      <div>
+        <div class="tl-year">2006年</div>
+        <div class="tl-title">收购新成银行，更名为星马银行</div>
+        <div class="tl-detail">金融服务支柱正式整合。星马银行现运营346家网点，覆盖120个城市，寿险与财险业务统一纳入旗下。</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#8a9ab8"></div>
+      <div>
+        <div class="tl-year">1999年</div>
+        <div class="tl-title">金农资源在新加坡交易所上市</div>
+        <div class="tl-detail"><a href="https://www.goldenagri.com.sg/investors/financial-highlights-reports-presentations/annual-reports/" target="_blank">金农资源在新交所（E5H）上市 ↗</a>，成为亚洲最大上市农业公司之一。</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#c0cce0"></div>
+      <div>
+        <div class="tl-year">1938年</div>
+        <div class="tl-title">黄奕聪创立金光集团</div>
+        <div class="tl-detail">创始人从望加锡起步创业，历经85余年将其发展为印度尼西亚规模最大的多元化综合集团。</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PANEL D ZH -->
+<div class="panel" style="grid-column:2;grid-row:2">
+  <div class="panel-title">📊 市场地位与规模</div>
+
+  <div class="highlight-box" style="margin-bottom:8px">
+    <div class="highlight-num">~250亿+</div>
+    <div style="font-size:11px;font-weight:700;color:#1a2a44;margin-top:2px">集团估计综合营收（美元）</div>
+    <div class="highlight-sub">2024财年 · 涵盖所有上市及非上市实体 · 估计值</div>
+  </div>
+
+  <div style="font-size:9px;font-weight:700;color:#8a9ab8;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px">棕榈油 — 全球市场份额</div>
+  <div class="bar-row"><span class="bar-label">益海嘉里 (Wilmar)</span><div class="bar-track"><div class="bar-fill" style="width:38%;background:#0044cc"></div></div><span class="bar-pct">~38%</span></div>
+  <div class="bar-row"><span class="bar-label">金农资源/金光</span><div class="bar-track"><div class="bar-fill" style="width:18%;background:#dd6600"></div></div><span class="bar-pct">~18%</span></div>
+  <div class="bar-row"><span class="bar-label">穆斯辛集团</span><div class="bar-track"><div class="bar-fill" style="width:12%;background:#8a9ab8"></div></div><span class="bar-pct">~12%</span></div>
+  <div class="bar-row"><span class="bar-label">IOI集团</span><div class="bar-track"><div class="bar-fill" style="width:9%;background:#8a9ab8"></div></div><span class="bar-pct">~9%</span></div>
+  <div style="font-size:7.5px;color:#c0cce0;margin-bottom:10px">注：按加工能力估算的指示性市场份额。来源：行业估计数据。</div>
+
+  <div style="font-size:9px;font-weight:700;color:#8a9ab8;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px">印尼电信 — XLSmart合并后（预测）</div>
+  <div class="bar-row"><span class="bar-label">Telkomsel</span><div class="bar-track"><div class="bar-fill" style="width:46%;background:#cc2222"></div></div><span class="bar-pct">~46%</span></div>
+  <div class="bar-row"><span class="bar-label">XLSmart（新）</span><div class="bar-track"><div class="bar-fill" style="width:27%;background:#0044cc"></div></div><span class="bar-pct">~27%</span></div>
+  <div class="bar-row"><span class="bar-label">Indosat IM3</span><div class="bar-track"><div class="bar-fill" style="width:22%;background:#006633"></div></div><span class="bar-pct">~22%</span></div>
+  <div style="font-size:7.5px;color:#c0cce0;margin-bottom:10px">来源：<a href="https://www.thestar.com.my/business/business-news/2024/12/12/axiata-sinar-mas-to-merge-indonesian-units" target="_blank">The Star，2024年12月 ↗</a> · 合并后预测用户市场份额</div>
+
+  <div style="font-size:9px;font-weight:700;color:#8a9ab8;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px">印尼房地产 — 营收规模</div>
+  <div class="bar-row"><span class="bar-label">金光置地</span><div class="bar-track"><div class="bar-fill" style="width:52%;background:#0044cc"></div></div><span class="bar-pct">最大</span></div>
+  <div class="bar-row"><span class="bar-label">力宝集团</span><div class="bar-track"><div class="bar-fill" style="width:28%;background:#8a9ab8"></div></div><span class="bar-pct">约第2</span></div>
+  <div class="bar-row"><span class="bar-label">斯普特拉集团</span><div class="bar-track"><div class="bar-fill" style="width:22%;background:#8a9ab8"></div></div><span class="bar-pct">约第3</span></div>
+
+  <div style="background:rgba(0,68,204,0.03);border:1px solid rgba(0,68,204,0.08);border-radius:6px;padding:10px 12px;margin-top:6px">
+    <div style="font-size:8.5px;color:#5a6a88;line-height:1.5"><strong style="color:#0a1020">核心差异化优势：</strong>金光集团是唯一一家同时在棕榈油、造纸、房地产和电信领域跻身前三的印尼综合集团。XLSmart协议将其数字化覆盖扩展至全国规模。</div>
+  </div>
+</div>
+
+<!-- PANEL E ZH -->
+<div class="panel" style="grid-column:3;grid-row:2">
+  <div class="panel-title">🥊 竞争格局分析</div>
+
+  <div class="comp-card">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div class="comp-name">益海嘉里 (Wilmar International)</div>
+      <div style="display:flex;gap:5px">
+        <span class="tag tag-red" style="font-size:8px;padding:1px 7px">高威胁</span>
+        <span class="tag tag-green" style="font-size:8px;padding:1px 7px">农业</span>
+      </div>
+    </div>
+    <div class="comp-desc">新交所上市，全球最大棕榈油精炼商，与金农资源形成直接竞争。规模更大（约650亿美元营收），下游多元化程度更高。云端：主要使用AWS。</div>
+  </div>
+
+  <div class="comp-card">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div class="comp-name">Telkomsel（印尼电信）</div>
+      <div style="display:flex;gap:5px">
+        <span class="tag tag-red" style="font-size:8px;padding:1px 7px">高威胁</span>
+        <span class="tag tag-gray" style="font-size:8px;padding:1px 7px">电信</span>
+      </div>
+    </div>
+    <div class="comp-desc">国有主导电信商，用户市场份额约46%，5G布局积极，定价具竞争力。XLSmart将缩小差距，但Telkomsel的国家背书是结构性优势。云端：Telkom/AWS。</div>
+  </div>
+
+  <div class="comp-card">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div class="comp-name">印度尼西亚星华电信 (Indosat IM3)</div>
+      <div style="display:flex;gap:5px">
+        <span class="tag tag-orange" style="font-size:8px;padding:1px 7px">中等威胁</span>
+        <span class="tag tag-gray" style="font-size:8px;padding:1px 7px">电信</span>
+      </div>
+    </div>
+    <div class="comp-desc">合并后市场份额约22%，受卡塔尔电信（Ooredoo）及和记黄埔（CK Hutchison）支持，与XLSmart正面竞争第二名之位。主打AI驱动网络。云端：GCP/Azure。</div>
+  </div>
+
+  <div class="comp-card">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div class="comp-name">斯普特拉集团 (Ciputra Group)</div>
+      <div style="display:flex;gap:5px">
+        <span class="tag tag-orange" style="font-size:8px;padding:1px 7px">中等威胁</span>
+        <span class="tag tag-blue" style="font-size:8px;padding:1px 7px">房地产</span>
+      </div>
+    </div>
+    <div class="comp-desc">主要印尼房地产开发商，在住宅小镇、商业综合体及综合开发项目上与金光置地竞争。规模逊于金光置地，但在特定城市占有优势。</div>
+  </div>
+
+  <div class="comp-card">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div class="comp-name">APRIL集团（亚太纸业）</div>
+      <div style="display:flex;gap:5px">
+        <span class="tag tag-orange" style="font-size:8px;padding:1px 7px">中等威胁</span>
+        <span class="tag tag-orange" style="font-size:8px;padding:1px 7px">纸浆造纸</span>
+      </div>
+    </div>
+    <div class="comp-desc">印尼APP最直接的竞争对手。隶属皇家金鹰集团。持有FSC认证，是对比APP缺乏FSC认证的竞争优势。云端：AWS。</div>
+  </div>
+
+  <div class="comp-card">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div class="comp-name">中亚银行 / 印尼国家银行 / 曼迪利银行</div>
+      <div style="display:flex;gap:5px">
+        <span class="tag tag-blue" style="font-size:8px;padding:1px 7px">低威胁</span>
+        <span class="tag tag-purple" style="font-size:8px;padding:1px 7px">银行</span>
+      </div>
+    </div>
+    <div class="comp-desc">国有及私营大行主导印尼银行业。星马银行规模有限（据较早数据约15亿美元资产），竞争空间聚焦于细分市场。</div>
+  </div>
+</div>
+
+<!-- PANEL F ZH -->
+<div class="panel" style="grid-column:4;grid-row:2">
+  <div class="panel-title">🔭 战略展望</div>
+
+  <div class="outlook-card" style="border-left-color:#006633">
+    <div class="outlook-title">✅ XLSmart — 数字化转型催化剂</div>
+    <div class="outlook-body">合并打造印尼第二大电信商，拥有9450万用户。<a href="https://www.axiata.com/media/news/2024/axiata-announces-signing-definitive-agreement-sinar-mas-proposed-merger-xl-axiata-and" target="_blank">预计年税前节省成本3–4亿美元 ↗</a>。5G扩展、AI服务及云集成使XLSmart有望成为2030年前印尼主要B2B及B2C数字平台。</div>
+  </div>
+
+  <div class="outlook-card" style="border-left-color:#006633">
+    <div class="outlook-title">✅ 金农资源垂直整合战略成效显著</div>
+    <div class="outlook-body">2024年创纪录业绩（营收109亿美元，利润4.16亿美元）验证了上下游一体化模式的可行性。<a href="https://www.goldenagri.com.sg/investors/financial-highlights-reports-presentations/annual-reports/" target="_blank">2050年净零目标及近期范围1/2减排目标 ↗</a>。高附加值油脂化学品产品持续扩大利润空间。</div>
+  </div>
+
+  <div class="outlook-card" style="border-left-color:#0044cc">
+    <div class="outlook-title">📈 DSSA数字化转型：矿业现金转化为科技投资</div>
+    <div class="outlook-body">DSSA利用煤矿EBITDA（7.34亿美元）投资AI数据中心基础设施、MyRepublic宽带扩展（600万户）及可再生能源项目。是典型的综合集团资本再配置策略。</div>
+  </div>
+
+  <div class="outlook-card" style="border-left-color:#dd6600">
+    <div class="outlook-title">⚠️ 欧盟森林砍伐法规与砍伐风险 — APP/GAR敞口</div>
+    <div class="outlook-body"><a href="https://news.mongabay.com/2023/10/report-alleges-app-continues-deforestation-10-years-after-pledge-to-stop/" target="_blank">10年森林保护承诺持续受到质疑 ↗</a>。欧盟森林砍伐法规（EUDR）实施后可能封堵APP/GAR对欧主要出口渠道。FSC取消认证至今未恢复。联合利华、雀巢曾暂停采购关系，前车之鉴不可忽视。</div>
+  </div>
+
+  <div class="outlook-card" style="border-left-color:#cc2222">
+    <div class="outlook-title">🔴 煤炭依赖：ESG转型时间窗口</div>
+    <div class="outlook-body">DSSA矿业板块占30亿美元总营收的92%。全球去碳化压力、煤炭融资限制以及印尼自身能源转型路线图，对这一核心收入来源构成长期结构性风险。</div>
+  </div>
+
+  <div class="outlook-card" style="border-left-color:#8a9ab8">
+    <div class="outlook-title">⚡ 普拉博沃政府 = 顺风局</div>
+    <div class="outlook-body">印尼新政府（普拉博沃，2024年10月就任）力推基础设施建设与投资拉动。房地产、电信及能源行业均受益。XLSmart协议获总统级公开背书，释放强烈的监管协调信号。</div>
+  </div>
+
+</div>
+
+<!-- CLOUD ZH -->
+<div class="cloud-section">
+  <div style="padding:14px 22px;border-bottom:1px solid rgba(0,20,80,0.07)">
+    <span style="font-size:9px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:#8a9ab8">☁️ 云计算与技术基础设施</span>
+  </div>
+  <div class="cloud-inner">
+    <div class="cloud-col">
+      <div class="panel-title">平台云计算分布图</div>
+      <table class="cloud-table">
+        <thead>
+          <tr><th>实体</th><th>主要云服务商</th><th>次要</th><th>腾讯云估算%</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>金农资源 (GAR)</strong></td><td>AWS / GCP</td><td>Azure</td><td>~2–5%</td></tr>
+          <tr><td><strong>APP / 印达纸浆</strong></td><td>AWS</td><td>阿里云</td><td>~3–6%</td></tr>
+          <tr><td><strong>金光置地</strong></td><td>AWS / Azure</td><td>GCP</td><td>~2–4%</td></tr>
+          <tr><td><strong>星马银行</strong></td><td>本地机房/OJK监管</td><td>Azure</td><td>~1–3%</td></tr>
+          <tr><td><strong>DSSA / MyRepublic</strong></td><td>AWS</td><td>本地数据中心</td><td>~3–7%</td></tr>
+          <tr><td><strong>Smartfren → XLSmart</strong></td><td>AWS / 本地</td><td>华为云</td><td>~2–5%</td></tr>
+          <tr><td><strong>星马综合金融</strong></td><td>Azure</td><td>AWS</td><td>~1–3%</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:8px;color:#c0cce0;margin-top:8px;line-height:1.4">无公开IDC/Canalys报告涵盖金光集团云支出明细。所有数据均为自下而上估算。</div>
+    </div>
+    <div class="cloud-col">
+      <div class="panel-title">估算云市场份额 — 金光集团各实体</div>
+      <div class="meth-box">
+        <strong>方法论：</strong>仅采用自下而上估算方法——无公开IDC/Canalys报告涵盖此细分市场。估算依据：(1) 已知公开云合作关系，(2) 行业级云支出基准（Gartner），(3) 印尼超大规模云服务商新闻稿。所有数字以区间形式呈现，不使用点估计。
+      </div>
+      <div class="bar-row"><span class="bar-label" style="width:130px">AWS（亚马逊）</span><div class="bar-track"><div class="bar-fill" style="width:62%;background:#ff9900"></div></div><span class="bar-pct">45–62%</span></div>
+      <div class="bar-row"><span class="bar-label" style="width:130px">微软 Azure</span><div class="bar-track"><div class="bar-fill" style="width:25%;background:#0078d4"></div></div><span class="bar-pct">15–26%</span></div>
+      <div class="bar-row"><span class="bar-label" style="width:130px">谷歌云 (GCP)</span><div class="bar-track"><div class="bar-fill" style="width:12%;background:#4285f4"></div></div><span class="bar-pct">8–14%</span></div>
+      <div class="bar-row"><span class="bar-label" style="width:130px">阿里云</span><div class="bar-track"><div class="bar-fill" style="width:8%;background:#ff6a00"></div></div><span class="bar-pct">4–9%</span></div>
+      <div class="bar-row"><span class="bar-label" style="width:130px">腾讯云</span><div class="bar-track"><div class="bar-fill" style="width:4%;background:#0056b8"></div></div><span class="bar-pct">2–6%</span></div>
+      <div class="bar-row"><span class="bar-label" style="width:130px">本地/私有部署</span><div class="bar-track"><div class="bar-fill" style="width:9%;background:#8a9ab8"></div></div><span class="bar-pct">5–12%</span></div>
+      <div class="ref-box">
+        <strong>参考注释：</strong><br>
+        • AWS主导APP、GAR、DSSA的云使用场景（基于行业规律推断）<br>
+        • Azure在银行/金融科技实体中使用（OJK合规考量）<br>
+        • 华为云存在于Smartfren网络基础设施<br>
+        • 自下而上估算——无公开IDC/Canalys报告涵盖此细分市场<br>
+        • XLSmart合并后云战略待定；潜在整合机遇
+      </div>
+    </div>
+    <div class="cloud-col">
+      <div class="panel-title">☁️ 腾讯云商机分析</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="background:rgba(0,86,184,0.05);border:1px solid rgba(0,86,184,0.12);border-radius:8px;padding:12px">
+          <div style="font-size:9px;font-weight:800;color:#0044cc;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px">腾讯云当前存在感</div>
+          <div style="font-size:9px;color:#5a6a88;line-height:1.55">据自下而上分析估算，腾讯云约占金光集团2–6%云工作负载。目前暂无集团层面战略腾讯云合作的公开声明。鉴于腾讯云在印尼的扩张态势，存在首个重大合作的机会窗口。</div>
+        </div>
+        <div style="background:rgba(0,160,80,0.04);border:1px solid rgba(0,160,80,0.12);border-radius:8px;padding:12px">
+          <div style="font-size:9px;font-weight:800;color:#006633;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px">腾讯云拓展机遇</div>
+          <ul style="font-size:9px;color:#5a6a88;line-height:1.6;padding-left:14px">
+            <li><strong>XLSmart 5G核心网：</strong>合并后云基础设施整合——大规模工作负载迁移机遇</li>
+            <li><strong>金农资源溯源系统：</strong>腾讯云IoT+卫星追踪，助力EUDR合规</li>
+            <li><strong>DSSA AI数据中心：</strong>腾讯云AI平台/GPU云服务供应</li>
+            <li><strong>星马银行：</strong>金融科技云、风险管理、数字银行</li>
+            <li><strong>金光置地：</strong>BSD城市智慧城市数字基础设施平台</li>
+          </ul>
+        </div>
+        <div style="background:rgba(0,20,80,0.03);border:1px solid rgba(0,20,80,0.07);border-radius:8px;padding:12px">
+          <div style="font-size:9px;font-weight:800;color:#1a2a44;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px">印尼云计算市场背景</div>
+          <div style="font-size:9px;color:#5a6a88;line-height:1.55">印尼是东南亚增速最快的云计算市场之一。AWS、GCP、Azure均在雅加达设有本地区域。腾讯云在印尼有业务布局，但市场份额落后于前三大厂商。XLSmart合并将催生一个全新的大规模B2B云采购方——是腾讯云切入的关键目标客户。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FINANCIALS ZH -->
+<div class="fin-section">
+  <div style="padding:14px 22px;border-bottom:1px solid rgba(0,20,80,0.07)">
+    <span style="font-size:9px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:#8a9ab8">💰 平台财务数据与IT支出 — 2024财年</span>
+  </div>
+  <div class="fin-inner">
+    <div class="fin-card">
+      <div class="fin-header">金农资源 (GAR) — SGX: E5H</div>
+      <div class="fin-metric"><span class="fin-key">总营收</span><div><span class="fin-val">$109亿 <span class="fin-label">（已确认）</span></span><span class="fin-sub"><a href="https://www.goldenagri.com.sg/second-half-recovery-spurs-robust-full-year-2024-performance-for-golden-agri-resources/" target="_blank">来源：GAR 2024财年业绩发布 ↗</a></span></div></div>
+      <div class="fin-metric"><span class="fin-key">营收增长</span><div><span class="fin-val">同比+12%</span></div></div>
+      <div class="fin-metric"><span class="fin-key">EBITDA</span><div><span class="fin-val">~10.2亿 <span class="fin-label">（已确认）</span></span></div></div>
+      <div class="fin-metric"><span class="fin-key">EBITDA利润率</span><div><span class="fin-val">~9.2%</span></div></div>
+      <div class="fin-metric"><span class="fin-key">潜在利润</span><div><span class="fin-val">4.16亿美元</span></div></div>
+      <div class="fin-metric"><span class="fin-key">销售量</span><div><span class="fin-val">1190万吨</span></div></div>
+      <div class="fin-metric"><span class="fin-key">IT支出（估算）</span><div><span class="fin-val">~5800万 <span class="fin-label">（估算·COGS的8%）</span></span></div></div>
+      <div style="margin-top:10px;background:rgba(0,20,80,0.03);border-radius:6px;padding:8px 10px;font-size:8px;color:#8a9ab8">获取方式：<a href="https://www.goldenagri.com.sg/investors/financial-highlights-reports-presentations/annual-reports/" target="_blank">GAR年报页面 ↗</a> | SGX: E5H | PDF关键词搜索："IT"或"Technology"</div>
+    </div>
+    <div class="fin-card">
+      <div class="fin-header">DSSA（能源/矿业）— IDX: DSSA</div>
+      <div class="fin-metric"><span class="fin-key">总营收</span><div><span class="fin-val">$30亿 <span class="fin-label">（已确认）</span></span><span class="fin-sub"><a href="https://erecruitment.dssa.co.id/en/press-release/dssa-laporkan-kinerja-keuangan-perluas-investasi-di-sektor-berkelanjutan-1742549457940" target="_blank">来源：DSSA 2024财年业绩 ↗</a></span></div></div>
+      <div class="fin-metric"><span class="fin-key">同比变化</span><div><span class="fin-val">-40% <span class="fin-label">（煤价影响）</span></span></div></div>
+      <div class="fin-metric"><span class="fin-key">EBITDA</span><div><span class="fin-val">7.34亿 <span class="fin-label">（已确认）</span></span></div></div>
+      <div class="fin-metric"><span class="fin-key">净利润</span><div><span class="fin-val">5.42亿美元</span></div></div>
+      <div class="fin-metric"><span class="fin-key">矿业营收占比</span><div><span class="fin-val">92%</span></div></div>
+      <div class="fin-metric"><span class="fin-key">MyRepublic覆盖户数</span><div><span class="fin-val">600万+户/140+城市</span></div></div>
+      <div class="fin-metric"><span class="fin-key">IT支出（估算）</span><div><span class="fin-val">~2200万 <span class="fin-label">（估算·COGS的8%）</span></span></div></div>
+      <div style="margin-top:10px;background:rgba(0,20,80,0.03);border-radius:6px;padding:8px 10px;font-size:8px;color:#8a9ab8">获取方式：<a href="https://www.idx.co.id/en/listed-companies/financial-statements-and-annual-report/" target="_blank">IDX门户 → DSSA ↗</a> | PDF关键词："Teknologi Informasi"或"Infrastruktur"</div>
+    </div>
+    <div class="fin-card">
+      <div class="fin-header">金光置地 — SGX: A26 / IDX: BSDE</div>
+      <div class="fin-metric"><span class="fin-key">新交所营收</span><div><span class="fin-val">$14.9亿 <span class="fin-label">（已确认）</span></span><span class="fin-sub"><a href="https://www.minichart.com.sg/2025/04/15/sinarmas-land-limited-reports-full-year-2024-financial-results/" target="_blank">来源：金光置地2024财年 ↗</a></span></div></div>
+      <div class="fin-metric"><span class="fin-key">营收增长</span><div><span class="fin-val">同比+10.9%</span></div></div>
+      <div class="fin-metric"><span class="fin-key">毛利润</span><div><span class="fin-val">9.45亿美元</span></div></div>
+      <div class="fin-metric"><span class="fin-key">净利润（SGX）</span><div><span class="fin-val">4.65亿（+20.9%）</span></div></div>
+      <div class="fin-metric"><span class="fin-key">总资产</span><div><span class="fin-val">86.6亿美元</span></div></div>
+      <div class="fin-metric"><span class="fin-key">INKP (APP) 营收</span><div><span class="fin-val">32亿 <span class="fin-label">（INKP已确认）</span></span><span class="fin-sub"><a href="https://www.idnfinancials.com/news/53561/sinarmas-groups-paper-companies-inkp-or-tkim-in-the-lead" target="_blank">来源：IDNFinancials ↗</a></span></div></div>
+      <div class="fin-metric"><span class="fin-key">IT支出（估算）</span><div><span class="fin-val">~1200万 <span class="fin-label">（估算·COGS的8%）</span></span></div></div>
+      <div style="margin-top:10px;background:rgba(0,20,80,0.03);border-radius:6px;padding:8px 10px;font-size:8px;color:#8a9ab8">获取方式：<a href="https://www.idx.co.id/en/listed-companies/financial-statements-and-annual-report/" target="_blank">IDX → BSDE/INKP ↗</a> | <a href="https://www.sgx.com/securities/company-announcements" target="_blank">SGX: A26 ↗</a></div>
+    </div>
+  </div>
+  <div style="padding:16px 22px;border-top:1px solid rgba(0,20,80,0.06)">
+    <div style="font-size:8.5px;font-weight:700;color:#8a9ab8;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px">IT支出对比（2024财年估算）</div>
+    <div class="it-bar-row"><span class="it-bar-label">金农资源（农业）</span><div class="it-bar-track"><div class="it-bar-fill" style="width:52%;background:#006633"></div></div><span class="it-bar-val">~5800万（估算）</span></div>
+    <div class="it-bar-row"><span class="it-bar-label">APP/INKP（造纸）</span><div class="it-bar-track"><div class="it-bar-fill" style="width:28%;background:#dd6600"></div></div><span class="it-bar-val">~3200万（估算）</span></div>
+    <div class="it-bar-row"><span class="it-bar-label">DSSA（能源）</span><div class="it-bar-track"><div class="it-bar-fill" style="width:20%;background:#cc7700"></div></div><span class="it-bar-val">~2200万（估算）</span></div>
+    <div class="it-bar-row"><span class="it-bar-label">金光置地</span><div class="it-bar-track"><div class="it-bar-fill" style="width:11%;background:#0044cc"></div></div><span class="it-bar-val">~1200万（估算）</span></div>
+    <div style="font-size:7.5px;color:#c0cce0;margin-top:6px">所有IT支出数字均为估算值，采用COGS的8%（Gartner多元工业企业基准）。公开财报中未找到IT支出专项数据。实际数字可能存在差异。</div>
+  </div>
+</div>
+
+<!-- NEWS ZH -->
+<div class="news-section">
+  <div class="news-header">
+    <span style="font-size:14px">📰</span>
+    <span class="news-header-title">新闻情报 — 关键发现（2024–2025年）</span>
+    <span style="margin-left:auto;font-size:8.5px;color:rgba(255,255,255,0.35)">按战略影响力排序 · 从高到低</span>
+  </div>
+  <div class="news-kw-strip">
+    <span class="news-kw">XLSmart</span>
+    <span class="news-kw">·</span>
+    <span class="news-kw">电信合并</span>
+    <span class="news-kw">·</span>
+    <span class="news-kw">棕榈油</span>
+    <span class="news-kw">·</span>
+    <span class="news-kw">森林砍伐</span>
+    <span class="news-kw">·</span>
+    <span class="news-kw">欧盟法规</span>
+    <span class="news-kw">·</span>
+    <span class="news-kw">5G</span>
+    <span class="news-kw">·</span>
+    <span class="news-kw">AI数据中心</span>
+    <span class="news-kw">·</span>
+    <span class="news-kw">BSD城市</span>
+    <span class="news-kw">·</span>
+    <span class="news-kw">GAR 2024</span>
+  </div>
+  <div class="news-body">
+    <div class="news-signals">
+
+      <div class="signal-card" style="background:rgba(200,30,30,0.08);border-left-color:#cc2222">
+        <div class="signal-num">#1 — 最高影响力</div>
+        <div class="signal-title">XLSmart股东批准——印尼电信行业重大转折点</div>
+        <div class="signal-body"><a href="https://technode.global/2025/03/26/axiata-and-sinar-mas-secure-shareholders-approval-for-xlsmart-merger/" target="_blank" style="color:rgba(100,180,255,0.8)">2025年3月25日正式获批 ↗</a>。合并打造印尼第二大电信商，拥有9450万用户、27%市场份额。金光集团与亚天各持34.8%。XL Axiata存续，Smartfren解散。监管完成仍在推进中。</div>
+        <div class="signal-impact">战略影响：重塑印尼数字经济格局 · 合并企业价值65亿美元</div>
+      </div>
+
+      <div class="signal-card" style="background:rgba(200,30,30,0.08);border-left-color:#cc2222">
+        <div class="signal-num">#2 — 高影响力</div>
+        <div class="signal-title">GAR 2024年创纪录业绩：营收109亿美元，上游复苏驱动盈利</div>
+        <div class="signal-body"><a href="https://www.goldenagri.com.sg/second-half-recovery-spurs-robust-full-year-2024-performance-for-golden-agri-resources/" target="_blank" style="color:rgba(100,180,255,0.8)">2024财年业绩确认营收同比增长12%至109亿美元 ↗</a>。创纪录销售量1190万吨。棕榈油价格回升带动下半年上游强劲复苏，潜在利润达4.16亿美元。垂直整合战略获得验证。</div>
+        <div class="signal-impact">财务信号：同类农业企业中最优表现 · 支撑集团分红与资本支出能力</div>
+      </div>
+
+      <div class="signal-card" style="background:rgba(210,90,0,0.08);border-left-color:#dd6600">
+        <div class="signal-num">#3 — 高影响力</div>
+        <div class="signal-title">亚天–金光集团东南亚数字合作意向书在总统见证下签署</div>
+        <div class="signal-body"><a href="https://marketech-apac.com/axiata-sinar-mas-form-strategic-collaboration-to-support-digital-transformation-initiatives-across-sea/" target="_blank" style="color:rgba(100,180,255,0.8)">2025年1月29日签署两份意向书 ↗</a>，涵盖5G企业服务、数字基础设施及东南亚金融科技创新。印尼总统普拉博沃与马来西亚首相安华出席见证，标志着两国政府层面对双方集团的战略背书。</div>
+        <div class="signal-impact">战略信号：金光集团晋升为印尼国家数字化转型战略合作伙伴</div>
+      </div>
+
+      <div class="signal-card" style="background:rgba(210,90,0,0.08);border-left-color:#dd6600">
+        <div class="signal-num">#4 — 高影响力</div>
+        <div class="signal-title">DSSA在雅加达启动AI数据中心 — 集团数字化转型加速</div>
+        <div class="signal-body"><a href="https://erecruitment.dssa.co.id/en/press-release/dssa-laporkan-kinerja-keuangan-perluas-investasi-di-sektor-berkelanjutan-1742549457940" target="_blank" style="color:rgba(100,180,255,0.8)">DSSA在雅加达古宁根开发AI驱动数据中心 ↗</a>。MyRepublic Indonesia覆盖140+城市600万户家庭、100万客户。尽管煤价下跌40%，营收仍达30亿美元。集团从资源开采向数字基础设施转型的战略意图清晰可见。</div>
+        <div class="signal-impact">战略信号：煤矿现金转化为科技基础设施——长期增长布局</div>
+      </div>
+
+      <div class="signal-card" style="background:rgba(0,68,204,0.08);border-left-color:#0044cc">
+        <div class="signal-num">#5 — 中等影响力</div>
+        <div class="signal-title">APP/金光集团廖内省伐林行为被记录——欧盟法规阴云笼罩</div>
+        <div class="signal-body"><a href="https://www.eyesontheforest.or.id/news/collecting-raw-materials-from-natural-forests-app-continues-to-violate-its-sustainability-commitments" target="_blank" style="color:rgba(100,180,255,0.8)">Jikalahari记录APP子公司于2024年2月在廖内省伊拉基利尔清除376.8公顷天然林 ↗</a>。欧盟森林砍伐法规（EUDR）正式执行后，可能直接影响APP/GAR的欧洲出口渠道。全球买家和金融机构面临声誉风险。</div>
+        <div class="signal-impact">声誉风险：持续的NGO施压 · EUDR潜在贸易壁垒</div>
+      </div>
+
+      <div class="signal-card" style="background:rgba(0,68,204,0.08);border-left-color:#0044cc">
+        <div class="signal-num">#6 — 中等影响力</div>
+        <div class="signal-title">金光置地2024财年：营收+10.9%，净利润+20.9%——房地产强劲复苏</div>
+        <div class="signal-body"><a href="https://www.minichart.com.sg/2025/04/15/sinarmas-land-limited-reports-full-year-2024-financial-results/" target="_blank" style="color:rgba(100,180,255,0.8)">新交所上市实体实现营收14.9亿美元、净利润4.65亿美元 ↗</a>。BSDE净利润3.4万亿印尼盾——公司历史第二高。塞庞-巴拉拉加收费公路通车及新商业设施（Eastvara商场、Living World）开业持续拉动BSD城市需求。</div>
+        <div class="signal-impact">财务信号：房地产周期复苏令印尼最大地产开发商受益</div>
+      </div>
+
+    </div>
+
+    <div class="synthesis-panel">
+      <div class="synth-title">五维情报综合研判</div>
+
+      <div class="synth-cat">
+        <div class="synth-cat-name">🎯 战略方向</div>
+        <div class="synth-cat-body">金光集团正在执行一场深思熟虑的战略转型——从传统资源开采模式转向数字基础设施与科技服务。XLSmart合并是十年来最重大的战略行动，将集团从被动的电信参与者一跃成为国家级数字主干网运营商。与此同时，DSSA的AI数据中心投资和MyRepublic的宽带扩张，印证了将煤矿EBITDA系统性转化为高估值科技资产的战略逻辑。</div>
+      </div>
+
+      <div class="synth-cat">
+        <div class="synth-cat-name">💹 财务与运营健康度</div>
+        <div class="synth-cat-body">集团整体财务状况良好。金农资源109亿美元的创纪录营收是集团压舱石，金光置地净利润大增21%。DSSA在煤价下跌40%的背景下依然保持EBITDA韧性（7.34亿美元）。各上市实体合计营收超过180亿美元。核心风险在于煤炭依赖——DSSA矿业收入占比92%，使其高度暴露于大宗商品价格周期或监管性能源转型压力之下。</div>
+      </div>
+
+      <div class="synth-cat">
+        <div class="synth-cat-name">⚠️ 声誉与风险</div>
+        <div class="synth-cat-body">森林砍伐问题仍是集团最根深蒂固的声誉负债。APP自2007年起被FSC取消认证至今未能恢复，加之NGO对伐林行为的持续记录（包括2024年2月廖内省376公顷），严重削弱了其可持续发展叙事的可信度。欧盟森林砍伐法规（EUDR）一旦执行，将对APP和GAR构成直接出口风险。这些问题是结构性而非周期性的，短期内难以得到根本解决。</div>
+      </div>
+
+      <div class="synth-cat">
+        <div class="synth-cat-name">📱 数字化与科技能力</div>
+        <div class="synth-cat-body">集团的技术雄心显著提速。XLSmart带来5G规模，DSSA的AI数据中心、MyRepublic的宽带覆盖以及晶泰机器人合资企业，均体现了进军印尼数字经济的协调推进。普拉博沃政府的数字基础设施建设目标提供了有利的政策顺风车。核心问题在于执行能力——金光集团历史上是重资产工业企业，而非科技运营商。</div>
+      </div>
+
+      <div class="synth-cat">
+        <div class="synth-cat-name">🌏 市场认知与叙事</div>
+        <div class="synth-cat-body">国际层面，金光集团的形象充满矛盾：其规模和多元化令人称道，但环境问题饱受诟病。在国内，它是拥有深厚政府关系的本土标杆企业——XLSmart交易获总统级别公开背书即是明证。集团的市场叙事正从"资源综合集团"向"数字基础设施建设者"转型，但要在国际认知层面真正确立这一形象，仍需数年时间的持续经营。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main-body -->
+</div><!-- /section-zh -->
+
+</div><!-- /page-wrap -->
+</div><!-- /viewport -->
+
+<script>
+var currentLang='en';
+var currentZoom=1.0;
+var vp=document.getElementById('viewport');
+
+function setLang(lang){
+  currentLang=lang;
+  var isZH=(lang==='zh');
+  document.getElementById('section-en').style.display=isZH?'none':'block';
+  document.getElementById('section-zh').style.display=isZH?'block':'none';
+  document.getElementById('topbar-en').style.display=isZH?'none':'block';
+  document.getElementById('topbar-zh').style.display=isZH?'block':'none';
+  document.getElementById('footer-en').style.display=isZH?'none':'flex';
+  document.getElementById('footer-zh').style.display=isZH?'flex':'none';
+  document.getElementById('btn-en').style.background=isZH?'transparent':'rgba(0,80,220,0.12)';
+  document.getElementById('btn-en').style.color=isZH?'#8a9ab8':'#0044cc';
+  document.getElementById('btn-zh').style.background=isZH?'rgba(0,80,220,0.12)':'transparent';
+  document.getElementById('btn-zh').style.color=isZH?'#0044cc':'#8a9ab8';
+  vp.scrollTop=0;vp.scrollLeft=0;
+  applyZoom();
+  setTimeout(updateScrollbars,100);
+}
+
+function applyZoom(){
+  var pw=document.getElementById('page-wrap');
+  var ti=document.getElementById('topbar-inner');
+  var s='scale('+currentZoom+')';
+  pw.style.transform=s;pw.style.transformOrigin='top left';
+  ti.style.transform=s;ti.style.transformOrigin='top left';
+  document.getElementById('topbar-shell').style.height=Math.round(66*currentZoom)+'px';
+  vp.style.top=Math.round(66*currentZoom)+'px';
+  document.getElementById('vscroll').style.top=(Math.round(66*currentZoom)+8)+'px';
+  document.getElementById('zoom-label').textContent=Math.round(currentZoom*100)+'%';
+  setTimeout(updateScrollbars,50);
+}
+function adjustZoom(d){
+  currentZoom=Math.min(2.5,Math.max(0.3,+(currentZoom+d).toFixed(2)));
+  applyZoom();
+}
+function resetZoom(){currentZoom=1.0;applyZoom();}
+
+function updateScrollbars(){
+  var pw=document.getElementById('page-wrap');
+  var vpH=vp.clientHeight,vpW=vp.clientWidth;
+  var contentH=pw.scrollHeight*currentZoom;
+  var contentW=pw.scrollWidth*currentZoom;
+  var vEl=document.getElementById('vscroll');
+  var vThumb=document.getElementById('vscroll-thumb');
+  var trkH=vEl.clientHeight;
+  var tH=Math.max(28,trkH*Math.min(1,vpH/Math.max(contentH,1)));
+  vThumb.style.height=tH+'px';
+  var rV=vp.scrollTop/Math.max(1,contentH-vpH);
+  vThumb.style.top=Math.min(trkH-tH,rV*(trkH-tH))+'px';
+  vEl.style.display=contentH>vpH?'block':'none';
+  var hEl=document.getElementById('hscroll');
+  var hThumb=document.getElementById('hscroll-thumb');
+  var trkW=hEl.clientWidth;
+  var tW=Math.max(28,trkW*Math.min(1,vpW/Math.max(contentW,1)));
+  hThumb.style.width=tW+'px';
+  var rH=vp.scrollLeft/Math.max(1,contentW-vpW);
+  hThumb.style.left=Math.min(trkW-tW,rH*(trkW-tW))+'px';
+  hEl.style.display=contentW>vpW?'block':'none';
+}
+vp.addEventListener('scroll',updateScrollbars);
+window.addEventListener('resize',updateScrollbars);
+
+(function(){
+  var thumb=document.getElementById('vscroll-thumb'),
+      track=document.getElementById('vscroll-track'),
+      drag=false,sy,ss;
+  thumb.addEventListener('mousedown',function(e){drag=true;sy=e.clientY;ss=vp.scrollTop;thumb.classList.add('dragging');e.preventDefault();e.stopPropagation();});
+  document.addEventListener('mousemove',function(e){
+    if(!drag)return;
+    var pw=document.getElementById('page-wrap');
+    var tH=parseFloat(thumb.style.height)||28;
+    var trkH=document.getElementById('vscroll').clientHeight;
+    var ratio=(e.clientY-sy)/(trkH-tH);
+    vp.scrollTop=ss+ratio*(pw.scrollHeight*currentZoom-vp.clientHeight);
+  });
+  document.addEventListener('mouseup',function(){drag=false;thumb.classList.remove('dragging');});
+  track.addEventListener('click',function(e){
+    var r=document.getElementById('vscroll').getBoundingClientRect();
+    var pw=document.getElementById('page-wrap');
+    vp.scrollTop=(e.clientY-r.top)/r.height*(pw.scrollHeight*currentZoom-vp.clientHeight);
+  });
+})();
+
+(function(){
+  var thumb=document.getElementById('hscroll-thumb'),
+      track=document.getElementById('hscroll-track'),
+      drag=false,sx,ss;
+  thumb.addEventListener('mousedown',function(e){drag=true;sx=e.clientX;ss=vp.scrollLeft;thumb.classList.add('dragging');e.preventDefault();e.stopPropagation();});
+  document.addEventListener('mousemove',function(e){
+    if(!drag)return;
+    var pw=document.getElementById('page-wrap');
+    var tW=parseFloat(thumb.style.width)||28;
+    var trkW=document.getElementById('hscroll').clientWidth;
+    var ratio=(e.clientX-sx)/(trkW-tW);
+    vp.scrollLeft=ss+ratio*(pw.scrollWidth*currentZoom-vp.clientWidth);
+  });
+  document.addEventListener('mouseup',function(){drag=false;thumb.classList.remove('dragging');});
+  track.addEventListener('click',function(e){
+    var r=document.getElementById('hscroll').getBoundingClientRect();
+    var pw=document.getElementById('page-wrap');
+    vp.scrollLeft=(e.clientX-r.left)/r.width*(pw.scrollWidth*currentZoom-vp.clientWidth);
+  });
+})();
+
+vp.addEventListener('wheel',function(e){
+  e.preventDefault();
+  if(e.deltaX!==0)vp.scrollLeft+=e.deltaX;
+  if(e.deltaY!==0){
+    if(e.shiftKey){vp.scrollLeft+=e.deltaY;}
+    else{vp.scrollTop+=e.deltaY;}
+  }
+  updateScrollbars();
+},{passive:false});
+
+window.addEventListener('load',function(){setTimeout(updateScrollbars,200);});
+setTimeout(updateScrollbars,400);
+</script>
+</body>
+</html>
