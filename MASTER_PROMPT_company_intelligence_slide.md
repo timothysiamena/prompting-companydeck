@@ -6,7 +6,7 @@
 
 ## HOW TO USE THIS PROMPT
 
-Copy everything between the `---PROMPT START---` and `---PROMPT END---` markers below into a new Claude/GPT/Gemini/Yuanbao/etc. chat. Replace every instance of `[COMPANY_NAME]`, `[PARENT_GROUP]`, `[TICKER_1]`, `[TICKER_2]`, `[INDUSTRY]`, `[STATUS]`, and `[YEAR]` with your target company. Everything else — layout, design, color system, section order, intelligence framework — stays identical.
+Copy everything between the `---PROMPT START---` and `---PROMPT END---` markers below into a new Claude/GPT/Gemini/Yuanbao/etc. chat. Replace every instance of `[COMPANY_NAME]`, `[PARENT_GROUP]`, `[TICKER_1]`, `[TICKER_2]`, `[INDUSTRY]`, `[STATUS]`, and `[YEAR]` with your target company. Everything else such as layout, design, color system, section order, intelligence framework should stays identical.
 
 ---PROMPT START---
 
