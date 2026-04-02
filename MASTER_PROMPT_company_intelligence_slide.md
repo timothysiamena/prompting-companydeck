@@ -4,7 +4,7 @@
 
 ---
 
-## COPY FROM THIS SECTION
+## COPY FROM HERE
 
 Do this prompt but for [Name of the company]
 
