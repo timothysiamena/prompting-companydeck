@@ -4,9 +4,9 @@
 
 ---
 
-## HOW TO USE THIS PROMPT
+## COPY FROM THIS SECTION
 
-Copy everything between the `---PROMPT START---` and `---PROMPT END---` markers below into a new Claude/GPT/Gemini/Yuanbao/etc. chat. Replace every instance of `[COMPANY_NAME]`, `[PARENT_GROUP]`, `[TICKER_1]`, `[TICKER_2]`, `[INDUSTRY]`, `[STATUS]`, and `[YEAR]` with your target company. Everything else — layout, design, color system, section order, intelligence framework, scroll/zoom architecture — stays identical.
+Do this prompt but for [Name of the company]
 
 ---PROMPT START---
 
